@@ -1,0 +1,63 @@
+### OS specific files ###
+
+# Mac OS
+/**/.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Desktop.ini
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+
+### IDE & software specific ###
+
+# Vim
+*.sw[a-p]
+
+# VisualStudioCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+
+### NPM dependencies ###
+
+/**/node_modules
+
+
+### Log files ###
+
+logs
+/**/*.log
+
+
+### Graphic design files ###
+
+*.psd
+*.ai
+*.sketch
+
+
+### Compressed archives ###
+
+*.7zip
+*.rar
+*.zip
+
+
+### Bundler specifics ###
+
+.rts2_cache*

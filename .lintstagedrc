@@ -1,0 +1,8 @@
+{
+  "*.{md,mdx,yml,yaml}": [
+    "prettier --write"
+  ],
+  "{examples,packages}/**/*.{tx,tsx,js,jsx,mjs,md,mdx,css,yml,yaml}": [
+    "prettier --write"
+  ]
+}
