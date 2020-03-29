@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    // https://www.typescriptlang.org/docs/handbook/module-resolution.html#node
+    "moduleResolution": "node",
+    "strict": true
+  },
+  "exclude": ["node_modules"]
+}
