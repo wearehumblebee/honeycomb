@@ -2,13 +2,7 @@
   "*.{md,mdx,yml,yaml}": [
     "prettier --write"
   ],
-  "(examples|packages)/**/*.{md,mdx,yml,yaml}": [
-    "prettier --write"
-  ],
   "*.{ts,tsx,js,jsx}": [
-    "eslint --fix"
-  ],
-  "(examples|packages)/**/*.{ts,tsx,js,jsx}": [
     "eslint --fix"
   ]
 }

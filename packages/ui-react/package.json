@@ -1,0 +1,65 @@
+{
+  "name": "@humblebee/ui-react",
+  "version": "0.0.0-development",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "umd:main": "dist/humblebee-ui-react.umd.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "description": "Humblebee white-label UI components extending the amazing theme-ui library",
+  "keywords": [
+    "ui",
+    "theme-ui",
+    "react",
+    "components",
+    "emotion",
+    "css-in-js"
+  ],
+  "author": {
+    "name": "Humblebee AB",
+    "email": "hello@humblebee.se",
+    "url": "https://www.humblebee.se/"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/wearehumblebee/honeycomb/packages/ui-react",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wearehumblebee/honeycomb.git",
+    "directory": "packages/ui-react"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "microbundle --no-compress --jsx React.createElement --tsconfig tsconfig.json",
+    "dev": "microbundle --watch --no-compress --jsx React.createElement --tsconfig tsconfig.json",
+    "lint": "eslint '{src,tests}/**/*.{ts,tsx,js,jsx}'",
+    "lint:fix": "yarn run lint --fix",
+    "prebuild": "rimraf ./dist/*",
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "theme-ui": "^0.4.0-alpha.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@testing-library/jest-dom": "^5.3.0",
+    "@testing-library/react": "^10.0.2",
+    "@theme-ui/presets": "^0.4.0-alpha.0",
+    "@types/jest": "^25.1.4",
+    "@types/react": "^16.9.29",
+    "@types/react-dom": "^16.9.5",
+    "@types/testing-library__jest-dom": "^5.0.2",
+    "babel-jest": "^25.2.4",
+    "jest": "^25.2.4",
+    "jest-junit": "^10.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rimraf": "^3.0.2",
+    "theme-ui": "^0.4.0-alpha.0",
+    "ts-jest": "^25.3.0"
+  }
+}
