@@ -1,0 +1,64 @@
+{
+  "name": "@humblebee/storybook-react",
+  "version": "0.0.0-development",
+  "private": true,
+  "description": "Storybook documentation for @humblebee react packages",
+  "keywords": [
+    "storybook",
+    "doc",
+    "documentation"
+  ],
+  "author": {
+    "name": "Humblebee AB",
+    "email": "hello@humblebee.se",
+    "url": "https://www.humblebee.se/"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/wearehumblebee/honeycomb/packages/storybook-react",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wearehumblebee/honeycomb.git",
+    "directory": "packages/storybook-react"
+  },
+  "main": "src/storybook.js",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "cross-env NODE_ENV=production build-storybook -c .storybook -o dist",
+    "dev": "start-storybook",
+    "lint": "eslint '{.storybook,src}/**/*.{ts,tsx,js,jsx,mdx}'",
+    "lint:fix": "yarn run lint --fix",
+    "prebuild": "rimraf ./dist/*"
+  },
+  "dependencies": {
+    "@humblebee/ui-react": "^0.0.0-development",
+    "@storybook/addon-a11y": "^6.0.0-beta.3",
+    "@storybook/addon-actions": "^6.0.0-beta.3",
+    "@storybook/addon-docs": "^6.0.0-beta.3",
+    "@storybook/addon-knobs": "^6.0.0-beta.3",
+    "@storybook/addon-links": "^6.0.0-beta.3",
+    "@storybook/addon-toolbars": "^6.0.0-beta.3",
+    "@storybook/addon-viewport": "^6.0.0-beta.3",
+    "@storybook/addons": "^6.0.0-beta.3",
+    "@storybook/preset-typescript": "^3.0.0",
+    "@storybook/react": "^6.0.0-beta.3",
+    "@theme-ui/presets": "^0.4.0-alpha.0",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "^16.9.7",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-is": "^16.13.1",
+    "theme-ui": "^0.4.0-alpha.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "fork-ts-checker-webpack-plugin": "^4.1.3",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "rimraf": "^3.0.2",
+    "ts-loader": "^7.0.3",
+    "tsconfig-paths-webpack-plugin": "^3.2.0"
+  }
+}

@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation / 1 - Getting Started" />
+
+# Getting Started
+
+@humblebee/ui-react is an unopinionated, theme-able UI library based on theme-ui.
+It provides white-label components and utils that you can customise using a Theme.
+
+To get started, simply install it from npm using your favorite package manager:
+
+## Install Package
+
+Use the following command to install the React package using yarn.
+
+```bash
+yarn add theme-ui @theme-ui/presets @humblebee/ui-react
+```
+
+Or using NPM.
+
+```bash
+npm i -S theme-ui @theme-ui/presets @humblebee/ui-react
+```
+
+## Hello World
+
+Once this is done, jump to the next steps and build a theme to wrap your application with:
+
+```jsx
+import AmeyzinTheme from '[path-to-your-themes]/MyAmeyzinTheme';
+
+const App = () => (
+  <ThemeProvider theme={AmeyzinTheme}>
+    <h1>Hello World</h1>
+  </ThemeProvider>
+);
+```
+
+Read more about themes on the Themes page
+
+## TypeScript support
+
+theme-ui is being [rewritten to TypeScript](https://github.com/system-ui/theme-ui/issues/668) completely, you can check the progress there :)
+
+## Issues
+
+You can report issues specific to **@humblebee/ui-react** on our issue tracker on GitHub

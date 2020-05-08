@@ -1,0 +1,26 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { number } from '@storybook/addon-knobs';
+import { Donut } from 'theme-ui';
+
+# Donut
+
+Donut is a component rendering SVG donut chart
+
+https://theme-ui.com/components/donut
+
+<Meta title="UI Components / Content / Donut" parameters={{ layout: 'centered' }} />
+
+You can define variants anywhere in your theme, default style is `theme.styles.donut`
+
+<Preview>
+  <Story name="Default">
+    <Donut
+      title="Example"
+      min={number('Min', 0)}
+      max={number('Max', 100)}
+      value={number('Value', 66)}
+      size={number('Size', 128)}
+      strokeWidth={number('StrokeWidth', 2)}
+    />
+  </Story>
+</Preview>

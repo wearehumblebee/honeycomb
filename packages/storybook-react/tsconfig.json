@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "declaration": false,
+    "declarationMap": false,
+    "jsx": "react",
+    "noEmit": false,
+    "paths": {
+      "@humblebee/ui-react": ["../ui-react/src"],
+      "@humblebee/ui-react/*": ["../ui-react/src/*"]
+    },
+    "resolveJsonModule": true,
+    "rootDirs": [".storybook", "src"]
+  },
+  "include": [".storybook", "src"],
+  "exclude": [
+    "**/*.stories.{jsx,tsx,mdx}"
+  ]
+}
