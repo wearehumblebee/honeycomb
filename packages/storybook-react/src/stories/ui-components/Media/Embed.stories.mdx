@@ -1,0 +1,28 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { number, text } from '@storybook/addon-knobs';
+import { Box, Embed } from 'theme-ui';
+
+# Embed
+
+Embed is a component rendering responsive iframes (videos, pages, anything) with a specific ratio
+
+https://theme-ui.com/components/embed
+
+<Meta title="UI Components / Media / Embed" parameters={{ layout: 'centered' }} />
+
+NOTE: to optimise media performances, implement a lazyloading strategy:
+
+https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video
+
+<Preview>
+  <Story name="Default">
+    <Box sx={{ width: number('Width', 720), maxWidth: '100%' }}>
+      <Embed
+        src={text('Src', `https://www.youtube.com/embed/YE7VzlLtp-4`)}
+        ratio={text('Ratio', (16 / 9).toFixed(3))}
+        frameBorder={0}
+        allowFullScreen
+      />
+    </Box>
+  </Story>
+</Preview>

@@ -1,0 +1,59 @@
+{
+  "name": "@humblebee/storybook-react",
+  "description": "Storybook documentation for @humblebee react packages",
+  "version": "0.0.0-development",
+  "main": "src/storybook.js",
+  "files": [
+    "build"
+  ],
+  "private": true,
+  "keywords": [
+    "storybook",
+    "doc",
+    "documentation"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Humblebee AB",
+    "email": "hello@humblebee.se",
+    "url": "https://www.humblebee.se/"
+  },
+  "homepage": "https://github.com/wearehumblebee/honeycomb/packages/storybook-react",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wearehumblebee/honeycomb.git",
+    "directory": "packages/storybook-react"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production build-storybook -c .storybook -o dist",
+    "dev": "start-storybook",
+    "format": "eslint '{.storybook,src}/**/*.{ts,tsx,js,jsx,mdx}' --fix",
+    "prebuild": "rimraf ./dist/*"
+  },
+  "dependencies": {
+    "@humblebee/ui-react": "^0.0.0-development",
+    "@storybook/addon-a11y": "^6.1.0",
+    "@storybook/addon-actions": "^6.1.0",
+    "@storybook/addon-essentials": "^6.1.0",
+    "@storybook/addon-docs": "^6.1.0",
+    "@storybook/addon-knobs": "^6.1.0",
+    "@storybook/addon-links": "^6.1.0",
+    "@storybook/addon-toolbars": "^6.1.0",
+    "@storybook/addon-viewport": "^6.1.0",
+    "@storybook/addons": "^6.1.0",
+    "@storybook/preset-typescript": "^3.0.0",
+    "@storybook/react": "^6.1.0",
+    "@theme-ui/presets": "^0.4.0-rc.13",
+    "react": ">=16.8.0 <16.14",
+    "react-dom": ">=16.8.0 <16.14",
+    "react-is": ">=16.8.0 <16.14",
+    "theme-ui": "^0.4.0-rc.14"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.2.0",
+    "fork-ts-checker-webpack-plugin": "^4.1.3",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "ts-loader": "^7.0.3",
+    "tsconfig-paths-webpack-plugin": "^3.2.0"
+  }
+}

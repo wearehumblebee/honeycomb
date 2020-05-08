@@ -1,0 +1,70 @@
+import { useState } from 'react';
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { Checkbox, Divider, Label, Styled, useThemeUI } from 'theme-ui';
+
+# Checkbox
+
+Checkbox is a component rendering styled HTML checkbox inputs
+
+https://theme-ui.com/components/checkbox
+
+<Meta title="UI Components / Forms / Checkbox" parameters={{ layout: 'centered' }} />
+
+You can define variants in your theme under `theme.forms`, default variant is `checkbox`
+
+https://theme-ui.com/components/forms#theming
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      const { theme } = useThemeUI();
+      return (
+        <Label>
+          <Checkbox
+            variant={select('Variant', theme ? Object.keys(theme.forms || {}) : [], 'checkbox')}
+            onChange={action('checkbox.default')}
+            name="checkbox.default"
+            value="true"
+          />
+          I will not tell you what I will do.
+        </Label>
+      );
+    }}
+  </Story>
+</Preview>
+
+Checkbox are controlled: state can be managed outside using for instance hooks
+
+<Preview>
+  <Story name="State">
+    {() => {
+      const { theme } = useThemeUI();
+      const [formData, setFormData] = useState({
+        sellSoulToDevil: false,
+      });
+      const onInputChange = (key, value) => {
+        setFormData({
+          ...formData,
+          [key]: value,
+        });
+      };
+      return (
+        <React.Fragment>
+          <Label>
+            <Checkbox
+              variant={select('Variant', theme ? Object.keys(theme.forms || {}) : [], 'checkbox')}
+              onChange={(event) => onInputChange('sellSoulToDevil', !!event.currentTarget.checked)}
+              checked={!!formData.sellSoulToDevil}
+              name="checkbox.state.sellSoulToDevil"
+            />
+            I agree to sell my soul to the devil
+          </Label>
+          <Divider />
+          <Styled.pre>{JSON.stringify(formData, null, 2)}</Styled.pre>
+        </React.Fragment>
+      );
+    }}
+  </Story>
+</Preview>

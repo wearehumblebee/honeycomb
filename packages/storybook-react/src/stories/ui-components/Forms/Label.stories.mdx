@@ -1,0 +1,28 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { select, text } from '@storybook/addon-knobs';
+import { Label, useThemeUI } from 'theme-ui';
+
+# Label
+
+Label is a component rendering styled HTML input labels
+
+https://theme-ui.com/components/label
+
+<Meta title="UI Components / Forms / Label" component={Label} parameters={{ layout: 'centered' }} />
+
+<Props of={Label} />
+
+You can define variants in your theme under `theme.forms`, default variant is `label`
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      const { theme } = useThemeUI();
+      return (
+        <Label variant={select('Variant', theme ? Object.keys(theme.forms || {}) : [], 'label')}>
+          {text('content', 'Some useful explanation')}
+        </Label>
+      );
+    }}
+  </Story>
+</Preview>

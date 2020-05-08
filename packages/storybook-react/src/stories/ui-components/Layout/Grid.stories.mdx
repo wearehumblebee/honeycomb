@@ -1,0 +1,61 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { number } from '@storybook/addon-knobs';
+import { Box, Grid } from 'theme-ui';
+
+# Grid
+
+Grid is a container for css grid layouts
+
+https://theme-ui.com/components/grid
+
+<Meta title="UI Components / Layout / Grid" parameters={{ layout: 'centered' }} />
+
+You can define variants in your theme under `theme.grids`
+
+https://developer.mozilla.org/docs/Web/CSS/grid-template-columns
+
+https://theme-ui.com/recipes/css-grid
+
+<Preview>
+  <Story name="2 Columns">
+    <Grid gap={number('gap', 2)} columns={2}>
+      <Box px={4} py={3} bg="primary">
+        1
+      </Box>
+      <Box px={4} py={3} bg="muted">
+        2
+      </Box>
+      <Box px={4} py={3} bg="primary">
+        3
+      </Box>
+      <Box px={4} py={3} bg="muted">
+        4
+      </Box>
+    </Grid>
+  </Story>
+</Preview>
+
+You can use arrays of values to change those between the different breakpoints of your theme, defined under `theme.breakpoints`
+
+The first value will be for mobile
+
+https://theme-ui.com/getting-started/#responsive-styles
+
+<Preview>
+  <Story name="Responsive grid">
+    <Grid gap={number('gap', 2)} columns={[1, 2, null, 4]}>
+      <Box px={4} py={3} bg="primary">
+        1
+      </Box>
+      <Box px={4} py={3} bg="muted">
+        2
+      </Box>
+      <Box px={4} py={3} bg="primary">
+        3
+      </Box>
+      <Box px={4} py={3} bg="muted">
+        4
+      </Box>
+    </Grid>
+  </Story>
+</Preview>
