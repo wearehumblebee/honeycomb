@@ -2,14 +2,14 @@
 import { jsx } from 'theme-ui';
 // There seem to be 2 ThemeProvider at the moment
 // https://github.com/system-ui/theme-ui/issues/834#issuecomment-660049253
-import { ThemeProvider, ProvidedComponents } from '@theme-ui/theme-provider';
+import { ThemeProvider } from '@theme-ui/theme-provider';
 import { DecoratorFunction, StoryContext, StoryGetter } from '@storybook/addons';
 import { Paragraph } from '@humblebee/ui-react';
 
 import { STORAGE_KEY } from '../addons/theme/constants';
 import { getThemeByName } from '../../src/helpers/theme';
 
-const components: ProvidedComponents = {
+const components = {
   Paragraph,
 };
 
