@@ -46,6 +46,18 @@ From the release branch(es) (master or next), an automated CI/CD pipeline will:
 Just follow its status on your branch and wait for approval there.
 Default reviewers should also be available to help you.
 
+## About eslint and pre-commit hooks
+
+eslint will be run as a pre-commit hook from husky with lint-staged, also applying prettier code-style rules.
+
+It will run different configurations for different packages or examples.
+
+To ensure consistency between packages, it has been hoisted as a root (dev) dependency.
+
+For this reason, it can only be invoked from the root level of the package, and trying to **run lint scripts from within subfolders will not work**.
+
+This is known (but acceptable) caveat at the moment.
+
 ## Modules Resolution & Path Mapping
 
 This package includes different tools and configs:
