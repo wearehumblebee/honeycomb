@@ -49,7 +49,7 @@ describe('views > FormView', () => {
       fireEvent.click(acceptTheTruthField);
     }
 
-    expect(submitButton).not.toBeDisabled();
+    expect(submitButton).toBeEnabled();
 
     fireEvent.click(submitButton);
 
@@ -86,7 +86,7 @@ describe('views > FormView', () => {
       fireEvent.click(acceptTheTruthField);
     }
 
-    expect(submitButton).not.toBeDisabled();
+    expect(submitButton).toBeEnabled();
 
     fireEvent.click(submitButton);
 

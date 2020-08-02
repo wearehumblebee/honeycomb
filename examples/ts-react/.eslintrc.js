@@ -6,11 +6,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'prettier/react',
   ],
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
+  plugins: ['jsx-a11y', 'react', 'react-hooks'],
   overrides: [
     {
       // enable the rule specifically for TypeScript files
@@ -23,14 +19,19 @@ module.exports = {
     },
   ],
   // rules: {
-  //   "jsx-a11y/anchor-is-valid": 0,
-  //   "jsx-a11y/label-has-for": 0,
-  //   "react/destructuring-assignment": 0,
-  //   "react/jsx-closing-tag-location": 0,
-  //   "react/jsx-one-expression-per-line": 0,
-  //   "react/no-access-state-in-setstate": 0,
-  //   "react/no-did-mount-set-state": 0,
-  //   "react-hooks/rules-of-hooks": "error",
-  //   "react-hooks/exhaustive-deps": "warn"
+  //   'jsx-a11y/anchor-is-valid': 0,
+  //   'jsx-a11y/label-has-for': 0,
+  //   'react/destructuring-assignment': 0,
+  //   'react/jsx-closing-tag-location': 0,
+  //   'react/jsx-one-expression-per-line': 0,
+  //   'react/no-access-state-in-setstate': 0,
+  //   'react/no-did-mount-set-state': 0,
+  //   'react-hooks/rules-of-hooks': 'error',
+  //   'react-hooks/exhaustive-deps': 'warn'
   // }
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
 };

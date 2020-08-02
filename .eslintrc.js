@@ -7,7 +7,6 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     // cannot make it work with subfolders tsconfig path mapping at the moment
     // 'plugin:import/errors',
@@ -25,7 +24,16 @@ module.exports = {
     },
     sourceType: 'module',
   },
-  plugins: ['prettier', '@typescript-eslint'],
+  plugins: ['import', 'prettier', '@typescript-eslint'],
+  rules: {
+    'func-names': ['error', 'never'],
+    // cannot make it work with subfolders tsconfig path mapping at the moment
+    // 'import/no-unresolved': [2, { caseSensitive: true, commonjs: true }],
+    'prefer-destructuring': 0,
+    // disable the rule for all files by default
+    // @see https://github.com/typescript-eslint/typescript-eslint/issues/964
+    '@typescript-eslint/explicit-function-return-type': 'off',
+  },
   settings: {
     // 'import/extensions': ['.ts', '.tsx', '.d.s', '.js', '.jsx', '.json'],
     // 'import/parsers': {
@@ -43,15 +51,6 @@ module.exports = {
     //     ],
     //   }
     // }
-  },
-  rules: {
-    'func-names': ['error', 'never'],
-    // cannot make it work with subfolders tsconfig path mapping at the moment
-    // 'import/no-unresolved': [2, { caseSensitive: true, commonjs: true }],
-    'prefer-destructuring': 0,
-    // disable the rule for all files by default
-    // @see https://github.com/typescript-eslint/typescript-eslint/issues/964
-    '@typescript-eslint/explicit-function-return-type': 'off',
   },
   overrides: [
     {
