@@ -18,6 +18,7 @@
     "build": "lerna run --stream build",
     "build:ui": "lerna run --stream build --scope @humblebee/ui-react",
     "build:storybook": "lerna run --stream build --scope @humblebee/storybook-react",
+    "chromatic:deploy": "lerna run --stream chromatic --scope @humblebee/storybook-react",
     "commit": "git-cz",
     "dev:ui": "lerna run --stream dev --scope @humblebee/ui-react",
     "dev:storybook": "lerna run --stream dev --scope @humblebee/storybook-react",
