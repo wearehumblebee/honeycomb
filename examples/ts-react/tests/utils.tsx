@@ -19,7 +19,9 @@ interface TestWrapperProps {
 interface RenderWithThemeOptions extends RenderOptions, MemoryRouterProps, TestWrapperProps {}
 
 const TestWrapper = ({ theme, route, ...props }: TestWrapperProps): JSX.Element => {
-  const mergedTheme = merge(DefaultTheme as Theme, theme || {});
+  // TODO: remove those ugly types assertions once 'merge' is fixed upstream
+  // (It currently accepts only 2 'complete' themes)
+  const mergedTheme = merge(DefaultTheme, (theme as Theme) || {});
 
   return (
     <MemoryRouter initialEntries={[route || '/']}>

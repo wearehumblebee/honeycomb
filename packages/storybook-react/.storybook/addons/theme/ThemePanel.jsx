@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useGlobalArgs, useAddonState } from '@storybook/api';
+import { useGlobals, useAddonState } from '@storybook/api';
 import { AddonPanel, DocumentWrapper, Placeholder, Separator, Source, Spaced, Title } from '@storybook/components';
 import { ColorPalette, ColorItem, Description, Typeset } from '@storybook/addon-docs/blocks';
 import { useThemeUI } from 'theme-ui';
@@ -16,11 +16,11 @@ const TabWrapper = styled.div`
   padding: 1em;
 `;
 
-const ThemePanel = props => {
-  // TODO: how to work with globalArgs initial value?
-  // const [{ theme: themeName }] = useGlobalArgs();
-  const [globalArgs] = useGlobalArgs();
-  const themeName = globalArgs.theme || localStorage.getItem(STORAGE_KEY);
+const ThemePanel = (props) => {
+  // TODO: how to work with globals initial value?
+  // const [{ theme: themeName }] = useGlobals();
+  const [globals] = useGlobals();
+  const themeName = globals.theme || localStorage.getItem(STORAGE_KEY);
   // getThemeByName fallback to the default theme if none matches the provided name (or if the name is undefined)
   const theme = getThemeByName(themeName, true);
 
@@ -29,11 +29,13 @@ const ThemePanel = props => {
       <PanelWrapper>
         {theme ? (
           <Spaced row={3} outer={1}>
-            <Title>{theme.emoji} {theme.name}</Title>
+            <Title>
+              {theme.emoji} {theme.name}
+            </Title>
             <h2>Colors</h2>
             <Description markdown="The theme colors" />
             <ColorPalette>
-              {Object.keys(theme.theme.colors).map(color => (
+              {Object.keys(theme.theme.colors).map((color) => (
                 <ColorItem
                   key={`theme.colors.${color}`}
                   title={color}
@@ -45,9 +47,11 @@ const ThemePanel = props => {
             <Separator />
             <h2>Typography</h2>
             <Description markdown="The font sizes defined in the theme" />
-            {Object.keys(theme.theme.fonts).map(font => (
+            {Object.keys(theme.theme.fonts).map((font) => (
               <React.Fragment key={`theme.fonts.${font}`}>
-                <h4>{font} <small>{theme.theme.fonts[font]}</small></h4>
+                <h4>
+                  {font} <small>{theme.theme.fonts[font]}</small>
+                </h4>
                 <Typeset fontFamily={theme.theme.fonts[font]} fontSizes={theme.theme.fontSizes} />
               </React.Fragment>
             ))}

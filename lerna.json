@@ -2,6 +2,7 @@
   "command": {
     "publish": {
       "allowBranch": ["master", "next"],
+      "conventionalCommits": true,
       "gitRemote": "origin"
     },
     "version": {
@@ -10,6 +11,7 @@
     }
   },
   "npmClient": "yarn",
-  "packages": ["examples/*", "packages/*"],
+  "npmClientArgs": ["--frozen-lockfile"],
+  "useWorkspaces": true,
   "version": "independent"
 }

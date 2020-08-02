@@ -176,7 +176,7 @@ const FormView: FunctionComponent = () => {
           Apply
         </Button>
       </form>
-      <Divider my={3} />
+      <Divider sx={{ my: 3 }} />
       {isFormSubmitted && (
         <Alert variant="primary">
           <Paragraph>{formData.pill === 'red' ? 'Welcome to Zion!' : 'Good night then...'}</Paragraph>

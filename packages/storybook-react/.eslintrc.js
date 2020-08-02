@@ -5,14 +5,29 @@ module.exports = {
     'plugin:mdx/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'prettier/react'
+    'prettier/react',
   ],
+  parserOptions: {
+    project: './tsconfig.json',
+    tsconfigRootDir: __dirname,
+  },
   plugins: ['jsx-a11y', 'react', 'react-hooks'],
   settings: {
     react: {
-      version: 'detect'
-    }
-  }
+      version: 'detect',
+    },
+  },
+  overrides: [
+    {
+      // enable the rule specifically for TypeScript files
+      // @see https://github.com/typescript-eslint/typescript-eslint/issues/964
+      files: ['*.ts', '*.tsx'],
+      parserOptions: {
+        project: './tsconfig.json',
+        tsconfigRootDir: __dirname,
+      },
+    },
+  ],
   // rules: {
   //   "jsx-a11y/anchor-is-valid": 0,
   //   "jsx-a11y/label-has-for": 0,

@@ -7,8 +7,8 @@ import ProjectCard from '../components/ProjectCard';
 
 const HomeView: FunctionComponent = () => (
   <Container>
-    <Flex as="header" py={6} sx={{ flexFlow: 'column', alignItems: 'center' }}>
-      <Heading as="h1" mb={4}>
+    <Flex as="header" sx={{ flexFlow: 'column', alignItems: 'center', py: 6 }}>
+      <Heading as="h1" sx={{ mb: 4 }}>
         <span role="img" aria-label="Bee">
           🐝
         </span>{' '}

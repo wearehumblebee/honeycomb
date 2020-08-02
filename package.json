@@ -14,41 +14,34 @@
     "url": "https://github.com/wearehumblebee/honeycomb.git"
   },
   "scripts": {
-    "build:all": "lerna run --stream build",
+    "audit:all": "yarn audit && lerna exec --stream 'yarn audit'",
+    "build": "lerna run --stream build",
     "build:ui": "lerna run --stream build --scope @humblebee/ui-react",
     "build:storybook": "lerna run --stream build --scope @humblebee/storybook-react",
     "commit": "git-cz",
     "dev:ui": "lerna run --stream dev --scope @humblebee/ui-react",
     "dev:storybook": "lerna run --stream dev --scope @humblebee/storybook-react",
-    "lint": "lerna run --stream lint",
-    "lint:fix": "lerna run --stream lint:fix",
+    "format": "lerna run --stream format",
     "postinstall": "lerna bootstrap",
     "test": "lerna run --stream test"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "@typescript-eslint/eslint-plugin": "^2.26.0",
-    "@typescript-eslint/parser": "^2.26.0",
-    "commitizen": "^4.0.3",
-    "cz-conventional-changelog": "^3.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jest": "^23.8.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-mdx": "^1.6.9",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^3.0.0",
-    "husky": "^4.2.3",
-    "lerna": "^3.20.2",
-    "lint-staged": "^10.0.9",
-    "microbundle": "^0.12.0-next.9",
-    "prettier": "^2.0.2",
-    "typescript": "^3.8.3"
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "husky": "^4.2.5",
+    "lerna": "^3.22.1",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5"
   },
   "resolutions": {
+    "dot-prop": ">=5.1.1",
+    "lodash": ">=4.17.19",
     "minimist": ">=1.2.3"
-  }
+  },
+  "workspaces": [
+    "examples/*",
+    "packages/*"
+  ]
 }

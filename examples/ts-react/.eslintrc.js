@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   extends: [
     '../../.eslintrc.js',
@@ -13,6 +11,17 @@ module.exports = {
       version: 'detect',
     },
   },
+  overrides: [
+    {
+      // enable the rule specifically for TypeScript files
+      // @see https://github.com/typescript-eslint/typescript-eslint/issues/964
+      files: ['*.ts', '*.tsx'],
+      parserOptions: {
+        project: './tsconfig.json',
+        tsconfigRootDir: __dirname,
+      },
+    },
+  ],
   // rules: {
   //   "jsx-a11y/anchor-is-valid": 0,
   //   "jsx-a11y/label-has-for": 0,

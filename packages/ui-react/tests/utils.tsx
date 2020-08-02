@@ -15,7 +15,9 @@ interface TestWrapperProps {
 interface RenderWithThemeOptions extends RenderOptions, TestWrapperProps {}
 
 const TestWrapper = ({ theme, ...props }: TestWrapperProps): JSX.Element => {
-  const mergedTheme = merge(preset as Theme, theme || {});
+  // TODO: remove those ugly types assertions once 'merge' is fixed upstream
+  // (It currently accepts only 2 'complete' themes)
+  const mergedTheme = merge(preset as Theme, (theme as Theme) || {});
 
   return <ThemeProvider {...props} theme={mergedTheme} />;
 };

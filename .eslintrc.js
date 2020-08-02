@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   root: true,
   env: {
@@ -20,7 +18,6 @@ module.exports = {
     'prettier/@typescript-eslint',
     'prettier/standard',
   ],
-  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2018,
     ecmaFeatures: {
@@ -61,6 +58,7 @@ module.exports = {
       // enable the rule specifically for TypeScript files
       // @see https://github.com/typescript-eslint/typescript-eslint/issues/964
       files: ["*.ts", "*.tsx"],
+      parser: '@typescript-eslint/parser',
       rules: {
         '@typescript-eslint/explicit-function-return-type': ['error'],
       },

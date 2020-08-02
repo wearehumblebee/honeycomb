@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'theme-ui';
 
 import App from './App';
 import DefaultTheme from './themes';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <Router>
     <ThemeProvider theme={DefaultTheme}>
       <App />
     </ThemeProvider>
-  </BrowserRouter>,
+  </Router>,
   document.querySelector('#root'),
 );

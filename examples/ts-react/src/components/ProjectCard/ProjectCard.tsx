@@ -11,7 +11,7 @@ interface ProjectCardProps {
 const ProjectCard: FunctionComponent<ProjectCardProps> = ({ color, link, title }: ProjectCardProps) => (
   <Card variant="primary">
     <Link href={link} target="_blank" rel="noopener noreferrer" sx={{ display: 'block', color: 'inherit' }}>
-      <AspectRatio mb={3} ratio={16 / 9}>
+      <AspectRatio ratio={16 / 9} sx={{ mb: 3 }}>
         <Flex
           sx={{
             flexFlow: 'column',
