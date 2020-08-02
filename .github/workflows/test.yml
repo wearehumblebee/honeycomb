@@ -1,0 +1,26 @@
+name: Run Tests
+
+on: pull_request
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ['ubuntu-latest', 'windows-latest']
+        node-version: [
+            14.x, # current LTS
+          ]
+    steps:
+      # Checkout git branch
+      - uses: actions/checkout@master
+      # Install node.js environment
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ matrix.node }}
+      # Install dependencies
+      - name: Install
+        run: yarn install --frozen-lockfile
+      # Run all tests
+      - name: Test
+        run: yarn run test
