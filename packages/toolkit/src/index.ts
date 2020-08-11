@@ -1,3 +1,19 @@
+import {
+  getFrontendBabelConfiguration,
+  FrontendBabelConfigurationOptions,
+  getNodeBabelConfiguration,
+  NodeBabelConfigurationOptions,
+} from './configurations/babel';
 import { DevelopmentConfiguration, ProductionConfiguration, getWebpackConfiguration } from './configurations/webpack';
 
-export { DevelopmentConfiguration, ProductionConfiguration, getWebpackConfiguration };
+export {
+  // babel
+  getFrontendBabelConfiguration,
+  FrontendBabelConfigurationOptions,
+  getNodeBabelConfiguration,
+  NodeBabelConfigurationOptions,
+  // webpack
+  DevelopmentConfiguration,
+  ProductionConfiguration,
+  getWebpackConfiguration,
+};
