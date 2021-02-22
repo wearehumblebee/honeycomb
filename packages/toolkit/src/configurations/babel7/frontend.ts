@@ -2,7 +2,7 @@ import deepmerge from 'deepmerge';
 
 import { BabelConfigurationOptions } from './types';
 
-export interface FrontendBabelConfigurationOptions extends BabelConfigurationOptions {
+export interface FrontendConfigurationOptions extends BabelConfigurationOptions {
   moduleResolverAlias?: Record<string, string>;
 }
 
@@ -14,11 +14,11 @@ export interface FrontendBabelConfigurationOptions extends BabelConfigurationOpt
  *
  * @return object
  */
-export const getFrontendBabelConfiguration = ({
+export const getFrontendConfiguration = ({
   extension,
   envPresetOptions,
   moduleResolverAlias,
-}: FrontendBabelConfigurationOptions = {}): Record<string, unknown> =>
+}: FrontendConfigurationOptions = {}): Record<string, unknown> =>
   deepmerge(
     {
       presets: [
@@ -43,7 +43,7 @@ export const getFrontendBabelConfiguration = ({
         '@babel/plugin-proposal-class-properties',
         '@babel/plugin-proposal-export-default-from',
         '@babel/plugin-proposal-object-rest-spread',
-        '@babel/plugin-syntax-class-properties',
+        '@babel/plugin-proposal-optional-chaining',
         '@babel/plugin-syntax-dynamic-import',
         '@loadable/babel-plugin',
         [

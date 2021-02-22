@@ -13,15 +13,15 @@ module.exports = {
     // 'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'plugin:prettier/recommended',
     'prettier',
-    'prettier/@typescript-eslint',
-    'prettier/standard',
+    // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors.
+    // Make sure this is always the last configuration in the extends array.
+    'plugin:prettier/recommended',
   ],
   parserOptions: {
     ecmaVersion: 2018,
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     sourceType: 'module',
   },
@@ -57,7 +57,7 @@ module.exports = {
     {
       // enable the rule specifically for TypeScript files
       // @see https://github.com/typescript-eslint/typescript-eslint/issues/964
-      files: ["*.ts", "*.tsx"],
+      files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       rules: {
         '@typescript-eslint/explicit-function-return-type': ['error'],

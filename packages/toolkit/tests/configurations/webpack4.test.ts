@@ -1,8 +1,8 @@
-import { getWebpackConfiguration } from 'src';
+import { getWebpack4Configuration } from 'src';
 
-describe('configurations > webpack', () => {
+describe('configurations > webpack4', () => {
   it('provides a default development configuration', () => {
-    const configuration = getWebpackConfiguration('development', {
+    const configuration = getWebpack4Configuration('development', {
       buildFolder: 'tmp',
       htmlTemplate: 'index.html',
     });
@@ -12,7 +12,7 @@ describe('configurations > webpack', () => {
   });
 
   it('provides a default production configuration', () => {
-    const configuration = getWebpackConfiguration('production', {
+    const configuration = getWebpack4Configuration('production', {
       buildFolder: 'tmp',
       htmlTemplate: 'index.html',
     });
@@ -25,7 +25,7 @@ describe('configurations > webpack', () => {
   it('can be extended production configuration', () => {
     const entry = 'whatever.js';
 
-    const configuration = getWebpackConfiguration(
+    const configuration = getWebpack4Configuration(
       'production',
       {
         buildFolder: 'tmp',

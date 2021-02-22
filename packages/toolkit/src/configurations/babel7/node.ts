@@ -2,7 +2,7 @@ import deepmerge from 'deepmerge';
 
 import { BabelConfigurationOptions } from './types';
 
-export type NodeBabelConfigurationOptions = BabelConfigurationOptions;
+export type NodeConfigurationOptions = BabelConfigurationOptions;
 
 /**
  * Default babel config for node.js server-side applications
@@ -12,7 +12,7 @@ export type NodeBabelConfigurationOptions = BabelConfigurationOptions;
  *
  * @return object
  */
-export const getNodeBabelConfiguration = ({ extension, envPresetOptions }: NodeBabelConfigurationOptions = {}): Record<
+export const getNodeConfiguration = ({ extension, envPresetOptions }: NodeConfigurationOptions = {}): Record<
   string,
   unknown
 > =>

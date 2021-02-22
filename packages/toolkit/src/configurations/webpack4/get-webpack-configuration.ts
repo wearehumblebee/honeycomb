@@ -6,7 +6,7 @@ import { getProductionConfiguration, ProductionConfigurationOptions } from './pr
 
 export type ConfigurationMode = 'development' | 'production';
 
-const getConfig = (
+const getConfiguration = (
   mode: ConfigurationMode,
   options: DevelopmentConfigurationOptions | ProductionConfigurationOptions,
   extension?: Configuration,
@@ -26,4 +26,4 @@ const getConfig = (
   return extension ? merge(configuration, extension) : configuration;
 };
 
-export default getConfig;
+export default getConfiguration;

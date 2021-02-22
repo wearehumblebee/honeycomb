@@ -1,7 +1,6 @@
 import webpack, { Configuration } from 'webpack';
 import { Configuration as DevServerConfiguration } from 'webpack-dev-server';
 import { merge } from 'webpack-merge';
-import ErrorOverlayPlugin from 'error-overlay-webpack-plugin';
 
 import { getCoreConfiguration, CoreConfigurationOptions } from './core';
 
@@ -53,7 +52,7 @@ export const getDevelopmentConfiguration = (options: DevelopmentConfigurationOpt
         colors: true,
       },
     },
-    plugins: [new webpack.HotModuleReplacementPlugin(), new ErrorOverlayPlugin()],
+    plugins: [new webpack.HotModuleReplacementPlugin()],
     /**
      * Webpack optimisation: do not loose yourself in there, this is just the development config
      * @see https://webpack.js.org/configuration/optimization/

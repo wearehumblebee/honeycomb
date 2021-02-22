@@ -1,9 +1,9 @@
-import { getFrontendBabelConfiguration, getNodeBabelConfiguration } from 'src';
+import { getBabel7FrontendConfiguration, getBabel7NodeConfiguration } from 'src';
 
-describe('configurations > babel', () => {
+describe('configurations > babel7', () => {
   describe('frontend', () => {
     it('provides a default configuration', () => {
-      const configuration = getFrontendBabelConfiguration();
+      const configuration = getBabel7FrontendConfiguration();
 
       expect(configuration).toHaveProperty('env');
       expect(configuration).toHaveProperty('plugins');
@@ -44,7 +44,7 @@ describe('configurations > babel', () => {
         useBuiltIns: 'entry',
       };
 
-      const configuration = getFrontendBabelConfiguration({
+      const configuration = getBabel7FrontendConfiguration({
         extension,
         envPresetOptions,
       });
@@ -61,7 +61,7 @@ describe('configurations > babel', () => {
 
   describe('node', () => {
     it('provides a default configuration', () => {
-      const configuration = getNodeBabelConfiguration();
+      const configuration = getBabel7NodeConfiguration();
 
       expect(configuration).toHaveProperty('env');
       expect(configuration).toHaveProperty('presets');
@@ -85,7 +85,7 @@ describe('configurations > babel', () => {
         },
       };
 
-      const configuration = getNodeBabelConfiguration({
+      const configuration = getBabel7NodeConfiguration({
         envPresetOptions,
         extension,
       });
