@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "allowJs": false,
+    "baseUrl": "./",
+    "jsx": "react",
+    "resolveJsonModule": true,
+    "paths": {
+      "@humblebee/ui-react": ["../../packages/ui-react/src"],
+      "@humblebee/ui-react/*": ["../../packages/ui-react/src/*"],
+      "src": ["src"],
+      "src/*": ["src/*"],
+      "tests": ["tests"],
+      "tests/*": ["tests/*"]
+    }
+  },
+  "include": ["src/**/*", "tests/**/*"],
+  "exclude": ["coverage", "dist"]
+}

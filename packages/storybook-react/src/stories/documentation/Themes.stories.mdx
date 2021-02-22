@@ -1,0 +1,154 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation / 2 - Themes" />
+
+# Themes
+
+With styled-system, you can easily override style props on the fly.
+
+But adjusting your components locally increase their specificity:
+
+How to ensure your components respect the design guidelines?
+
+A Theme acts as a contract reference for your components:
+This is where you define:
+
+- the design tokens that will be used by your components
+- the specific variants of components that should be (re)used
+
+## Designing a theme for your project
+
+Themes must respect the [Theme Specifications](https://theme-ui.com/theme-spec).
+We can use theme-ui's `merge` helper to extend a preset, in order to get a specifications headstart.
+
+```jsx
+// '[path-to-your-themes]/CustomTheme';
+import { merge } from 'theme-ui';
+// That or any other preset ;)
+// https://theme-ui.com/packages/presets
+import { base as preset } from '@theme-ui/presets';
+
+const CustomTheme = merge(preset, {
+  // ... And here we go!
+  // Design Tokens
+  breakpoints: [
+    // mobile-first breakpoints
+    '40em', // (640px, unless you override the page's default font-size of 16px)
+    '56em', // (896px, unless you override the page's default font-size of 16px)
+    '64em', // (1024px, unless you override the page's default font-size of 16px)
+  ],
+  colors: {
+    // ...
+    text: 'black',
+    background: 'white',
+    primary: 'blue', // important: "background" and "primary" should be different!
+    secondary: 'midnightblue',
+  },
+  // Components variants
+  // https://theme-ui.com/components/variants/
+  buttons: {
+    primary: {
+      bg: 'primary',
+      color: 'white',
+    },
+    secondary: {
+      bg: 'secondary',
+      color: 'black',
+    },
+    // ...
+  },
+  // ...
+});
+
+export default CustomTheme;
+```
+
+As a frontend developer, this is where your work starts.
+
+If the theme is too strict, building UI components will be slower.
+If the theme is too flexible, respecting design guidelines becomes harder.
+
+Your role will be to find the good balance for your project ™️.
+This will probably require several updates of the theme, and alignments your designer(s).
+
+## Wrap your application with the theme
+
+theme-ui allows to customise the appearance of your UI components by wrapping your application under a `<ThemeProvider />`.
+This component takes a prop called `theme` which needs to be an object respecting the Theme specifications.
+
+```jsx
+import React from 'react';
+import { ThemeProvider } from 'theme-ui';
+
+import CustomTheme from '[path-to-your-themes]/CustomTheme';
+
+const App = () => (
+  <ThemeProvider theme={theme}>
+    <AppRouter />
+  </ThemeProvider>
+);
+```
+
+## With TypeScript
+
+You can use base types to ensure your Theme is valid.
+
+You can go even further with specific types and/or interfaces for variants and/or tokens according to your needs
+
+```tsx
+import { merge, Theme } from 'theme-ui';
+import { base as preset } from '@theme-ui/presets';
+
+const CustomTheme: Theme = merge(
+  preset as Theme,
+  {
+    colors: {
+      primary: 'red',
+    },
+  } as Partial<Theme>,
+) as Theme;
+```
+
+## Feeding your theme with Figmagic design tokens
+
+The theme provides rules for your components that you can reuse everywhere.
+
+But going further on the design-development synchronisation:
+It would be even better to sync the tokens with the designers!
+
+At Humblebee, we work with Figma and the [figmagic project](https://github.com/mikaelvesavuori/figmagic), allowing to extract specific values from a Figma document.
+
+You will need a document model that is pre-defined for such extraction, but you can customise it according to your needs.
+
+Once this is setup, sync the tokens from the Figma document:
+
+```bash
+figmagic -base ./tokens
+```
+
+This should generate design tokens files inside `./tokens`.
+
+Now, back to your theme definition, all we need is to import their values and use it to build our theme:
+
+```jsx
+// '[path-to-your-themes]/CustomTheme';
+// ...
+import colors from 'tokens/colors';
+import fontFamilies from 'tokens/fontFamilies';
+// ...
+
+const CustomTheme = merge(preset, {
+  // Design Tokens
+  colors: {
+    // tokens names are arbitrary, use whatever you wish -- Theme specification encourage specific values though!
+    primary: colors.primary,
+  },
+  fonts: {
+    body: fontFamilies.body,
+    heading: fontFamilies.heading,
+  },
+  // ...
+});
+
+export default CustomTheme;
+```

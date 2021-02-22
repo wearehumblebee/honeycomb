@@ -18,6 +18,7 @@ module.exports = {
     // Make sure this is always the last configuration in the extends array.
     'plugin:prettier/recommended',
   ],
+  parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 2018,
     ecmaFeatures: {

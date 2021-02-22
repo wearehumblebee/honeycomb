@@ -1,0 +1,97 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Documentation / 3 - Global Style" />
+
+# Global Style
+
+There are 2 ways to provide global style to your application:
+
+1. Using the theme's `styles` property
+2. Using emotion directly
+
+## Using the theme
+
+You can provide default style for MDX components using the specific `style` property of the theme:
+
+```jsx
+// '[path-to-your-themes]/CustomTheme';
+
+const CustomTheme = merge(preset, {
+  // ...
+  // Global Style
+  styles: {
+    h1: {
+      fontFamily: 'heading',
+      letterSpacing: '0.05em',
+    },
+    img: {
+      display: 'block',
+      maxWidth: '100%',
+    },
+    '#root': {
+      minHeight: '100vh',
+      fontSize: 3, // index of your theme.fontSizes design tokens array
+    },
+  },
+});
+```
+
+NOTE: all elements cannot be styled: read more about the `styles` property here:
+https://theme-ui.com/theme-spec#styles
+
+## Using Emotion
+
+Emotion is a CSS-in-JS library used under the hood by theme-ui.
+It provides a `<Global />` component that can inject global style:
+
+NOTE: you need to install `@emotion/core` if you did have not already done that.
+
+```jsx
+// [path-to-your-components]/GlobalStyle.jsx
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
+import { Global } from '@emotion/core';
+
+const GlobalStyle = (props) => (
+  <Global
+    {...props}
+    styles={(theme) => ({
+      html: {
+        fontSize: theme.fontSizes[3],
+        minHeight: '100vh',
+      },
+      body: {
+        width: '100%',
+        height: '100%',
+        padding: 0,
+        margin: 0,
+        boxSizing: 'border-box',
+        WebkitFontSmoothing: 'antialiased',
+        MozOsxFontSmoothing: 'grayscale',
+        fontFamily: theme.fonts.body,
+        fontWeight: theme.fontWeights.body,
+        lineHeight: theme.lineHeights.body,
+        color: theme.colors.text,
+        backgroundColor: theme.colors.background,
+      },
+      '#root': {
+        minHeight: '100vh',
+      },
+    })}
+  />
+);
+
+export default GlobalStyle;
+```
+
+Then render it anywhere in your application:
+
+```jsx
+// [path-to-your-application]/App.jsx
+import GlobalStyle from '[path-to-your-components]/GlobalStyle';
+
+const App = () => (
+  // ...
+  <GlobalStyle />
+);
+```

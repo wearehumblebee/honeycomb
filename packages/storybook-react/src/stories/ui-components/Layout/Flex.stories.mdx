@@ -1,0 +1,73 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { text } from '@storybook/addon-knobs';
+import { Box, Flex } from 'theme-ui';
+
+# Flex
+
+Flex is a container for flexbox-based layouts. It is essentially a `Box` with `display: flex`.
+
+https://theme-ui.com/components/flex
+
+<Meta title="UI Components / Layout / Flex" component={Flex} parameters={{ layout: 'centered' }} />
+
+<Props of={Flex} />
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      const flex = text('First child flex', '1 1 auto');
+      return (
+        <Flex
+          sx={{
+            width: 280,
+            maxWidth: '100%',
+            justifyContent: text('justify-content', 'center'),
+            alignItems: text('align-items', 'center'),
+            textAlign: 'center',
+          }}
+        >
+          <Box p={2} bg="primary" sx={{ flex }}>
+            Flex: {flex}
+          </Box>
+          <Box p={2} bg="muted">
+            Box
+          </Box>
+        </Flex>
+      );
+    }}
+  </Story>
+</Preview>
+
+You can use arrays of values to change those between the different breakpoints of your theme, defined under `theme.breakpoints`
+
+The first value will be for mobile
+
+https://theme-ui.com/getting-started/#responsive-styles
+
+<Preview>
+  <Story name="Responsive Flows">
+    {() => {
+      const mobileFlow = text('flex-flow on mobile', 'column wrap');
+      const tabletFlow = text('flex-flow >= 1st breakpoint', 'row wrap');
+      return (
+        <Flex
+          sx={{
+            width: 280,
+            maxWidth: '100%',
+            flexFlow: [mobileFlow, tabletFlow],
+            justifyContent: text('justify-content', 'center'),
+            alignItems: text('align-items', 'center'),
+            textAlign: 'center',
+          }}
+        >
+          <Box p={2} bg="primary" sx={{ flex: '1 1 auto' }}>
+            Flex: 1 1 auto
+          </Box>
+          <Box p={2} bg="muted">
+            Box
+          </Box>
+        </Flex>
+      );
+    }}
+  </Story>
+</Preview>
