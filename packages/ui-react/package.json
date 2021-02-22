@@ -34,8 +34,10 @@
   "scripts": {
     "build": "microbundle --no-compress --jsx React.createElement --tsconfig tsconfig.build.json",
     "dev": "microbundle --watch --no-compress --jsx React.createElement --tsconfig tsconfig.build.json",
-    "format": "eslint '{src,tests}/**/*.{ts,tsx,js,jsx}' --fix",
+    "format": "eslint \"{src,tests}/**/*.{ts,tsx,js,jsx}\" --fix",
+    "lint": "eslint \"{src,tests}/**/*.{ts,tsx,js,jsx}\"",
     "prebuild": "rimraf ./dist/*",
+    "prepare": "yarn run build",
     "test": "jest"
   },
   "peerDependencies": {

@@ -24,6 +24,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
+    requireConfigFile: false,
     sourceType: 'module',
   },
   plugins: ['prettier', '@typescript-eslint'],

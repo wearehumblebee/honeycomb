@@ -28,7 +28,8 @@
     "build": "cross-env NODE_ENV=production build-storybook -c .storybook -o dist",
     "chromatic": "chromatic --build-script-name=build",
     "dev": "start-storybook",
-    "format": "eslint '{.storybook,src}/**/*.{ts,tsx,js,jsx,mdx}' --fix",
+    "format": "eslint \"{.storybook,src}/**/*.{ts,tsx,js,jsx,mdx}\" --fix",
+    "lint": "eslint \"{.storybook,src}/**/*.{ts,tsx,js,jsx,mdx}\"",
     "prebuild": "rimraf ./dist/*"
   },
   "dependencies": {

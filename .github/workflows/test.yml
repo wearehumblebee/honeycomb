@@ -1,9 +1,9 @@
-name: Run Tests
+name: Lint and run test
 
 on: pull_request
 
 jobs:
-  test:
+  lint-and-test:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -21,6 +21,9 @@ jobs:
       # Install dependencies
       - name: Install
         run: yarn install --frozen-lockfile
+      # Run eslint
+      - name: Lint
+        run: yarn run lint
       # Run all tests
       - name: Test
         run: yarn run test
