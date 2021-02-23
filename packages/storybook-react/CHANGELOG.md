@@ -7,7 +7,5 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
+- **chromatic:** set-up chromatic for storybook ([2cb3f6a](https://github.com/wearehumblebee/honeycomb/commit/2cb3f6ab44e44436db76b8862ea4ff568ed39155))
 - **packages:** add storybook-react package ([d4c9ca6](https://github.com/wearehumblebee/honeycomb/commit/d4c9ca66e24552c5dca6b5f279fac9a72e751e81))
-- **packages:** add ui-react package ([aa44d74](https://github.com/wearehumblebee/honeycomb/commit/aa44d74bc9ae63792723a36e76afc872b53d5932))
-
-# CHANGELOG
