@@ -25,13 +25,13 @@ Create a local `.env` file based on an example file
 
 ### Exports
 
-This package also provides some centralised default configurations for e.g. webpack
+This package also provides some centralised default configurations for e.g. webpack and babel.
 
 ```js
 // webpack.config.babel.js
-import { getWebpackConfiguration } from '@humblebee/toolkit';
+import { getWebpack4Configuration } from '@humblebee/toolkit';
 
-export default getWebpackConfiguration(
+export default getWebpack4Configuration(
   'production', // or 'development'
   {
     buildFolder: path.resolve(__dirname, 'build'), // generated build folder
