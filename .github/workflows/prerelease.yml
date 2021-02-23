@@ -22,20 +22,19 @@ on:
 jobs:
   # Run tests
   test:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: ['ubuntu-latest']
-        node-version: [
-            14.x, # current LTS
-          ]
+    runs-on: ubuntu-latest
     steps:
       # Checkout git branch
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       # Install node.js environment
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 14.x
+      # Cache node_modules (busting only when yarn.lock change)
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
       # Install dependencies
       - name: Install
         run: yarn install --frozen-lockfile
@@ -49,14 +48,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checkout git branch
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
         with:
-          # Fetch the entire history
+          # Fetch the entire history (needed for lerna versioning)
           fetch-depth: 0
       # Install node.js environment
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v2
         with:
           node-version: 14.x
+      # Cache node_modules (busting only when yarn.lock change)
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
       # Install dependencies
       - name: Install
         run: yarn install --frozen-lockfile

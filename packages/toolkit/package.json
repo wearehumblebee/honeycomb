@@ -39,7 +39,6 @@
     "lint": "eslint \"{src,tests}/**/*.{ts,tsx,js,jsx}\"",
     "lint:fix": "eslint \"{src,tests}/**/*.{ts,tsx,js,jsx}\" --fix",
     "prebuild": "rimraf ./dist/*",
-    "prepare": "yarn run build",
     "test": "jest --coverage"
   },
   "peerDependencies": {
