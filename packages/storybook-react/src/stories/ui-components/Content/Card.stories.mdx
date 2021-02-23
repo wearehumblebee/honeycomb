@@ -22,7 +22,11 @@ You can define variants in your theme under `theme.cards`, default variant is `p
         <Card variant={select('Variant', theme ? Object.keys(theme.cards || {}) : [], 'primary')}>
           <Image src="https://images.squarespace-cdn.com/content/v1/554b5e7ce4b0149371f10a93/1500971143824-M11JLFBPL6GGR07RJC43/ke17ZwdGBToddI8pDm48kIIFsYAJJX10OgNkc4SuD20UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKce0j9vvU4chI_bB_CjBNrJapSKkBorzMUDpE1NYw5XxnDgGKGBETQKcT3bo-auxwM/the-architect-Erik-Johansson.jpg?format=640w" />
           <Text as="p">
-            <Link href="https://www.erikjo.com/work/the-architect" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://www.erikjo.com/work/the-architect"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               The Architect, by Erik Johansson
             </Link>
           </Text>

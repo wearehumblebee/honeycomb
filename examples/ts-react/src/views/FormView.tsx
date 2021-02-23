@@ -42,7 +42,10 @@ const FormView: FunctionComponent = () => {
     confidenceAboutJumpingBetweenBuildings: 5,
   });
 
-  const onFieldChange = (key: keyof ApplicationFormState, value: string | number | boolean): void => {
+  const onFieldChange = (
+    key: keyof ApplicationFormState,
+    value: string | number | boolean,
+  ): void => {
     setIsFormSubmitted(false);
     setFormData({
       ...formData,
@@ -115,7 +118,9 @@ const FormView: FunctionComponent = () => {
           </Box>
         </Grid>
         <Box sx={{ my: 3 }}>
-          <Label htmlFor="matrix.enrollment.confidenceAboutJumpingBetweenBuildings">How free is your mind?</Label>
+          <Label htmlFor="matrix.enrollment.confidenceAboutJumpingBetweenBuildings">
+            How free is your mind?
+          </Label>
           <Slider
             id="matrix.enrollment.confidenceAboutJumpingBetweenBuildings"
             name="matrix.enrollment.confidenceAboutJumpingBetweenBuildings"
@@ -142,7 +147,8 @@ const FormView: FunctionComponent = () => {
             <Text as="span" style={{ color: 'blue' }}>
               blue
             </Text>
-            &nbsp;pill: the story ends, you wake up in your bed and believe whatever you want to believe.
+            &nbsp;pill: the story ends, you wake up in your bed and believe whatever you want to
+            believe.
           </Label>
           <Label>
             <Radio
@@ -165,24 +171,34 @@ const FormView: FunctionComponent = () => {
             <Checkbox
               id="matrix.enrollment.acceptTheTruth"
               name="matrix.enrollment.acceptTheTruth"
-              onChange={(event): void => onFieldChange('acceptTheTruth', !!event.currentTarget.checked)}
+              onChange={(event): void =>
+                onFieldChange('acceptTheTruth', !!event.currentTarget.checked)
+              }
               checked={!!formData.acceptTheTruth}
               required
             />
             Remember: all I am offering is the&nbsp;<u>truth</u>. Nothing more.
           </Label>
         </Box>
-        <Button type="submit" disabled={!!isFormSubmitted} variant={isFormSubmitted ? 'muted' : 'primary'}>
+        <Button
+          type="submit"
+          disabled={!!isFormSubmitted}
+          variant={isFormSubmitted ? 'muted' : 'primary'}
+        >
           Apply
         </Button>
       </form>
       <Divider sx={{ my: 3 }} />
       {isFormSubmitted && (
         <Alert variant="primary">
-          <Paragraph>{formData.pill === 'red' ? 'Welcome to Zion!' : 'Good night then...'}</Paragraph>
+          <Paragraph>
+            {formData.pill === 'red' ? 'Welcome to Zion!' : 'Good night then...'}
+          </Paragraph>
         </Alert>
       )}
-      <Styled.pre color={isFormSubmitted ? 'primary' : 'inherit'}>{JSON.stringify(formData, null, 2)}</Styled.pre>
+      <Styled.pre color={isFormSubmitted ? 'primary' : 'inherit'}>
+        {JSON.stringify(formData, null, 2)}
+      </Styled.pre>
     </Container>
   );
 };

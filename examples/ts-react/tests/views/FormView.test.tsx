@@ -54,7 +54,9 @@ describe('views > FormView', () => {
     fireEvent.change(passwordField, { target: { value: data.password } });
     fireEvent.change(roleField, { target: { value: data.role } });
     fireEvent.click(data.pill === 'red' ? redPillField : bluePillField);
-    fireEvent.change(confidenceField, { target: { value: data.confidenceAboutJumpingBetweenBuildings } });
+    fireEvent.change(confidenceField, {
+      target: { value: data.confidenceAboutJumpingBetweenBuildings },
+    });
     if (data.acceptTheTruth) {
       fireEvent.click(acceptTheTruthField);
     }
@@ -91,7 +93,9 @@ describe('views > FormView', () => {
     fireEvent.change(passwordField, { target: { value: data.password } });
     fireEvent.change(roleField, { target: { value: data.role } });
     fireEvent.click(data.pill === 'red' ? redPillField : bluePillField);
-    fireEvent.change(confidenceField, { target: { value: data.confidenceAboutJumpingBetweenBuildings } });
+    fireEvent.change(confidenceField, {
+      target: { value: data.confidenceAboutJumpingBetweenBuildings },
+    });
     if (data.acceptTheTruth) {
       fireEvent.click(acceptTheTruthField);
     }

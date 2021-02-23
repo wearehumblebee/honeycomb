@@ -8,9 +8,18 @@ interface ProjectCardProps {
   title: string;
 }
 
-const ProjectCard: FunctionComponent<ProjectCardProps> = ({ color, link, title }: ProjectCardProps) => (
+const ProjectCard: FunctionComponent<ProjectCardProps> = ({
+  color,
+  link,
+  title,
+}: ProjectCardProps) => (
   <Card variant="primary">
-    <Link href={link} target="_blank" rel="noopener noreferrer" sx={{ display: 'block', color: 'inherit' }}>
+    <Link
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      sx={{ display: 'block', color: 'inherit' }}
+    >
       <AspectRatio ratio={16 / 9} sx={{ mb: 3 }}>
         <Flex
           sx={{

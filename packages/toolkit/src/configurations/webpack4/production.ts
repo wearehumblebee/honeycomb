@@ -22,7 +22,9 @@ export interface ProductionConfigurationOptions extends CoreConfigurationOptions
  * You might still need to adjust it before launching your application in production
  * @see https://webpack.js.org/guides/production/
  */
-export const getProductionConfiguration = (options: ProductionConfigurationOptions): ProductionConfiguration =>
+export const getProductionConfiguration = (
+  options: ProductionConfigurationOptions,
+): ProductionConfiguration =>
   merge(getCoreConfiguration(options), {
     mode: 'production',
     /**

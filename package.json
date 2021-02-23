@@ -22,8 +22,8 @@
     "commit": "git-cz",
     "dev:ui": "lerna run --stream dev --scope @humblebee/ui-react",
     "dev:storybook": "lerna run --stream dev --scope @humblebee/storybook-react",
-    "format": "lerna run --stream format",
     "lint": "lerna run --stream lint",
+    "lint:fix": "lerna run --stream lint:fix",
     "prepare": "lerna run --stream prepare",
     "test": "lerna run --stream test"
   },

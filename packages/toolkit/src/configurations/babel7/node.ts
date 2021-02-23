@@ -12,10 +12,10 @@ export type NodeConfigurationOptions = BabelConfigurationOptions;
  *
  * @return object
  */
-export const getNodeConfiguration = ({ extension, envPresetOptions }: NodeConfigurationOptions = {}): Record<
-  string,
-  unknown
-> =>
+export const getNodeConfiguration = ({
+  extension,
+  envPresetOptions,
+}: NodeConfigurationOptions = {}): Record<string, unknown> =>
   deepmerge(
     {
       presets: [

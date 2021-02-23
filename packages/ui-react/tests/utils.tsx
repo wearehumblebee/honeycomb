@@ -20,7 +20,10 @@ const TestWrapper = ({ theme, ...props }: TestWrapperProps): JSX.Element => {
   return <ThemeProvider {...props} theme={mergedTheme} />;
 };
 
-export const renderWithTheme = (ui: React.ReactElement, options?: RenderWithThemeOptions): RenderResult =>
+export const renderWithTheme = (
+  ui: React.ReactElement,
+  options?: RenderWithThemeOptions,
+): RenderResult =>
   render(ui, {
     // eslint-disable-next-line react/display-name
     wrapper: (props) => <TestWrapper {...props} theme={options?.theme} />,

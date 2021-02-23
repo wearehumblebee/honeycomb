@@ -21,7 +21,9 @@ export interface DevelopmentConfigurationOptions extends CoreConfigurationOption
  * This should be fixed in the next major version of webpack (v5) which is currently in beta
  * @see https://github.com/webpack/webpack/issues/5523
  */
-export const getDevelopmentConfiguration = (options: DevelopmentConfigurationOptions): DevelopmentConfiguration =>
+export const getDevelopmentConfiguration = (
+  options: DevelopmentConfigurationOptions,
+): DevelopmentConfiguration =>
   merge(getCoreConfiguration(options), {
     mode: 'development',
     /**

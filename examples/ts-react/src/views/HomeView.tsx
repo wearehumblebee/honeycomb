@@ -17,7 +17,9 @@ const HomeView: FunctionComponent = () => (
           🐝
         </span>
       </Heading>
-      <Paragraph>This project is a minimalist example using theme-ui and @humblebee/ui-react</Paragraph>
+      <Paragraph>
+        This project is a minimalist example using theme-ui and @humblebee/ui-react
+      </Paragraph>
     </Flex>
     <Grid columns={[1, null, 3]} gap={4} sx={{ textAlign: 'center' }}>
       <ProjectCard color="rgb(51, 51, 238)" link="https://theme-ui.com" title="Theme UI" />

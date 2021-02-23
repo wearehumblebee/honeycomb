@@ -9,7 +9,11 @@ Link is a component rendering styled HTML anchors
 
 https://theme-ui.com/components/link
 
-<Meta title="UI Components / Typography / Link" component={Link} parameters={{ layout: 'centered' }} />
+<Meta
+  title="UI Components / Typography / Link"
+  component={Link}
+  parameters={{ layout: 'centered' }}
+/>
 
 <Props of={Link} />
 
@@ -29,7 +33,11 @@ You can define variants in your theme under `theme.links`, default style is `the
           href={text('Href', '#')}
           rel={text('Rel', 'noopener noreferrer')}
           target={text('Target', '_blank')}
-          variant={select('Variant', theme && theme.links ? Object.keys(theme.links || {}) : [], 'styles.a')}
+          variant={select(
+            'Variant',
+            theme && theme.links ? Object.keys(theme.links || {}) : [],
+            'styles.a',
+          )}
           onClick={onClick}
         >
           {text('content', 'Some other content')}

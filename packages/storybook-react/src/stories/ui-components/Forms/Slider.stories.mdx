@@ -10,7 +10,11 @@ Slider is a component rendering styled HTML range input fields
 
 https://theme-ui.com/components/slider
 
-<Meta title="UI Components / Forms / Slider" component={Slider} parameters={{ layout: 'centered' }} />
+<Meta
+  title="UI Components / Forms / Slider"
+  component={Slider}
+  parameters={{ layout: 'centered' }}
+/>
 
 <Props of={Slider} />
 
@@ -72,7 +76,9 @@ Sliders are controllable: state can be managed outside using for instance hooks
       };
       return (
         <React.Fragment>
-          <Label htmlFor="sliders.state">On a scale of 1 to 10, how stressed are you feeling right now?</Label>
+          <Label htmlFor="sliders.state">
+            On a scale of 1 to 10, how stressed are you feeling right now?
+          </Label>
           <Slider
             id="sliders.state"
             min={0}

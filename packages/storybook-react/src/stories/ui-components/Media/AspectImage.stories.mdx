@@ -35,7 +35,11 @@ Also, if your image backend supports focal-point cropping, you can go crazy with
             src={text('Src', `https://picsum.photos/${1080 * parseInt(ratio) - 360}/1080`)}
             alt={text('Alt', 'Placeholder')}
             sx={{
-              objectFit: select('CSS object-fit', ['fill', 'cover', 'contain', 'scale-down', 'none'], 'cover'),
+              objectFit: select(
+                'CSS object-fit',
+                ['fill', 'cover', 'contain', 'scale-down', 'none'],
+                'cover',
+              ),
             }}
           />
         </Box>
