@@ -3,4 +3,4 @@
 'use strict';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-require('../dist/cli')().parse(process.argv.slice(2));
+require('yargs/yargs')(process.argv.slice(2)).command(require('../dist/cli')).help().argv;

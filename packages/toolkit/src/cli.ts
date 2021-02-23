@@ -1,6 +1,7 @@
+// https://github.com/yargs/yargs/blob/master/docs/advanced.md#commands
 'use strict';
 
-import yargs from 'yargs';
+import { CommandModule } from 'yargs';
 
 import createDotenvFile from './commands/create-dotenv-file';
 
@@ -9,37 +10,31 @@ export interface CreateDotenvArguments {
   target: string;
 }
 
-const cli = yargs
-  .scriptName('humblebee-toolkit')
-  .usage('$0 <cmd> [args]')
-  .command(
-    'create-dotenv-file',
-    'Create a local .env file if missing, based on an example',
-    (yargs) => {
-      yargs.options({
-        example: {
-          alias: 'e',
-          demandOption: true,
-          describe: 'The example file to use.',
-          type: 'string',
-        },
-        target: {
-          alias: 't',
-          demandOption: false,
-          describe: 'The target file to create (defaults to ".env")',
-          default: '.env',
-          type: 'string',
-        },
-      });
+const command: CommandModule<Record<string, never>, CreateDotenvArguments> = {
+  command: 'create-dotenv-file',
+  describe: 'Create a local .env file if missing, based on an example',
+  builder: {
+    example: {
+      alias: 'e',
+      demandOption: true,
+      describe: 'The example file to use.',
+      type: 'string',
     },
-    (args: CreateDotenvArguments) => {
-      createDotenvFile({
-        directory: process.cwd(),
-        exampleFilePath: args.example,
-        targetFilePath: args.target,
-      });
+    target: {
+      alias: 't',
+      demandOption: false,
+      describe: 'The target file to create (defaults to ".env")',
+      default: '.env',
+      type: 'string',
     },
-  )
-  .help().argv;
+  },
+  handler: (args) => {
+    createDotenvFile({
+      directory: process.cwd(),
+      exampleFilePath: args.example,
+      targetFilePath: args.target,
+    });
+  },
+};
 
-export default cli;
+export default command;
