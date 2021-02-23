@@ -36,9 +36,9 @@
     "build:package": "microbundle --no-compress --tsconfig tsconfig.build.json",
     "build:cli": "microbundle -i src/cli.ts -o dist/cli.js -f cjs --no-pkg-main --no-compress --tsconfig tsconfig.build.json",
     "dev": "microbundle --watch --no-compress --tsconfig tsconfig.build.json",
-    "format": "eslint '{src,tests}/**/*.{ts,tsx,js,jsx}' --fix",
+    "lint": "eslint \"{src,tests}/**/*.{ts,tsx,js,jsx}\"",
+    "lint:fix": "eslint \"{src,tests}/**/*.{ts,tsx,js,jsx}\" --fix",
     "prebuild": "rimraf ./dist/*",
-    "prepare": "yarn run build",
     "test": "jest --coverage"
   },
   "peerDependencies": {

@@ -3,7 +3,7 @@ module.exports = {
     '../../.eslintrc.js',
     'plugin:jsx-a11y/recommended',
     'plugin:react/recommended',
-    'plugin:react-hooks/recommended'
+    'plugin:react-hooks/recommended',
   ],
   // rules: {
   //   'jsx-a11y/anchor-is-valid': 0,

@@ -26,7 +26,11 @@ https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance
           src={text('Src', `https://picsum.photos/720/405`)}
           alt={text('Alt', 'Placeholder')}
           sx={{
-            objectFit: select('CSS object-fit', ['fill', 'cover', 'contain', 'scale-down', 'none'], 'cover'),
+            objectFit: select(
+              'CSS object-fit',
+              ['fill', 'cover', 'contain', 'scale-down', 'none'],
+              'cover',
+            ),
           }}
         />
       );

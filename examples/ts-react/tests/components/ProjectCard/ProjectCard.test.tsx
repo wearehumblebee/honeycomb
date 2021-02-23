@@ -6,7 +6,9 @@ import ProjectCard from 'src/components/ProjectCard';
 describe('components > ProjectCard', () => {
   it('renders as expected', () => {
     const title = 'Test';
-    const { getByText } = render(<ProjectCard color="black" link="http://localhost" title={title} />);
+    const { getByText } = render(
+      <ProjectCard color="black" link="http://localhost" title={title} />,
+    );
 
     expect(getByText(title)).toBeVisible();
   });

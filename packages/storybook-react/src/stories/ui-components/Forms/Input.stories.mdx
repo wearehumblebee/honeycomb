@@ -27,7 +27,11 @@ https://theme-ui.com/components/forms#theming
           variant={select('Variant', theme ? Object.keys(theme.forms || {}) : [], 'input')}
           onChange={action('input.default.onChange')}
           name="inputs.default"
-          type={select('type', ['text', 'email', 'password', 'url', 'tel', 'search', 'number', 'file'], 'text')}
+          type={select(
+            'type',
+            ['text', 'email', 'password', 'url', 'tel', 'search', 'number', 'file'],
+            'text',
+          )}
           placeholder="tape something in..."
           aria-label="just an example"
         />
@@ -52,7 +56,11 @@ Accessible form inputs always have a label (either an actual HTML `label` elemen
             variant={select('Variant', theme ? Object.keys(theme.forms || {}) : [], 'input')}
             onChange={action('input.accessible.onChange')}
             name="inputs.accessible"
-            type={select('type', ['text', 'email', 'password', 'url', 'tel', 'search', 'number', 'file'], 'text')}
+            type={select(
+              'type',
+              ['text', 'email', 'password', 'url', 'tel', 'search', 'number', 'file'],
+              'text',
+            )}
             placeholder="tape something in..."
           />
         </React.Fragment>

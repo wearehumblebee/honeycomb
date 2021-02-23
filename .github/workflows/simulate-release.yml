@@ -1,0 +1,50 @@
+name: Simulate Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump_type:
+        # https://github.com/lerna/lerna/blob/main/commands/version/README.md#semver-bump
+        description: 'Lerna semantic bump type'
+        required: true
+        default: 'premajor'
+      pre_id:
+        # https://github.com/lerna/lerna/blob/main/commands/version/README.md#--preid
+        description: 'Prerelease identifier'
+        required: true
+        default: 'beta'
+      pre_dist_tag:
+        # https://github.com/lerna/lerna/tree/main/commands/publish#--pre-dist-tag-tag
+        description: 'NPM version tag'
+        required: true
+        default: 'next'
+
+jobs:
+  # Simulate version release
+  simulate-release:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout git branch
+      - uses: actions/checkout@v2
+        with:
+          # Fetch the entire history (needed for lerna versioning)
+          fetch-depth: 0
+      # Install node.js environment
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      # Cache node_modules (busting only when yarn.lock change)
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+      # Install dependencies
+      - name: Install
+        run: yarn install --frozen-lockfile
+      # Simulate lerna version
+      - name: Simulate release version
+        # Using "--no-verify-access" flag since lerna at the moment does not support NPM "automation" tokens
+        # https://github.com/lerna/lerna/issues/2788
+        run: yarn lerna publish from-package --no-git-tag-version --no-push --allow-branch '**/*' --no-verify-access --yes
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

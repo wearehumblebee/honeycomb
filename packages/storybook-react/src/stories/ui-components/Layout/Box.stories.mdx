@@ -20,12 +20,18 @@ https://theme-ui.com/components/box
         <Box
           px={select(
             'Horizontal padding',
-            theme.space.map((space, index) => ({ label: `${index} (-> ${space}px)`, value: index })),
+            theme.space.map((space, index) => ({
+              label: `${index} (-> ${space}px)`,
+              value: index,
+            })),
             4,
           )}
           py={select(
             'Vertical padding',
-            theme.space.map((space, index) => ({ label: `${index} (-> ${space}px)`, value: index })),
+            theme.space.map((space, index) => ({
+              label: `${index} (-> ${space}px)`,
+              value: index,
+            })),
             4,
           )}
           backgroundColor={select('Background', Object.keys(theme.colors), 'primary')}

@@ -135,11 +135,15 @@ You should prefer doing:
               </Box>
             </Grid>
             <Box sx={{ my: 3 }}>
-              <Label htmlFor="matrix.enrollment.confidenceAboutJumpingBetweenBuildings">How free is your mind?</Label>
+              <Label htmlFor="matrix.enrollment.confidenceAboutJumpingBetweenBuildings">
+                How free is your mind?
+              </Label>
               <Slider
                 id="matrix.enrollment.confidenceAboutJumpingBetweenBuildings"
                 name="matrix.enrollment.confidenceAboutJumpingBetweenBuildings"
-                onChange={(event) => onInputChange('confidenceAboutJumpingBetweenBuildings', event.currentTarget.value)}
+                onChange={(event) =>
+                  onInputChange('confidenceAboutJumpingBetweenBuildings', event.currentTarget.value)
+                }
                 value={formData.confidenceAboutJumpingBetweenBuildings}
                 min={0}
                 max={10}
@@ -157,7 +161,8 @@ You should prefer doing:
                 />
                 You take the&nbsp;<Text as="span" style={{ color: 'blue' }}>
                   blue
-                </Text>&nbsp;pill: the story ends, you wake up in your bed and believe whatever you want to believe.
+                </Text>&nbsp;pill: the story ends, you wake up in your bed and believe whatever you want
+                to believe.
               </Label>
               <Label>
                 <Radio
@@ -177,14 +182,20 @@ You should prefer doing:
                 <Checkbox
                   id="matrix.enrollment.acceptTheTruth"
                   name="matrix.enrollment.acceptTheTruth"
-                  onChange={(event) => onInputChange('acceptTheTruth', !!event.currentTarget.checked)}
+                  onChange={(event) =>
+                    onInputChange('acceptTheTruth', !!event.currentTarget.checked)
+                  }
                   checked={!!formData.acceptTheTruth}
                   required
                 />
                 Remember: all I am offering is the&nbsp;<u>truth</u>. Nothing more.
               </Label>
             </Box>
-            <Button type="submit" disabled={!!isFormSubmitted} variant={isFormSubmitted ? 'muted' : 'primary'}>
+            <Button
+              type="submit"
+              disabled={!!isFormSubmitted}
+              variant={isFormSubmitted ? 'muted' : 'primary'}
+            >
               Apply
             </Button>
           </form>
