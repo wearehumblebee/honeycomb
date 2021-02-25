@@ -1,7 +1,7 @@
 {
   "name": "@humblebee/toolkit",
   "description": "Tooling set for humblebee applications",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0-beta.2",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -42,9 +42,9 @@
     "test": "jest --coverage"
   },
   "peerDependencies": {
+    "@babel/core": "^7.0",
     "webpack": "^4.0",
-    "webpack-dev-server": "^3.0",
-    "@babel/core": "^7.0"
+    "webpack-dev-server": "^3.0"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.0",
@@ -73,8 +73,6 @@
     "yargs": "^16.2.0"
   },
   "devDependencies": {
-    "webpack": "^4.46.0",
-    "webpack-dev-server": "^3.11.0",
     "@types/compression-webpack-plugin": "^4.0.0",
     "@types/copy-webpack-plugin": "^6.4.0",
     "@types/dotenv-webpack": "^1.8.0",
@@ -82,6 +80,8 @@
     "@types/terser-webpack-plugin": "^4.0.0",
     "@types/webpack-dev-server": "^3.11.0",
     "@types/webpack-subresource-integrity": "^1.2.0",
-    "@types/yargs": "^16.0.0"
+    "@types/yargs": "^16.0.0",
+    "webpack": "^4.46.0",
+    "webpack-dev-server": "^3.11.0"
   }
 }

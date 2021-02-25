@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-beta.1](https://github.com/wearehumblebee/honeycomb/compare/@humblebee/storybook-react@0.1.0-beta.0...@humblebee/storybook-react@0.1.0-beta.1) (2021-02-25)
+
+### Features
+
+- **toolkit:** update webpack4 configuration ([a2fb975](https://github.com/wearehumblebee/honeycomb/commit/a2fb975a05ea5fb1b88b372d3b4992f788b42fe5))
+
 # 0.1.0-beta.0 (2021-02-23)
 
 ### Features
