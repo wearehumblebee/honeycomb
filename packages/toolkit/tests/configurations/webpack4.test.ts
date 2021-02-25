@@ -1,3 +1,4 @@
+import path from 'path';
 import { getWebpack4Configuration } from 'src';
 
 describe('configurations > webpack4', () => {
@@ -5,6 +6,9 @@ describe('configurations > webpack4', () => {
     const configuration = getWebpack4Configuration('development', {
       buildFolder: 'tmp',
       htmlTemplate: 'index.html',
+      dotenvPluginOptions: {
+        path: path.resolve(__dirname, '.env.test'),
+      },
     });
 
     expect(configuration).toHaveProperty('mode', 'development');
@@ -15,6 +19,9 @@ describe('configurations > webpack4', () => {
     const configuration = getWebpack4Configuration('production', {
       buildFolder: 'tmp',
       htmlTemplate: 'index.html',
+      dotenvPluginOptions: {
+        path: path.resolve(__dirname, '.env.test'),
+      },
     });
 
     expect(configuration).toHaveProperty('mode', 'production');
@@ -30,6 +37,9 @@ describe('configurations > webpack4', () => {
       {
         buildFolder: 'tmp',
         htmlTemplate: 'index.html',
+        dotenvPluginOptions: {
+          path: path.resolve(__dirname, '.env.test'),
+        },
       },
       {
         entry,

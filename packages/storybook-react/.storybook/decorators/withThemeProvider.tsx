@@ -13,7 +13,7 @@ const components = {
   Paragraph,
 };
 
-const withThemeProvider: DecoratorFunction<any> = (Story: StoryGetter, context: StoryContext) => {
+const withThemeProvider: DecoratorFunction = (Story: StoryGetter, context: StoryContext) => {
   // TODO: how to work with globals initial value?
   const themeName = context.globals.theme || localStorage.getItem(STORAGE_KEY);
   // getThemeByName fallback to the default theme if none matches the provided name (or if the name is undefined)

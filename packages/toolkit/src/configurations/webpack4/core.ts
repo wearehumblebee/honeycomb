@@ -1,7 +1,8 @@
 import { Configuration } from 'webpack';
 
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import { CleanWebpackPlugin, Options as CleanWebpackPluginOptions } from 'clean-webpack-plugin';
+import DotenvPlugin from 'dotenv-webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import LodashWebpackPlugin from 'lodash-webpack-plugin';
 
@@ -11,13 +12,24 @@ const PUBLIC_FOLDER = 'public';
 export interface CoreConfigurationOptions {
   buildFolder: string;
   htmlTemplate: string;
+  dotenvPluginOptions?: DotenvPlugin.Options;
+  cleanWebpackPluginOptions?: CleanWebpackPluginOptions;
 }
 
 /**
  * Base config: rules that apply to both development and production
  * It is not meant to be used directly, but extended for the use-case
  */
-export const getCoreConfiguration = (options: CoreConfigurationOptions): Configuration => ({
+export const getCoreConfiguration = ({
+  cleanWebpackPluginOptions = {
+    cleanOnceBeforeBuildPatterns: ['**/*', '!.gitignore'],
+  },
+  dotenvPluginOptions = {
+    safe: false, // we might not need all parameters to be defined in all environments
+    systemvars: true, // only load vars from '.env' file if they are NOT already defined as env variables
+  },
+  ...options
+}: CoreConfigurationOptions): Configuration => ({
   // This is intentional: this configuration is not intended to be used without extension.
   mode: 'none',
   resolve: {
@@ -54,39 +66,6 @@ export const getCoreConfiguration = (options: CoreConfigurationOptions): Configu
         exclude: /node_modules/,
       },
       /**
-       * Load SVG as React Components using svgr
-       * @see https://react-svgr.com/docs/webpack/
-       *
-       * NOTE: this is a basic config that will allow to load EVERY svg files as React components and process them with SVGO:
-       * - Removing dimensions and applying viewBox instead
-       * - Removing color by the "currentColor"
-       * This is mainly optimised for icons. It may not suit you: feel free to adjust it to your needs :)
-       */
-      {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: '@svgr/webpack',
-            options: {
-              svgAttributes: {
-                fill: 'currentColor',
-              },
-              svgoConfig: {
-                multipass: true,
-                pretty: process.env.NODE_ENV === 'development',
-                plugins: [
-                  { sortAttrs: true },
-                  { removeViewBox: false },
-                  { removeDimensions: true },
-                  { convertColors: { currentColor: false } },
-                ],
-              },
-            },
-          },
-        ],
-        exclude: /node_modules/,
-      },
-      /**
        * Load static files using file-loader
        * NOTE: as much as possible avoid loading them locally and use a CDN instead
        * (inject such in public/index.html template)
@@ -110,11 +89,14 @@ export const getCoreConfiguration = (options: CoreConfigurationOptions): Configu
   },
   plugins: [
     /**
+     * Inject env parameters (from system and/or local .env file) to application
+     * @see https://github.com/mrsteele/dotenv-webpack
+     */
+    new DotenvPlugin(dotenvPluginOptions),
+    /**
      * Clean-up previous build files
      */
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['**/*', '!.gitignore'],
-    }),
+    new CleanWebpackPlugin(cleanWebpackPluginOptions),
     /**
      * Copy static assets from public subfolder
      */

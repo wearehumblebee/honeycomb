@@ -1,16 +1,16 @@
 import webpack, { Configuration } from 'webpack';
-import { Configuration as DevServerConfiguration } from 'webpack-dev-server';
 import { merge } from 'webpack-merge';
 
 import { getCoreConfiguration, CoreConfigurationOptions } from './core';
 
 export interface DevelopmentConfiguration extends Configuration {
-  devServer: DevServerConfiguration;
+  devServer: Configuration['devServer'];
 }
 
 export interface DevelopmentConfigurationOptions extends CoreConfigurationOptions {
-  devServer?: Partial<DevServerConfiguration>;
-  crossOrigin?: string | boolean;
+  devServer?: Configuration['devServer'];
+  devtool?: Configuration['devtool'];
+  crossOriginLoading?: string | boolean;
 }
 
 /**
@@ -21,9 +21,18 @@ export interface DevelopmentConfigurationOptions extends CoreConfigurationOption
  * This should be fixed in the next major version of webpack (v5) which is currently in beta
  * @see https://github.com/webpack/webpack/issues/5523
  */
-export const getDevelopmentConfiguration = (
-  options: DevelopmentConfigurationOptions,
-): DevelopmentConfiguration =>
+export const getDevelopmentConfiguration = ({
+  crossOriginLoading = 'anonymous',
+  devtool = 'cheap-module-source-map',
+  devServer = {
+    port: new Date().getFullYear(),
+    host: 'localhost',
+    stats: {
+      colors: true,
+    },
+  },
+  ...options
+}: DevelopmentConfigurationOptions): DevelopmentConfiguration =>
   merge(getCoreConfiguration(options), {
     mode: 'development',
     /**
@@ -32,7 +41,7 @@ export const getDevelopmentConfiguration = (
      */
     output: {
       chunkFilename: '[name].chunk.js',
-      crossOriginLoading: 'anonymous',
+      crossOriginLoading,
       filename: '[name].js',
       path: options.buildFolder,
       publicPath: '/',
@@ -42,18 +51,12 @@ export const getDevelopmentConfiguration = (
      * Feel free to change that to your needs!
      * @see https://webpack.js.org/configuration/devtool/
      */
-    devtool: 'cheap-module-source-map',
+    devtool,
     /**
      * Webpack Dev Server
      * @see https://webpack.js.org/configuration/dev-server/
      */
-    devServer: {
-      port: new Date().getFullYear(),
-      host: 'localhost',
-      stats: {
-        colors: true,
-      },
-    },
+    devServer,
     plugins: [new webpack.HotModuleReplacementPlugin()],
     /**
      * Webpack optimisation: do not loose yourself in there, this is just the development config

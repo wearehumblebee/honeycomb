@@ -14,7 +14,7 @@ export interface ProductionConfiguration extends Configuration {}
 export interface ProductionConfigurationOptions extends CoreConfigurationOptions {
   imageminOptions?: ImageminPlugin.Options;
   subResourceIntegrityOptions?: SubResourceIntegrityPlugin.Options;
-  hashedModuleIdsOptions?: never;
+  hashedModuleIdsOptions?: Record<string, unknown>;
 }
 
 /**
@@ -22,9 +22,14 @@ export interface ProductionConfigurationOptions extends CoreConfigurationOptions
  * You might still need to adjust it before launching your application in production
  * @see https://webpack.js.org/guides/production/
  */
-export const getProductionConfiguration = (
-  options: ProductionConfigurationOptions,
-): ProductionConfiguration =>
+export const getProductionConfiguration = ({
+  imageminOptions = {},
+  subResourceIntegrityOptions = {
+    hashFuncNames: ['sha256', 'sha384'],
+  },
+  hashedModuleIdsOptions = {},
+  ...options
+}: ProductionConfigurationOptions): ProductionConfiguration =>
   merge(getCoreConfiguration(options), {
     mode: 'production',
     /**
@@ -39,7 +44,7 @@ export const getProductionConfiguration = (
       publicPath: '/',
     },
     plugins: [
-      new webpack.HashedModuleIdsPlugin(options.hashedModuleIdsOptions),
+      new webpack.HashedModuleIdsPlugin(hashedModuleIdsOptions),
       /**
        * Local images optimisation
        * @see https://github.com/Klathmon/imagemin-webpack-plugin
@@ -47,7 +52,7 @@ export const getProductionConfiguration = (
        * NOTE: as much as possible, avoid bundling assets together with the app:
        * Serve them efficiently from a CDN if available
        */
-      new ImageminPlugin(options.imageminOptions || {}),
+      new ImageminPlugin(imageminOptions || {}),
       /**
        * Build-time compression: will help with servers and/or CDN not providing runtime compression (if any?)
        * @see https://webpack.js.org/plugins/compression-webpack-plugin/
@@ -84,11 +89,7 @@ export const getProductionConfiguration = (
        *
        * NOTE: since CSS-in-JS libraries injects styles using inline <style> tags, the benefits of this pattern are a bit limited
        */
-      new SubResourceIntegrityPlugin(
-        options.subResourceIntegrityOptions || {
-          hashFuncNames: ['sha256', 'sha384'],
-        },
-      ),
+      new SubResourceIntegrityPlugin(subResourceIntegrityOptions),
     ],
     /**
      * Webpack optimisation control
