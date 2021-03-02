@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-beta.3](https://github.com/wearehumblebee/honeycomb/compare/@humblebee/toolkit@0.1.0-beta.2...@humblebee/toolkit@0.1.0-beta.3) (2021-03-02)
+
+### Features
+
+- **toolkit:** update babel v7 configuration management ([2660493](https://github.com/wearehumblebee/honeycomb/commit/26604937ad56a1585d21ebef7fa5859d7dba0e5c))
+
 # [0.1.0-beta.2](https://github.com/wearehumblebee/honeycomb/compare/@humblebee/toolkit@0.1.0-beta.1...@humblebee/toolkit@0.1.0-beta.2) (2021-02-25)
 
 ### Features
