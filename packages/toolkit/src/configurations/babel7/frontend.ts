@@ -1,4 +1,4 @@
-import deepmerge from 'deepmerge';
+import merge from 'babel-merge';
 
 import { BabelConfigurationOptions } from './types';
 
@@ -7,7 +7,7 @@ export interface FrontendConfigurationOptions extends BabelConfigurationOptions 
 }
 
 /**
- * Default babel config for frontend applications
+ * Default babel (v7) config for frontend applications
  * Contains default plugins to provide basic backward-compatibility to browsers we usually support
  *
  * @param FrontendBabelConfigurationOptions
@@ -19,7 +19,7 @@ export const getFrontendConfiguration = ({
   envPresetOptions,
   moduleResolverAlias,
 }: FrontendConfigurationOptions = {}): Record<string, unknown> =>
-  deepmerge(
+  merge(
     {
       presets: [
         [

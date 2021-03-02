@@ -1,11 +1,11 @@
-import deepmerge from 'deepmerge';
+import merge from 'babel-merge';
 
 import { BabelConfigurationOptions } from './types';
 
 export type NodeConfigurationOptions = BabelConfigurationOptions;
 
 /**
- * Default babel config for node.js server-side applications
+ * Default babel (v7) config for node.js server-side applications
  * Contains default plugins to provide basic backward-compatibility to node environments we usually support
  *
  * @param NodeBabelConfigurationOptions
@@ -16,7 +16,7 @@ export const getNodeConfiguration = ({
   extension,
   envPresetOptions,
 }: NodeConfigurationOptions = {}): Record<string, unknown> =>
-  deepmerge(
+  merge(
     {
       presets: [
         [

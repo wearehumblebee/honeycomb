@@ -11,31 +11,23 @@ describe('configurations > babel7', () => {
     });
 
     it('can be extended', () => {
+      const emotionPluginOptions = {
+        default: {
+          autoLabel: true,
+          cssPropOptimization: true,
+          labelFormat: '[filename]--[local]',
+        },
+        production: {
+          autoLabel: false,
+          cssPropOptimization: true,
+        },
+      };
       const extension = {
         presets: ['@babel/preset-react'],
-        plugins: [
-          'lodash',
-          [
-            'emotion',
-            {
-              autoLabel: true,
-              cssPropOptimization: true,
-              labelFormat: '[filename]--[local]',
-            },
-          ],
-        ],
+        plugins: ['lodash', ['emotion', emotionPluginOptions.default]],
         env: {
           production: {
-            plugins: [
-              [
-                'emotion',
-                {
-                  autoLabel: false,
-                  cssPropOptimization: true,
-                },
-              ],
-              'transform-react-remove-prop-types',
-            ],
+            plugins: [['emotion', emotionPluginOptions.production]],
           },
         },
       };
@@ -49,13 +41,30 @@ describe('configurations > babel7', () => {
         envPresetOptions,
       });
 
-      expect(configuration).toHaveProperty('env', expect.objectContaining(extension.env));
-      expect(configuration).toHaveProperty('plugins', expect.arrayContaining(extension.plugins));
+      expect(configuration).toHaveProperty(
+        'env',
+        expect.objectContaining({
+          production: expect.objectContaining({
+            plugins: expect.arrayContaining([
+              [expect.stringContaining('emotion'), emotionPluginOptions.production],
+            ]),
+          }),
+        }),
+      );
+      expect(configuration).toHaveProperty(
+        'plugins',
+        expect.arrayContaining([
+          expect.stringContaining('lodash'),
+          [expect.stringContaining('emotion'), emotionPluginOptions.default],
+        ]),
+      );
       expect(configuration).toHaveProperty(
         'presets',
-        expect.arrayContaining([['@babel/preset-env', envPresetOptions]]),
+        expect.arrayContaining([
+          expect.stringContaining('@babel/preset-react'),
+          [expect.stringContaining('@babel/preset-env'), envPresetOptions],
+        ]),
       );
-      expect(configuration).toHaveProperty('presets', expect.arrayContaining(extension.presets));
     });
   });
 
@@ -68,16 +77,12 @@ describe('configurations > babel7', () => {
     });
 
     it('can be extended', () => {
+      const babelRuntimeOptions = {
+        regenerator: true,
+        corejs: 3,
+      };
       const extension = {
-        plugins: [
-          [
-            '@babel/plugin-transform-runtime',
-            {
-              regenerator: true,
-              corejs: 3,
-            },
-          ],
-        ],
+        plugins: [['@babel/plugin-transform-runtime', babelRuntimeOptions]],
       };
       const envPresetOptions = {
         targets: {
@@ -92,9 +97,14 @@ describe('configurations > babel7', () => {
 
       expect(configuration).toHaveProperty(
         'presets',
-        expect.arrayContaining([['@babel/preset-env', envPresetOptions]]),
+        expect.arrayContaining([[expect.stringContaining('@babel/preset-env'), envPresetOptions]]),
       );
-      expect(configuration).toHaveProperty('plugins', expect.arrayContaining(extension.plugins));
+      expect(configuration).toHaveProperty(
+        'plugins',
+        expect.arrayContaining([
+          [expect.stringContaining('@babel/plugin-transform-runtime'), babelRuntimeOptions],
+        ]),
+      );
     });
   });
 });
