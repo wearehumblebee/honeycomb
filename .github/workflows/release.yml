@@ -57,6 +57,6 @@ jobs:
       - name: Publish
         # Using "--no-verify-access" flag since lerna at the moment does not support NPM "automation" tokens
         # https://github.com/lerna/lerna/issues/2788
-        run: yarn lerna publish --conventional-graduate --no-verify-access --yes
+        run: yarn lerna publish from-package --no-private --no-verify-access --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
