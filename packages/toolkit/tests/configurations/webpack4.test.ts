@@ -5,6 +5,7 @@ describe('configurations > webpack4', () => {
   it('provides a default development configuration', () => {
     const configuration = getWebpack4Configuration('development', {
       buildFolder: 'tmp',
+      publicFolder: 'public',
       htmlTemplate: 'index.html',
       dotenvPluginOptions: {
         path: path.resolve(__dirname, '.env.test'),
@@ -18,6 +19,7 @@ describe('configurations > webpack4', () => {
   it('provides a default production configuration', () => {
     const configuration = getWebpack4Configuration('production', {
       buildFolder: 'tmp',
+      publicFolder: 'public',
       htmlTemplate: 'index.html',
       dotenvPluginOptions: {
         path: path.resolve(__dirname, '.env.test'),
@@ -36,6 +38,7 @@ describe('configurations > webpack4', () => {
       'production',
       {
         buildFolder: 'tmp',
+        publicFolder: 'public',
         htmlTemplate: 'index.html',
         dotenvPluginOptions: {
           path: path.resolve(__dirname, '.env.test'),
