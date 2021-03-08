@@ -1,0 +1,48 @@
+{
+  "name": "@humblebee/ui-react",
+  "description": "Humblebee white-label UI components extending the amazing theme-ui library",
+  "version": "0.1.0",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "umd:main": "dist/humblebee-ui-react.umd.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "keywords": [
+    "ui",
+    "theme-ui",
+    "react",
+    "components",
+    "emotion",
+    "css-in-js"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Humblebee AB",
+    "email": "hello@humblebee.se",
+    "url": "https://www.humblebee.se/"
+  },
+  "homepage": "https://github.com/wearehumblebee/honeycomb/packages/ui-react",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wearehumblebee/honeycomb.git",
+    "directory": "packages/ui-react"
+  },
+  "scripts": {
+    "build": "microbundle --no-compress --jsx React.createElement --tsconfig tsconfig.build.json",
+    "dev": "microbundle --watch --no-compress --jsx React.createElement --tsconfig tsconfig.build.json",
+    "lint": "eslint \"{src,tests}/**/*.{ts,tsx,js,jsx}\"",
+    "lint:fix": "eslint \"{src,tests}/**/*.{ts,tsx,js,jsx}\" --fix",
+    "prebuild": "rimraf ./dist/*",
+    "prepare": "yarn run build",
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0 <16.14",
+    "react-dom": ">=16.8.0 <16.14",
+    "theme-ui": "^0.4.0-rc.14"
+  }
+}

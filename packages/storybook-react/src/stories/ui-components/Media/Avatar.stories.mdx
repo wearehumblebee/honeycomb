@@ -1,0 +1,29 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { number, select, text } from '@storybook/addon-knobs';
+import { Avatar, useThemeUI } from 'theme-ui';
+
+# Avatar
+
+Avatar is a component rendering images inside a circular container
+
+https://theme-ui.com/components/avatar
+
+<Meta title="UI Components / Media / Avatar" parameters={{ layout: 'centered' }} />
+
+You can define variants in your theme under `theme.images`, default variant is `avatar`
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      const { theme } = useThemeUI();
+      return (
+        <Avatar
+          src={text('Src', 'https://picsum.photos/id/1012/192/192')}
+          alt={text('Alt', 'Portrait')}
+          variant={select('Variant', theme ? Object.keys(theme.images || {}) : [], 'avatar')}
+          width={number('Width', 96)}
+        />
+      );
+    }}
+  </Story>
+</Preview>

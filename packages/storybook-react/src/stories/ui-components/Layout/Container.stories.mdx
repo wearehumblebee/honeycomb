@@ -1,0 +1,39 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Box, Container, useThemeUI } from 'theme-ui';
+
+# Container
+
+Container is a wrapper with a max-width centering its content.
+
+https://theme-ui.com/components/container
+
+<Meta
+  title="UI Components / Layout / Container"
+  component={Container}
+  parameters={{ layout: 'centered' }}
+/>
+
+<Props of={Container} />
+
+You can define variants in your theme under `theme.layout`, default variant is `container`
+
+You can define also define a max-width under `theme.sizes.container`
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      const { theme } = useThemeUI();
+      return (
+        <Container>
+          <Box p={3} bg="muted" sx={{ border: '1px dashed', borderColor: 'secondary' }}>
+            Container of max:{' '}
+            {theme.sizes
+              ? theme.sizes.container
+              : '{theme.sizes.container is undefined in the current theme}'}
+            px. The colors here are set just to illustrate it
+          </Box>
+        </Container>
+      );
+    }}
+  </Story>
+</Preview>

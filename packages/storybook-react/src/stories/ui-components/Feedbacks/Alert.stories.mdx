@@ -1,0 +1,58 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import { boolean, select, text } from '@storybook/addon-knobs';
+import { Alert, Close, useThemeUI } from 'theme-ui';
+
+# Alert
+
+Alert is a component rendering styled feedback notifications
+
+https://theme-ui.com/components/alert
+
+<Meta
+  title="UI Components / Feedbacks / Alert"
+  component={Alert}
+  parameters={{ layout: 'centered' }}
+/>
+
+<Props of={Alert} />
+
+You can define variants in your theme under `theme.alerts`, default variant is `primary`
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      const { theme } = useThemeUI();
+      return (
+        <Alert variant={select('Variant', theme ? Object.keys(theme.alerts || {}) : [], 'primary')}>
+          {text('content', 'Heads up! Something just happened')}
+          {boolean('Show close button?', true) && (
+            <Close onClick={action('alert.default.close.onClick')} ml="auto" mr={-2} />
+          )}
+        </Alert>
+      );
+    }}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="Theme variants">
+    {() => {
+      const { theme } = useThemeUI();
+      return theme.alerts ? (
+        <React.Fragment>
+          {Object.keys(theme.alerts || {}).map((variant) => (
+            <Alert key={`alert.${variant}`} variant={variant}>
+              This is an alert with the &ldquo;{variant}&rdquo; variant
+              {boolean('Show close button?', true) && (
+                <Close onClick={action(`alert.${variant}.close.onClick`)} ml="auto" mr={-2} />
+              )}
+            </Alert>
+          ))}
+        </React.Fragment>
+      ) : (
+        'Either you did not select a theme, or your theme includes no variants for `alerts`'
+      );
+    }}
+  </Story>
+</Preview>

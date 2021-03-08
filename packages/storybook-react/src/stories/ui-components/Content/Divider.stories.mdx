@@ -1,0 +1,24 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { Divider } from 'theme-ui';
+
+# Divider
+
+Divider is a component rendering styled HTML horizontal rules (`hr`)
+
+https://theme-ui.com/components/divider
+
+<Meta
+  title="UI Components / Content / Divider"
+  component={Divider}
+  parameters={{ layout: 'centered' }}
+/>
+
+<Props of={Divider} />
+
+You can define style anywhere in your theme under `theme.styles.hr`
+
+<Preview>
+  <Story name="Default">
+    <Divider sx={{ minWidth: 280 }} />
+  </Story>
+</Preview>

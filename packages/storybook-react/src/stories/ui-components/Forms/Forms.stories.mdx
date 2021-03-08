@@ -1,0 +1,211 @@
+import { useState } from 'react';
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { action } from '@storybook/addon-actions';
+import {
+  Button,
+  Box,
+  Checkbox,
+  Divider,
+  Grid,
+  Heading,
+  Input,
+  Label,
+  Message,
+  Radio,
+  Select,
+  Slider,
+  Styled,
+} from 'theme-ui';
+
+# Forms
+
+You can combine all input components to build accessible forms
+
+https://theme-ui.com/components/forms
+
+<Meta title="UI Components / Forms / Form" parameters={{ layout: 'centered' }} />
+
+You can define variants of all your inputs in your theme under `theme.forms`
+
+https://theme-ui.com/components/forms#theming
+
+Pssst: to ensure maximum accessibility, handle the submission on the form itself rather than its button.
+
+(There are several ways to submit a form, not only by clicking the submit button)
+
+Rather than doing:
+
+```jsx
+<form>
+  <Button type="submit" onClick={handleSubmit}>
+    Submit
+  </Button>
+</form>
+```
+
+You should prefer doing:
+
+```jsx
+<form onSubmit={handleSubmit}>
+  <Button type="submit">Submit</Button>
+</form>
+```
+
+<Preview>
+  <Story name="Combination">
+    {() => {
+      const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+      const [formData, setFormData] = useState({
+        username: '',
+        email: '',
+        password: '',
+        role: 'hacker',
+        pill: 'red',
+        acceptTheTruth: false,
+        confidenceAboutJumpingBetweenBuildings: 5,
+      });
+      const onInputChange = (key, value) => {
+        setFormData({
+          ...formData,
+          [key]: value,
+        });
+      };
+      const sendDataToZion = (event) => {
+        event.preventDefault();
+        setIsFormSubmitted(true);
+        action('matrix.enrollment.submit')(formData);
+        console.info('you did not seriously believe I would reveal where zion is, did you?');
+      };
+      return (
+        <React.Fragment>
+          <form onSubmit={sendDataToZion}>
+            <Heading as="h2">Become a Zion ally</Heading>
+            <Grid columns={[1, 2]}>
+              <Box sx={{ my: 3 }}>
+                <Label htmlFor="matrix.enrollment.username">What is your name?</Label>
+                <Input
+                  id="matrix.enrollment.username"
+                  name="matrix.enrollment.username"
+                  type="text"
+                  onChange={(event) => onInputChange('username', event.currentTarget.value)}
+                  value={formData.username}
+                  placeholder="Neo"
+                  required
+                />
+              </Box>
+              <Box sx={{ my: 3 }}>
+                <Label htmlFor="matrix.enrollment.email">What is your email?</Label>
+                <Input
+                  id="matrix.enrollment.email"
+                  name="matrix.enrollment.email"
+                  type="email"
+                  onChange={(event) => onInputChange('email', event.currentTarget.value)}
+                  value={formData.email}
+                  placeholder="neo@metacortex.biz"
+                  required
+                />
+              </Box>
+            </Grid>
+            <Grid columns={[1, 2]}>
+              <Box sx={{ my: 3 }}>
+                <Label htmlFor="matrix.enrollment.password">Want a password?</Label>
+                <Input
+                  id="matrix.enrollment.password"
+                  name="matrix.enrollment.password"
+                  type="password"
+                  onChange={(event) => onInputChange('password', event.currentTarget.value)}
+                  value={formData.password}
+                  placeholder="i<3tr1n1ty4ever"
+                />
+              </Box>
+              <Box sx={{ my: 3 }}>
+                <Label htmlFor="matrix.enrollment.role">How would you help?</Label>
+                <Select
+                  id="matrix.enrollment.role"
+                  name="matrix.enrollment.role"
+                  onChange={(event) => onInputChange('role', event.currentTarget.value)}
+                  value={formData.role}
+                  required
+                >
+                  <option value="hacker">Hacker</option>
+                  <option value="operator">Operator</option>
+                  <option value="keymaker">Keemaker</option>
+                  <option value="oracle">Oracle</option>
+                </Select>
+              </Box>
+            </Grid>
+            <Box sx={{ my: 3 }}>
+              <Label htmlFor="matrix.enrollment.confidenceAboutJumpingBetweenBuildings">
+                How free is your mind?
+              </Label>
+              <Slider
+                id="matrix.enrollment.confidenceAboutJumpingBetweenBuildings"
+                name="matrix.enrollment.confidenceAboutJumpingBetweenBuildings"
+                onChange={(event) =>
+                  onInputChange('confidenceAboutJumpingBetweenBuildings', event.currentTarget.value)
+                }
+                value={formData.confidenceAboutJumpingBetweenBuildings}
+                min={0}
+                max={10}
+              />
+            </Box>
+            <Box sx={{ my: 3 }}>
+              <Text as="p">This is your last chance. After this, there is no turning back.</Text>
+              <Label>
+                <Radio
+                  id="matrix.enrollment.pill.blue"
+                  name="matrix.enrollment.pill"
+                  onChange={(event) => onInputChange('pill', event.currentTarget.value)}
+                  checked={formData.pill === 'blue'}
+                  value="blue"
+                />
+                You take the&nbsp;<Text as="span" style={{ color: 'blue' }}>
+                  blue
+                </Text>&nbsp;pill: the story ends, you wake up in your bed and believe whatever you want
+                to believe.
+              </Label>
+              <Label>
+                <Radio
+                  id="matrix.enrollment.pill.red"
+                  name="matrix.enrollment.pill"
+                  onChange={(event) => onInputChange('pill', event.currentTarget.value)}
+                  checked={formData.pill === 'red'}
+                  value="red"
+                />
+                You take the&nbsp;<Text as="span" style={{ color: 'red' }}>
+                  red
+                </Text>&nbsp;pill: you stay in Wonderland, and I show you how deep the rabbit hole goes.
+              </Label>
+            </Box>
+            <Box sx={{ my: 3 }}>
+              <Label sx={{ fontStyle: 'italic' }}>
+                <Checkbox
+                  id="matrix.enrollment.acceptTheTruth"
+                  name="matrix.enrollment.acceptTheTruth"
+                  onChange={(event) =>
+                    onInputChange('acceptTheTruth', !!event.currentTarget.checked)
+                  }
+                  checked={!!formData.acceptTheTruth}
+                  required
+                />
+                Remember: all I am offering is the&nbsp;<u>truth</u>. Nothing more.
+              </Label>
+            </Box>
+            <Button
+              type="submit"
+              disabled={!!isFormSubmitted}
+              variant={isFormSubmitted ? 'muted' : 'primary'}
+            >
+              Apply
+            </Button>
+          </form>
+          <Divider />
+          <Styled.pre style={{ color: isFormSubmitted ? 'green' : 'inherit' }}>
+            {JSON.stringify(formData, null, 2)}
+          </Styled.pre>
+          {isFormSubmitted && <Message variant="primary">Welcome to the Matrix!</Message>}
+        </React.Fragment>
+      );
+    }}
+  </Story>
+</Preview>

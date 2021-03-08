@@ -1,0 +1,49 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { number, select, text } from '@storybook/addon-knobs';
+import { AspectImage, Box } from 'theme-ui';
+
+# AspectImage
+
+AspectImage is a component rendering styled HTML images constrained by a container of fixed aspect ratio
+
+https://theme-ui.com/components/aspect-image
+
+<Meta title="UI Components / Media / AspectImage" parameters={{ layout: 'centered' }} />
+
+NOTE: to optimise media performances, implement a lazyloading strategy:
+
+https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video
+
+You can play with the [css object-fit property](https://developer.mozilla.org/docs/Web/CSS/object-fit) to adjust the image rendering.
+
+Also, if your image backend supports focal-point cropping, you can go crazy with that.
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      const ratio = text('Ratio', (16 / 9).toFixed(3));
+      // That Box component is just here for Storybook canvas to display the AspectRatio, it is not needed in real context
+      return (
+        <Box
+          sx={{
+            width: number('Width', 720),
+            maxWidth: '100%',
+          }}
+        >
+          <AspectImage
+            ratio={ratio}
+            src={text('Src', `https://picsum.photos/${1080 * parseInt(ratio) - 360}/1080`)}
+            alt={text('Alt', 'Placeholder')}
+            sx={{
+              objectFit: select(
+                'CSS object-fit',
+                ['fill', 'cover', 'contain', 'scale-down', 'none'],
+                'cover',
+              ),
+            }}
+          />
+        </Box>
+      );
+    }}
+  </Story>
+</Preview>

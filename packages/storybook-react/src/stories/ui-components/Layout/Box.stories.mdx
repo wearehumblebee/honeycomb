@@ -1,0 +1,45 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { select } from '@storybook/addon-knobs';
+import { Box, useThemeUI } from 'theme-ui';
+
+# Box
+
+Box is a container allowing to easily add spaces (margin, padding) and/or other basic styles to content.
+
+https://theme-ui.com/components/box
+
+<Meta title="UI Components / Layout / Box" component={Box} parameters={{ layout: 'centered' }} />
+
+<Props of={Box} />
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      const { theme } = useThemeUI();
+      return (
+        <Box
+          px={select(
+            'Horizontal padding',
+            theme.space.map((space, index) => ({
+              label: `${index} (-> ${space}px)`,
+              value: index,
+            })),
+            4,
+          )}
+          py={select(
+            'Vertical padding',
+            theme.space.map((space, index) => ({
+              label: `${index} (-> ${space}px)`,
+              value: index,
+            })),
+            4,
+          )}
+          backgroundColor={select('Background', Object.keys(theme.colors), 'primary')}
+          color={select('Color', Object.keys(theme.colors), '')}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </Box>
+      );
+    }}
+  </Story>
+</Preview>

@@ -1,0 +1,102 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { select } from '@storybook/addon-knobs';
+import { Card, Grid, Image, Link, Text, useThemeUI } from 'theme-ui';
+
+# Card
+
+Card is a component rendering styled metadata or category tags
+
+https://theme-ui.com/components/card
+
+<Meta title="UI Components / Content / Card" component={Card} parameters={{ layout: 'centered' }} />
+
+<Props of={Card} />
+
+You can define variants in your theme under `theme.cards`, default variant is `primary`
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      const { theme } = useThemeUI();
+      return (
+        <Card variant={select('Variant', theme ? Object.keys(theme.cards || {}) : [], 'primary')}>
+          <Image src="https://images.squarespace-cdn.com/content/v1/554b5e7ce4b0149371f10a93/1500971143824-M11JLFBPL6GGR07RJC43/ke17ZwdGBToddI8pDm48kIIFsYAJJX10OgNkc4SuD20UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKce0j9vvU4chI_bB_CjBNrJapSKkBorzMUDpE1NYw5XxnDgGKGBETQKcT3bo-auxwM/the-architect-Erik-Johansson.jpg?format=640w" />
+          <Text as="p">
+            <Link
+              href="https://www.erikjo.com/work/the-architect"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              The Architect, by Erik Johansson
+            </Link>
+          </Text>
+        </Card>
+      );
+    }}
+  </Story>
+</Preview>
+
+You can combine those with the Grid component to render lists
+
+<Preview>
+  <Story name="Grid">
+    {() => {
+      const { theme } = useThemeUI();
+      const works = [
+        {
+          image:
+            'https://images.squarespace-cdn.com/content/v1/554b5e7ce4b0149371f10a93/1500971143824-M11JLFBPL6GGR07RJC43/ke17ZwdGBToddI8pDm48kIIFsYAJJX10OgNkc4SuD20UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKce0j9vvU4chI_bB_CjBNrJapSKkBorzMUDpE1NYw5XxnDgGKGBETQKcT3bo-auxwM/the-architect-Erik-Johansson.jpg',
+          link: 'https://www.erikjo.com/work/the-architect',
+          title: 'The Architect',
+        },
+        {
+          image:
+            'https://images.squarespace-cdn.com/content/v1/554b5e7ce4b0149371f10a93/1576786573865-33WV3IXUU6J8A3E9B6OR/ke17ZwdGBToddI8pDm48kF9aEDQaTpZHfWEO2zppK7Z7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UX7HUUwySjcPdRBGehEKrDf5zebfiuf9u6oCHzr2lsfYZD7bBzAwq_2wCJyqgJebgg/image-asset.jpeg',
+          link: 'https://www.erikjo.com/work/looking-for-stars',
+          title: 'Looking for Stars',
+        },
+        {
+          image:
+            'https://images.squarespace-cdn.com/content/v1/554b5e7ce4b0149371f10a93/1546851984113-QUF8J680JM8SUYHHCXZ1/ke17ZwdGBToddI8pDm48kF9aEDQaTpZHfWEO2zppK7Z7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UX7HUUwySjcPdRBGehEKrDf5zebfiuf9u6oCHzr2lsfYZD7bBzAwq_2wCJyqgJebgg/JUSTVISITING.jpg',
+          link: 'https://www.erikjo.com/work/just-visiting',
+          title: 'Just Visiting',
+        },
+        {
+          image:
+            'https://images.squarespace-cdn.com/content/v1/554b5e7ce4b0149371f10a93/1570445982561-JVQCT7JGZYHJ8QJOZ1KC/ke17ZwdGBToddI8pDm48kF9aEDQaTpZHfWEO2zppK7Z7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UX7HUUwySjcPdRBGehEKrDf5zebfiuf9u6oCHzr2lsfYZD7bBzAwq_2wCJyqgJebgg/Office-Escape.jpg',
+          link: 'https://www.erikjo.com/work/office-escape',
+          title: 'Office Escape',
+        },
+        {
+          image:
+            'https://images.squarespace-cdn.com/content/v1/554b5e7ce4b0149371f10a93/1566312763860-KZ3KUGLSE47TWFJD8NGD/ke17ZwdGBToddI8pDm48kF9aEDQaTpZHfWEO2zppK7Z7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UX7HUUwySjcPdRBGehEKrDf5zebfiuf9u6oCHzr2lsfYZD7bBzAwq_2wCJyqgJebgg/road-closed-unexpectedly.jpg',
+          link: 'https://www.erikjo.com/work/road-closed-unexpectedly',
+          title: 'Road Closed Unexpectedly',
+        },
+        {
+          image:
+            'https://images.squarespace-cdn.com/content/v1/554b5e7ce4b0149371f10a93/1552389062054-T0JMBND8LLHUS0O0OUD6/ke17ZwdGBToddI8pDm48kFWxnDtCdRm2WA9rXcwtIYR7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UcTSrQkGwCGRqSxozz07hWZrYGYYH8sg4qn8Lpf9k1pYMHPsat2_S1jaQY3SwdyaXg/GiveMeTime.jpg',
+          link: 'https://www.erikjo.com/work/give-me-time',
+          title: 'Give Me Time',
+        },
+      ];
+      return (
+        <Grid gap={4} columns={[1, 2, null, 3]}>
+          {works.map((work) => (
+            <Card
+              key={`erik-johansson.work.${work.title.replace(' ', '-')}`}
+              variant={select('Variant', theme ? Object.keys(theme.cards || {}) : [], 'primary')}
+            >
+              <Image alt={work.title} src={`${work.image}?format=640w`} />
+              <Text as="p">
+                <Link href={work.link} target="_blank" rel="noopener noreferrer">
+                  {work.title}, by Erik Johansson
+                </Link>
+              </Text>
+            </Card>
+          ))}
+        </Grid>
+      );
+    }}
+  </Story>
+</Preview>

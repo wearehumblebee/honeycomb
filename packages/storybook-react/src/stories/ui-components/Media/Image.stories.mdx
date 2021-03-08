@@ -1,0 +1,96 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { number, select, text } from '@storybook/addon-knobs';
+import { Image, useThemeUI } from 'theme-ui';
+
+# Image
+
+Image is a component rendering styled HTML images
+
+https://theme-ui.com/components/image
+
+<Meta title="UI Components / Media / Image" parameters={{ layout: 'centered' }} />
+
+You can define variants in your theme under `theme.images`
+
+NOTE: to optimise media performances, implement a lazyloading strategy:
+
+https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      const { theme } = useThemeUI();
+      return (
+        <Image
+          variant={select('Variant', theme ? Object.keys(theme.images || {}) : [])}
+          src={text('Src', `https://picsum.photos/720/405`)}
+          alt={text('Alt', 'Placeholder')}
+          sx={{
+            objectFit: select(
+              'CSS object-fit',
+              ['fill', 'cover', 'contain', 'scale-down', 'none'],
+              'cover',
+            ),
+          }}
+        />
+      );
+    }}
+  </Story>
+</Preview>
+
+You can also add metadata using an HTML figure element
+
+<Preview>
+  <Story name="Metadata">
+    {() => {
+      const { theme } = useThemeUI();
+      const src = 'https://i.picsum.photos/id/237';
+      return (
+        <figure>
+          <Image
+            variant={select('Variant', theme ? Object.keys(theme.images || {}) : [])}
+            src={`${src}/480/270.jpg`}
+            alt={text('Alt', 'Cute puppy')}
+            width={number('Width', 720)}
+            height={number('Height', 405)}
+          />
+          <figcaption>Cutinessception by André Spieker on picsum.photos</figcaption>
+        </figure>
+      );
+    }}
+  </Story>
+</Preview>
+
+If you have a backend supporting different media formats such as [imgix](https://www.imgix.com/), you can combine it with an HTML picture to serve the most optimised format to your customers
+
+(Try resizing the viewport and inspect the network tab to see how the browser reacts)
+
+https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
+
+<Preview>
+  <Story name="Responsive images">
+    {() => {
+      const { theme } = useThemeUI();
+      const src = 'picsum.photos/id/773';
+      return (
+        <picture>
+          <source
+            type="image/webp"
+            srcSet={`https://i.${src}/1440/810.webp 2x, https://i.${src}/720/405.webp 1x`}
+            media="(min-width: 480px)"
+          />
+          <source
+            type="image/jpeg"
+            srcSet={`https://i.${src}/1440/810.jpg 2x, https://i.${src}/720/405.jpg 1x`}
+            media="(min-width: 480px)"
+          />
+          <Image
+            variant={select('Variant', theme ? Object.keys(theme.images || {}) : [])}
+            src={`https://${src}/480/270`}
+            alt={text('Alt', 'Trolltun(yo)ga')}
+          />
+        </picture>
+      );
+    }}
+  </Story>
+</Preview>

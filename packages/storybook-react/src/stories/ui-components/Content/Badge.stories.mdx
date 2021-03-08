@@ -1,0 +1,51 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { select, text } from '@storybook/addon-knobs';
+import { Badge, useThemeUI } from 'theme-ui';
+
+# Badge
+
+Badge is a component rendering styled metadata or category tags
+
+https://theme-ui.com/components/badge
+
+<Meta
+  title="UI Components / Content / Badge"
+  component={Badge}
+  parameters={{ layout: 'centered' }}
+/>
+
+<Props of={Badge} />
+
+You can define variants in your theme under `theme.badges`, default variant is `primary`
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      const { theme } = useThemeUI();
+      return (
+        <Badge variant={select('Variant', theme ? Object.keys(theme.badges || {}) : [], 'primary')}>
+          {text('content', 'documentation')}
+        </Badge>
+      );
+    }}
+  </Story>
+</Preview>
+
+<Preview>
+  <Story name="Theme variants">
+    {() => {
+      const { theme } = useThemeUI();
+      return theme.badges ? (
+        <React.Fragment>
+          {Object.keys(theme.badges || {}).map((variant) => (
+            <Badge key={`badge.${variant}`} variant={variant}>
+              {variant}
+            </Badge>
+          ))}
+        </React.Fragment>
+      ) : (
+        'Either you did not select a theme, or your theme includes no variants for `badges`'
+      );
+    }}
+  </Story>
+</Preview>

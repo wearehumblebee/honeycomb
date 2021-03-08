@@ -1,0 +1,88 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { number, select, text } from '@storybook/addon-knobs';
+import { AspectRatio, Box, Heading, Image } from 'theme-ui';
+
+# AspectRatio
+
+AspectRatio is a component rendering (media) content inside a fixed ratio container
+
+https://theme-ui.com/components/aspect-ratio
+
+<Meta title="UI Components / Media / AspectRatio" parameters={{ layout: 'centered' }} />
+
+NOTE: to optimise media performances, implement a lazyloading strategy:
+
+https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video
+
+It can render any child: text elements, media etc.
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      const ratio = text('Ratio', (16 / 9).toFixed(3));
+      // That Box component is just here for Storybook canvas to display the AspectRatio, it is not needed in real context
+      return (
+        <Box
+          sx={{
+            width: number('Width', 720),
+            maxWidth: '100%',
+          }}
+        >
+          <AspectRatio
+            ratio={ratio}
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              bg: 'primary',
+              color: 'background',
+              p: 4,
+            }}
+          >
+            <Heading as="h2">Aspect Ratio:&nbsp;{ratio}</Heading>
+          </AspectRatio>
+        </Box>
+      );
+    }}
+  </Story>
+</Preview>
+
+You can render any media under AspectRatio, even though for images you even have the `AspectImage` component that does that for you.
+
+<Preview>
+  <Story name="Image">
+    {() => {
+      const ratio = text('Ratio', (16 / 9).toFixed(3));
+      // That Box component is just here for Storybook canvas to display the AspectRatio, it is not needed in real context
+      return (
+        <Box
+          sx={{
+            width: number('Width', 720),
+            maxWidth: '100%',
+          }}
+        >
+          <AspectRatio
+            ratio={ratio}
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <Image
+              src={text('Src', `https://picsum.photos/${1080 * parseInt(ratio) - 360}/1080`)}
+              alt={text('Alt', 'Placeholder')}
+              sx={{
+                objectFit: select(
+                  'CSS object-fit',
+                  ['fill', 'cover', 'contain', 'scale-down', 'none'],
+                  'cover',
+                ),
+              }}
+            />
+          </AspectRatio>
+        </Box>
+      );
+    }}
+  </Story>
+</Preview>

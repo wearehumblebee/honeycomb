@@ -1,0 +1,32 @@
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { text } from '@storybook/addon-knobs';
+import { Progress } from 'theme-ui';
+
+# Progress
+
+Progress is a component rendering styled inline notifications
+
+https://theme-ui.com/components/progress
+
+<Meta
+  title="UI Components / Feedbacks / Progress"
+  component={Progress}
+  parameters={{ layout: 'centered' }}
+/>
+
+<Props of={Progress} />
+
+You can define variants anywhere in your theme, default style is `theme.styles.progress`
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      const progress = text('Progress', 50);
+      return (
+        <Progress value={progress} max={100}>
+          {progress}%
+        </Progress>
+      );
+    }}
+  </Story>
+</Preview>

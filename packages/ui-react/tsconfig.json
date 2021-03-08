@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react",
+    "noEmit": true,
+    "paths": {
+      "src": ["src/"],
+      "src/*": ["src/*"],
+      "tests": ["tests/"],
+      "tests/*": ["tests/*"]
+    },
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*", "tests/**/*"],
+  "exclude": ["dist", "reports"]
+}

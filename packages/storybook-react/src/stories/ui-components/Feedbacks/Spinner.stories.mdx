@@ -1,0 +1,23 @@
+import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { number, text } from '@storybook/addon-knobs';
+import { Spinner } from 'theme-ui';
+
+# Spinner
+
+Spinner is a component rendering styled spinning SVG loading indicator
+
+https://theme-ui.com/components/spinner
+
+<Meta title="UI Components / Feedbacks / Spinner" parameters={{ layout: 'centered' }} />
+
+You can define variants anywhere in your theme, default style is `theme.styles.spinner`
+
+<Preview>
+  <Story name="Default">
+    <Spinner
+      title={text('title', 'loading...')}
+      size={number('size', 48)}
+      strokeWidth={number('strokeWidth', 4)}
+    />
+  </Story>
+</Preview>

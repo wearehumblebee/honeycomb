@@ -1,0 +1,97 @@
+import { useState } from 'react';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { Divider, Label, Slider, Styled, useThemeUI } from 'theme-ui';
+
+# Slider
+
+Slider is a component rendering styled HTML range input fields
+
+https://theme-ui.com/components/slider
+
+<Meta
+  title="UI Components / Forms / Slider"
+  component={Slider}
+  parameters={{ layout: 'centered' }}
+/>
+
+<Props of={Slider} />
+
+You can define variants in your theme under `theme.forms`, default variant is `slider`
+
+https://theme-ui.com/components/forms#theming
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      const { theme } = useThemeUI();
+      return (
+        <Slider
+          variant={select('Variant', theme ? Object.keys(theme.forms || {}) : [], 'slider')}
+          onChange={action('slider.default.onChange')}
+          name="sliders.default"
+          aria-label="just an example"
+        />
+      );
+    }}
+  </Story>
+</Preview>
+
+Accessible form range inputs always have a label (either an actual HTML `label` element or aria-\* attributes)
+
+<Preview>
+  <Story name="Accessibility">
+    {() => {
+      const { theme } = useThemeUI();
+      return (
+        <React.Fragment>
+          <Label htmlFor="selects.accessible">Just an example</Label>
+          <Slider
+            id="sliders.accessible"
+            variant={select('Variant', theme ? Object.keys(theme.forms || {}) : [], 'slider')}
+            onChange={action('slider.accessible.onChange')}
+            name="sliders.accessible"
+          />
+        </React.Fragment>
+      );
+    }}
+  </Story>
+</Preview>
+
+Sliders are controllable: state can be managed outside using for instance hooks
+
+<Preview>
+  <Story name="State">
+    {() => {
+      const { theme } = useThemeUI();
+      const [formData, setFormData] = useState({
+        range: 5,
+      });
+      const onInputChange = (key, value) => {
+        setFormData({
+          ...formData,
+          [key]: value,
+        });
+      };
+      return (
+        <React.Fragment>
+          <Label htmlFor="sliders.state">
+            On a scale of 1 to 10, how stressed are you feeling right now?
+          </Label>
+          <Slider
+            id="sliders.state"
+            min={0}
+            max={10}
+            variant={select('Variant', theme ? Object.keys(theme.forms || {}) : [], 'slider')}
+            onChange={(event) => onInputChange('range', event.currentTarget.value)}
+            name="sliders.state"
+            value={formData.range}
+          />
+          <Divider />
+          <Styled.pre>{JSON.stringify(formData, null, 2)}</Styled.pre>
+        </React.Fragment>
+      );
+    }}
+  </Story>
+</Preview>

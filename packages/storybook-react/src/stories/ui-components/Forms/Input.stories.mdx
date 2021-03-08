@@ -1,0 +1,129 @@
+import { useState } from 'react';
+import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { Divider, Input, Label, Styled, useThemeUI } from 'theme-ui';
+
+# Input
+
+Input is a component rendering styled HTML input fields
+
+https://theme-ui.com/components/input
+
+<Meta title="UI Components / Forms / Input" component={Input} parameters={{ layout: 'centered' }} />
+
+<Props of={Input} />
+
+You can define variants in your theme under `theme.forms`, default variant is `input`
+
+https://theme-ui.com/components/forms#theming
+
+<Preview>
+  <Story name="Default">
+    {() => {
+      const { theme } = useThemeUI();
+      return (
+        <Input
+          variant={select('Variant', theme ? Object.keys(theme.forms || {}) : [], 'input')}
+          onChange={action('input.default.onChange')}
+          name="inputs.default"
+          type={select(
+            'type',
+            ['text', 'email', 'password', 'url', 'tel', 'search', 'number', 'file'],
+            'text',
+          )}
+          placeholder="tape something in..."
+          aria-label="just an example"
+        />
+      );
+    }}
+  </Story>
+</Preview>
+
+NOTE: do not use Input with type `checkbox` or `radio`, there are specific components for those
+
+Accessible form inputs always have a label (either an actual HTML `label` element or aria-\* attributes)
+
+<Preview>
+  <Story name="Accessibility">
+    {() => {
+      const { theme } = useThemeUI();
+      return (
+        <React.Fragment>
+          <Label htmlFor="input.accessible">Just an example</Label>
+          <Input
+            id="input.accessible"
+            variant={select('Variant', theme ? Object.keys(theme.forms || {}) : [], 'input')}
+            onChange={action('input.accessible.onChange')}
+            name="inputs.accessible"
+            type={select(
+              'type',
+              ['text', 'email', 'password', 'url', 'tel', 'search', 'number', 'file'],
+              'text',
+            )}
+            placeholder="tape something in..."
+          />
+        </React.Fragment>
+      );
+    }}
+  </Story>
+</Preview>
+
+Inputs are controllable: state can be managed outside using for instance hooks
+
+<Preview>
+  <Story name="State">
+    {() => {
+      const { theme } = useThemeUI();
+      const [formData, setFormData] = useState({
+        someText: '',
+        email: '',
+        password: '',
+      });
+      const onInputChange = (key, value) => {
+        setFormData({
+          ...formData,
+          [key]: value,
+        });
+      };
+      return (
+        <React.Fragment>
+          <Label htmlFor="inputs.state.text">Some text</Label>
+          <Input
+            id="inputs.state.text"
+            variant={select('Variant', theme ? Object.keys(theme.forms || {}) : [], 'input')}
+            onChange={(event) => onInputChange('someText', event.currentTarget.value)}
+            name="inputs.state.text"
+            type="text"
+            placeholder="tape something in..."
+            value={formData.someText}
+            mb={2}
+          />
+          <Label htmlFor="inputs.state.email">An email address</Label>
+          <Input
+            id="inputs.state.email"
+            variant={select('Variant', theme ? Object.keys(theme.forms || {}) : [], 'input')}
+            onChange={(event) => onInputChange('email', event.currentTarget.value)}
+            name="inputs.state.email"
+            type="email"
+            placeholder="foo.bar@example.com"
+            value={formData.email}
+            mb={2}
+          />
+          <Label htmlFor="inputs.state.password">A **strong** password</Label>
+          <Input
+            id="inputs.state.password"
+            variant={select('Variant', theme ? Object.keys(theme.forms || {}) : [], 'input')}
+            onChange={(event) => onInputChange('password', event.currentTarget.value)}
+            name="inputs.state.password"
+            type="password"
+            placeholder="****************************************************************"
+            value={formData.password}
+          />
+          <Divider />
+          <Styled.pre>{JSON.stringify(formData, null, 2)}</Styled.pre>
+        </React.Fragment>
+      );
+    }}
+  </Story>
+</Preview>

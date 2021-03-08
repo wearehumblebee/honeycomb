@@ -1,0 +1,12 @@
+import { Meta, Description } from '@storybook/addon-docs/blocks';
+import changelog from '../../../../ui-react/CHANGELOG.md';
+
+<Meta title="Documentation / 0 - Changelog" />
+
+# Versions history
+
+We use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) and [lerna](https://lerna.js.org/) to generate this CHANGELOG automatically.
+
+This is not fully error prone (we are still _[human after all](https://www.youtube.com/watch?v=PXYeARRyDWk)_) but should be a good indicator of added features, bugfixes and BC-breaking changes.
+
+<Description markdown={changelog} />

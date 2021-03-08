@@ -1,0 +1,41 @@
+{
+  "name": "@humblebee/ts-react-example",
+  "description": "TypeScript & React example using @humblebee/ui-react",
+  "version": "0.1.0",
+  "private": true,
+  "author": {
+    "name": "Humblebee AB",
+    "email": "hello@humblebee.se",
+    "url": "https://www.humblebee.se/"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/wearehumblebee/honeycomb/examples/ts-react",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wearehumblebee/honeycomb.git",
+    "directory": "examples/ts-react"
+  },
+  "engines": {
+    "node": ">= 8.5.0"
+  },
+  "scripts": {
+    "build": "parcel build src/index.html",
+    "dev": "parcel src/index.html",
+    "lint": "eslint \"{src,tests}/**/*.{ts,tsx,js,jsx}\"",
+    "lint:fix": "eslint \"{src,tests}/**/*.{ts,tsx,js,jsx}\" --fix",
+    "prebuild": "rimraf ./dist/*",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@humblebee/ui-react": "^0.1.0",
+    "@theme-ui/presets": "^0.4.0-rc.13",
+    "history": "^5.0.0",
+    "react": ">=16.8.0 <16.14",
+    "react-dom": ">=16.8.0 <16.14",
+    "react-router-dom": "^6.0.0-beta.0",
+    "theme-ui": "^0.4.0-rc.14"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
