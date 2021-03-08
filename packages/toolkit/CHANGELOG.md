@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-beta.4](https://github.com/wearehumblebee/honeycomb/compare/@humblebee/toolkit@0.1.0-beta.3...@humblebee/toolkit@0.1.0-beta.4) (2021-03-08)
+
+### Bug Fixes
+
+- **tooltip:** update webpack4 core configuration parameters ([4997aa9](https://github.com/wearehumblebee/honeycomb/commit/4997aa9a79de7937ebeeb933462b7b43a1fff80d))
+
 # [0.1.0-beta.3](https://github.com/wearehumblebee/honeycomb/compare/@humblebee/toolkit@0.1.0-beta.2...@humblebee/toolkit@0.1.0-beta.3) (2021-03-02)
 
 ### Features
