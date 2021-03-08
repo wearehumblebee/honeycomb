@@ -1,3 +1,4 @@
+import path from 'path';
 import { getBabel7FrontendConfiguration, getBabel7NodeConfiguration } from 'src';
 
 describe('configurations > babel7', () => {
@@ -61,8 +62,8 @@ describe('configurations > babel7', () => {
       expect(configuration).toHaveProperty(
         'presets',
         expect.arrayContaining([
-          expect.stringContaining('@babel/preset-react'),
-          [expect.stringContaining('@babel/preset-env'), envPresetOptions],
+          expect.stringContaining(path.join('@babel', 'preset-react')),
+          [expect.stringContaining(path.join('@babel', 'preset-env')), envPresetOptions],
         ]),
       );
     });
@@ -97,12 +98,17 @@ describe('configurations > babel7', () => {
 
       expect(configuration).toHaveProperty(
         'presets',
-        expect.arrayContaining([[expect.stringContaining('@babel/preset-env'), envPresetOptions]]),
+        expect.arrayContaining([
+          [expect.stringContaining(path.join('@babel', 'preset-env')), envPresetOptions],
+        ]),
       );
       expect(configuration).toHaveProperty(
         'plugins',
         expect.arrayContaining([
-          [expect.stringContaining('@babel/plugin-transform-runtime'), babelRuntimeOptions],
+          [
+            expect.stringContaining(path.join('@babel', 'plugin-transform-runtime')),
+            babelRuntimeOptions,
+          ],
         ]),
       );
     });
