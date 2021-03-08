@@ -4,10 +4,10 @@ const TsConfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const { SourceMapDevToolPlugin } = require('webpack');
 
 const STORYBOOK_TSCONFIG_PATH = path.resolve(__dirname, 'tsconfig.json');
-const STORYBOOK_SRC_PATH = path.resolve(__dirname, '../src');
+// const STORYBOOK_SRC_PATH = path.resolve(__dirname, '../src');
 
 module.exports = {
-  stories: ['../src/stories/**/*.stories.(mdx|ts|tsx|js|jsx)'],
+  stories: ['../src/stories/**/*.stories.@(mdx|ts|tsx|js|jsx)'],
   addons: [
     // Note: addons-actions & addons-knobs will most likely be deprecated in the near future in favour of Storybook Args (WIP)
     // RFC: https://docs.google.com/document/d/1Mhp1UFRCKCsN8pjlfPdz8ZdisgjNXeMXpXvGoALjxYM/edit#
@@ -35,7 +35,10 @@ module.exports = {
     require.resolve(path.resolve(__dirname, 'addons/theme/register.js')),
   ],
   webpackFinal: async (config) => {
-    config.devtool = process.env.NODE_ENV === 'production' ? 'cheap-module-source-map' : 'eval-cheap-module-source-map';
+    config.devtool =
+      process.env.NODE_ENV === 'production'
+        ? 'cheap-module-source-map'
+        : 'eval-cheap-module-source-map';
 
     config.resolve.plugins.push(
       new TsConfigPathsPlugin({

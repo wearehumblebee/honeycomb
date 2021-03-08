@@ -1,13 +1,13 @@
-import { addParameters, addDecorator } from '@storybook/react';
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { StoryId, StoryIdentifier } from '@storybook/addons';
 
 import withThemeProvider from './decorators/withThemeProvider';
 import { theme as storybookTheme } from './theme';
 
-addParameters({
+export const parameters = {
   options: {
     showRoots: true,
-    storySort: (a, b) =>
+    storySort: (a: [StoryId, StoryIdentifier], b: [StoryId, StoryIdentifier]): number =>
       a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
   },
   // https://github.com/storybookjs/storybook/tree/master/addons/docs
@@ -18,6 +18,8 @@ addParameters({
   viewport: {
     viewports: MINIMAL_VIEWPORTS
   }
-});
+};
 
-addDecorator(withThemeProvider);
+export const decorators = [
+  withThemeProvider
+];
