@@ -1,7 +1,7 @@
 {
   "name": "@humblebee/storybook-react",
   "description": "Storybook documentation for @humblebee react packages",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0",
   "main": "src/storybook.js",
   "files": [
     "build"
@@ -33,7 +33,7 @@
     "prebuild": "rimraf ./dist/*"
   },
   "dependencies": {
-    "@humblebee/ui-react": "^0.1.0-beta.0",
+    "@humblebee/ui-react": "^0.1.0",
     "@storybook/addon-a11y": "^6.1.0",
     "@storybook/addon-actions": "^6.1.0",
     "@storybook/addon-docs": "^6.1.0",

@@ -1,7 +1,7 @@
 {
   "name": "@humblebee/ts-react-example",
   "description": "TypeScript & React example using @humblebee/ui-react",
-  "version": "0.1.0-beta.0",
+  "version": "0.1.0",
   "private": true,
   "author": {
     "name": "Humblebee AB",
@@ -27,7 +27,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@humblebee/ui-react": "^0.1.0-beta.0",
+    "@humblebee/ui-react": "^0.1.0",
     "@theme-ui/presets": "^0.4.0-rc.13",
     "history": "^5.0.0",
     "react": ">=16.8.0 <16.14",
