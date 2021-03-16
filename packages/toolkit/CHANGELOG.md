@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/wearehumblebee/honeycomb/compare/@humblebee/toolkit@0.1.0...@humblebee/toolkit@0.1.1) (2021-03-16)
+
+
+### Bug Fixes
+
+* **toolkit:** correct copy-webpack-plugin globOptions for Windows ([8b64ce0](https://github.com/wearehumblebee/honeycomb/commit/8b64ce0c2a0a310d5da6f17b748f745c810a9426))
+
+
+
+
+
 # [0.1.0](https://github.com/wearehumblebee/honeycomb/compare/@humblebee/toolkit@0.1.0-beta.4...@humblebee/toolkit@0.1.0) (2021-03-08)
 
 **Note:** Version bump only for package @humblebee/toolkit
