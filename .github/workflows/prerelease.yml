@@ -65,7 +65,7 @@ jobs:
       # Configure git with the built-in token
       # (to push back the release updates: package.json's version, CHANGELOG etc.)
       - name: Configure Git
-      - run: |
+        run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
       # Install dependencies
