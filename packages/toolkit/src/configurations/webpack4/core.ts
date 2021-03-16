@@ -111,9 +111,13 @@ export const getCoreConfiguration = ({
         {
           from: publicFolder, // Copy all public assets (manifests, favicons, splash etc.)
           to: buildFolder,
+          // https://github.com/mrmlnc/fast-glob#pattern-syntax
+          // Only use posix paths ("/") in here, in all systems.
           globOptions: {
             ignore: [
-              path.resolve(publicFolder, 'index.html'), // Do not copy, it would be injected by HtmlWebpackPlugin
+              // Do not copy the index.html template: HtmlWebpackPlugin
+              // will generate an index referencing the webpack assets.
+              '**/index.html',
             ],
           },
         },
