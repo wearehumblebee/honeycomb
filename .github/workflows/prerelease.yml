@@ -74,6 +74,15 @@ jobs:
       # Build all packages
       - name: Build
         run: yarn run build
+      # Authenticate yarn towards registry.npmjs.org
+      - name: Authenticate with Registry
+        run: |
+          yarn logout
+          echo "registry=http://registry.npmjs.org/" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" >> .npmrc
+          npm whoami
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       # Publish packages
       - name: Publish
         # Using "--no-verify-access" flag since lerna at the moment does not support NPM "automation" tokens
