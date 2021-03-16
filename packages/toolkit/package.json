@@ -30,6 +30,9 @@
     "url": "https://github.com/wearehumblebee/honeycomb.git",
     "directory": "packages/toolkit"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "cli": "humblebee-toolkit",
     "build": "yarn run build:package && yarn run build:cli",

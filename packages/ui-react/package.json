@@ -31,6 +31,9 @@
     "url": "https://github.com/wearehumblebee/honeycomb.git",
     "directory": "packages/ui-react"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "microbundle --no-compress --jsx React.createElement --tsconfig tsconfig.build.json",
     "dev": "microbundle --watch --no-compress --jsx React.createElement --tsconfig tsconfig.build.json",
