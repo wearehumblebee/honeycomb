@@ -30,8 +30,8 @@
     "@humblebee/ui-react": "^0.1.0",
     "@theme-ui/presets": "^0.4.0-rc.13",
     "history": "^5.0.0",
-    "react": ">=16.8.0 <16.14",
-    "react-dom": ">=16.8.0 <16.14",
+    "react": ">=16.14.0",
+    "react-dom": ">=16.14.0",
     "react-router-dom": "^6.0.0-beta.0",
     "theme-ui": "^0.4.0-rc.14"
   },
