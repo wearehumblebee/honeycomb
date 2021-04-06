@@ -1,7 +1,7 @@
 import path from 'path';
 import { getBabel7FrontendConfiguration, getBabel7NodeConfiguration } from 'src';
 
-describe('configurations > babel7', () => {
+describe('configurations', () => {
   describe('frontend', () => {
     it('provides a default configuration', () => {
       const configuration = getBabel7FrontendConfiguration();

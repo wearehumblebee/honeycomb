@@ -3,14 +3,17 @@
 
 import { CommandModule } from 'yargs';
 
-import createDotenvFile from './commands/create-dotenv-file';
+import createDotEnvFile from './commands/createDotEnvFile';
 
-export interface CreateDotenvArguments {
+export interface CreateDotEnvFileArguments {
   example: string;
   target: string;
 }
 
-const command: CommandModule<Record<string, never>, CreateDotenvArguments> = {
+export const createDotEnvFileCommand: CommandModule<
+  Record<string, never>,
+  CreateDotEnvFileArguments
+> = {
   command: 'create-dotenv-file',
   describe: 'Create a local .env file if missing, based on an example',
   builder: {
@@ -29,12 +32,10 @@ const command: CommandModule<Record<string, never>, CreateDotenvArguments> = {
     },
   },
   handler: (args) => {
-    createDotenvFile({
+    createDotEnvFile({
       directory: process.cwd(),
       exampleFilePath: args.example,
       targetFilePath: args.target,
     });
   },
 };
-
-export default command;

@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import createDotenvFile from 'src/commands/create-dotenv-file';
+import createDotEnvFile from 'src/commands/createDotEnvFile';
 
 describe('commands > createDotenvFile', () => {
   const spies: jest.SpyInstance[] = [];
@@ -22,7 +22,7 @@ describe('commands > createDotenvFile', () => {
     jest.spyOn(fs, 'copyFileSync');
 
     expect(() => {
-      createDotenvFile({
+      createDotEnvFile({
         directory,
         exampleFilePath: example,
         targetFilePath: target,
