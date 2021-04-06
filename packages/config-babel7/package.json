@@ -1,7 +1,7 @@
 {
   "name": "@humblebee/config-babel7",
   "description": "Centralized configuration for babel v7",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -1,7 +1,7 @@
 {
   "name": "@humblebee/config-webpack4",
   "description": "Centralized configuration for webpack v4",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
