@@ -2,5 +2,10 @@
 
 'use strict';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-require('yargs/yargs')(process.argv.slice(2)).command(require('../dist/cli')).help().argv;
+const yargs = require('yargs/yargs');
+const { createDotEnvFileCommand } = require('../dist/cli');
+
+yargs(process.argv.slice(2))
+  // register commands
+  .command(createDotEnvFileCommand)
+  .help().argv;

@@ -10,11 +10,5 @@ module.exports = {
         tsconfigRootDir: __dirname,
       },
     },
-    {
-      files: ['bin/*.js'],
-      rules: {
-        '@typescript-eslint/no-var-requires': 0,
-      },
-    },
   ],
 };
