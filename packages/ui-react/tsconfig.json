@@ -2,7 +2,8 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "jsx": "react",
+    "jsx": "react-jsx",
+    "jsxImportSource": "theme-ui",
     "noEmit": true,
     "paths": {
       "src": ["src/"],

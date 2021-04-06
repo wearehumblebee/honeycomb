@@ -1,17 +1,11 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui';
+/** @jsxImportSource theme-ui */
 // There seem to be 2 ThemeProvider at the moment
 // https://github.com/system-ui/theme-ui/issues/834#issuecomment-660049253
 import { ThemeProvider } from '@theme-ui/theme-provider';
 import { DecoratorFunction, StoryContext, StoryGetter } from '@storybook/addons';
-import { Paragraph } from '@humblebee/ui-react';
 
 import { STORAGE_KEY } from '../addons/theme/constants';
 import { getThemeByName } from '../../src/helpers/theme';
-
-const components = {
-  Paragraph,
-};
 
 const withThemeProvider: DecoratorFunction<StoryGetter | JSX.Element> = (
   Story: StoryGetter,
@@ -24,7 +18,7 @@ const withThemeProvider: DecoratorFunction<StoryGetter | JSX.Element> = (
   const theme = getThemeByName(themeName, true);
 
   return theme ? (
-    <ThemeProvider theme={theme.theme} components={components}>
+    <ThemeProvider theme={theme.theme}>
       <Story {...context} />
     </ThemeProvider>
   ) : (

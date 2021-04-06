@@ -71,13 +71,11 @@ You can customise the element being rendered thanks to the `as` prop from emotio
 This can be especially useful together with for instance `react-router-dom` components
 
 ```jsx
-/** @jsx jsx **/
-import { jsx, Link as ThemeLink } from 'theme-ui';
+/** @jsxImportSource theme-ui */
+import { Link as ThemeLink } from 'theme-ui';
 import { Link as RouterLink } from 'react-router-dom';
 
 const MyComponent = () => (
-  <ThemeLink as={RouterLink} to="/somewhere">
-    Link to somewhere
-  </ThemeLink>
+  <ThemeLink as={(props) => <RouterLink {...props} to="/somewhere" />}>Link to somewhere</ThemeLink>
 );
 ```

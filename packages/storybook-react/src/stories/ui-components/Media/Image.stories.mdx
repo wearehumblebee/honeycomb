@@ -44,7 +44,7 @@ You can also add metadata using an HTML figure element
   <Story name="Metadata">
     {() => {
       const { theme } = useThemeUI();
-      const src = 'https://i.picsum.photos/id/237';
+      const src = 'https://picsum.photos/id/237';
       return (
         <figure>
           <Image
@@ -71,22 +71,22 @@ https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Res
   <Story name="Responsive images">
     {() => {
       const { theme } = useThemeUI();
-      const src = 'picsum.photos/id/773';
+      const src = 'https://picsum.photos/id/773';
       return (
         <picture>
           <source
             type="image/webp"
-            srcSet={`https://i.${src}/1440/810.webp 2x, https://i.${src}/720/405.webp 1x`}
+            srcSet={`${src}/1440/810.webp 2x, ${src}/720/405.webp 1x`}
             media="(min-width: 480px)"
           />
           <source
             type="image/jpeg"
-            srcSet={`https://i.${src}/1440/810.jpg 2x, https://i.${src}/720/405.jpg 1x`}
+            srcSet={`${src}/1440/810.jpg 2x, ${src}/720/405.jpg 1x`}
             media="(min-width: 480px)"
           />
           <Image
             variant={select('Variant', theme ? Object.keys(theme.images || {}) : [])}
-            src={`https://${src}/480/270`}
+            src={`${src}/480/270`}
             alt={text('Alt', 'Trolltun(yo)ga')}
           />
         </picture>

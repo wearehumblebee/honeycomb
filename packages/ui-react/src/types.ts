@@ -9,12 +9,3 @@ export type RecursivePartial<T> = T extends Record<string, unknown>
 
 // Can help merge partial themes together
 export type PartialTheme = RecursivePartial<Theme>;
-
-// https://github.com/system-ui/theme-ui/pull/692
-export type Assign<T, U> = {
-  [P in keyof (T & U)]: P extends keyof T ? T[P] : P extends keyof U ? U[P] : never;
-};
-
-export type ForwardRef<T, P> = React.ForwardRefExoticComponent<
-  React.PropsWithoutRef<P> & React.RefAttributes<T>
->;

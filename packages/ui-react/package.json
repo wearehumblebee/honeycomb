@@ -35,8 +35,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "microbundle --no-compress --jsx React.createElement --tsconfig tsconfig.build.json",
-    "dev": "microbundle --watch --no-compress --jsx React.createElement --tsconfig tsconfig.build.json",
+    "build": "microbundle --tsconfig tsconfig.build.json --no-compress --jsx jsx --jsxImportSource theme-ui --globals react/jsx-runtime=jsx",
+    "dev": "microbundle --watch --tsconfig tsconfig.build.json --no-compress --jsx jsx --jsxImportSource theme-ui --globals react/jsx-runtime=jsx",
     "lint": "eslint \"{src,tests}/**/*.{ts,tsx,js,jsx}\"",
     "lint:fix": "eslint \"{src,tests}/**/*.{ts,tsx,js,jsx}\" --fix",
     "prebuild": "rimraf ./dist/*",
@@ -44,8 +44,8 @@
     "test": "jest"
   },
   "peerDependencies": {
-    "react": ">=16.8.0 <16.14",
-    "react-dom": ">=16.8.0 <16.14",
-    "theme-ui": "^0.4.0-rc.14"
+    "react": "^16.14.0 || ^17.0.0",
+    "react-dom": "^16.14.0 || ^17.0.0",
+    "theme-ui": "^0.7.0"
   }
 }

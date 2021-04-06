@@ -1,10 +1,8 @@
-/** @jsx jsx */
-import { Box, Container, Flex, jsx } from 'theme-ui';
-import { FunctionComponent } from 'react';
+import { Box, Container, Flex } from 'theme-ui';
 
 import InternalNavLink from './InternalNavLink';
 
-const Nav: FunctionComponent = () => (
+const Nav: React.FC = () => (
   <Box
     as="nav"
     sx={{

@@ -1,6 +1,5 @@
-/** @jsx jsx */
-import { Container, Flex, Grid, Heading, jsx } from 'theme-ui';
-import { Paragraph } from '@humblebee/ui-react';
+import { Container, Flex, Grid, Heading, Paragraph } from 'theme-ui';
+// import { Paragraph } from '@humblebee/ui-react';
 import { FunctionComponent } from 'react';
 
 import ProjectCard from '../components/ProjectCard';

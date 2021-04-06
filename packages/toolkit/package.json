@@ -36,9 +36,9 @@
   "scripts": {
     "cli": "humblebee-toolkit",
     "build": "yarn run build:package && yarn run build:cli",
-    "build:package": "microbundle --no-compress --tsconfig tsconfig.build.json",
-    "build:cli": "microbundle -i src/cli.ts -o dist/cli.js -f cjs --no-pkg-main --no-compress --tsconfig tsconfig.build.json",
-    "dev": "microbundle --no-compress --tsconfig tsconfig.build.json --watch",
+    "build:package": "microbundle --tsconfig tsconfig.build.json --no-compress",
+    "build:cli": "microbundle --tsconfig tsconfig.build.json --no-compress -i src/cli.ts -o dist/cli.js -f cjs --no-pkg-main",
+    "dev": "microbundle --tsconfig tsconfig.build.json --no-compress --watch",
     "lint": "eslint \"{src,tests}/**/*.{ts,tsx,js,jsx}\"",
     "lint:fix": "eslint \"{src,tests}/**/*.{ts,tsx,js,jsx}\" --fix",
     "prebuild": "rimraf ./dist/*",
