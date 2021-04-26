@@ -1,6 +1,5 @@
-/** @jsx jsx */
-import { Container, Flex, Heading, jsx } from 'theme-ui';
-import { Paragraph } from '@humblebee/ui-react';
+import { Container, Flex, Heading, Paragraph } from 'theme-ui';
+// import { Paragraph } from '@humblebee/ui-react';
 import { FunctionComponent } from 'react';
 
 const NotFoundView: FunctionComponent = () => (

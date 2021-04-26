@@ -3,7 +3,8 @@
   "compilerOptions": {
     "allowJs": false,
     "baseUrl": "./",
-    "jsx": "react",
+    "jsx": "react-jsx",
+    "jsxImportSource": "theme-ui",
     "resolveJsonModule": true,
     "paths": {
       "@humblebee/ui-react": ["../../packages/ui-react/src"],
@@ -15,5 +16,5 @@
     }
   },
   "include": ["src/**/*", "tests/**/*"],
-  "exclude": ["coverage", "dist"]
+  "exclude": ["dist", "reports"]
 }

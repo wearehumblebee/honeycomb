@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { ThemeUIStyleObject, jsx } from 'theme-ui';
+import { ThemeUIStyleObject } from 'theme-ui';
 
 import { renderWithTheme } from 'tests/utils';
 import { Paragraph } from 'src';
@@ -33,7 +32,7 @@ describe('components > Paragraph', () => {
     };
 
     const { getByTestId } = renderWithTheme(
-      <Paragraph data-testid={testId} variant={variantName}>
+      <Paragraph data-testid={testId} sx={{ variant: `text.${variantName}` }}>
         Lorem ipsum dolor sit amet
       </Paragraph>,
       {

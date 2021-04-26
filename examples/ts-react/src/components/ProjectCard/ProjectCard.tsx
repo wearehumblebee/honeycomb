@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { AspectRatio, Card, Flex, Heading, Link, jsx } from 'theme-ui';
-import { FunctionComponent } from 'react';
+import { AspectRatio, Card, Flex, Heading, Link } from 'theme-ui';
 
 interface ProjectCardProps {
   color: string;
@@ -8,11 +6,7 @@ interface ProjectCardProps {
   title: string;
 }
 
-const ProjectCard: FunctionComponent<ProjectCardProps> = ({
-  color,
-  link,
-  title,
-}: ProjectCardProps) => (
+const ProjectCard: React.FC<ProjectCardProps> = ({ color, link, title }: ProjectCardProps) => (
   <Card variant="primary">
     <Link
       href={link}

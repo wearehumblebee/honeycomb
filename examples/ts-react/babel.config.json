@@ -1,0 +1,32 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "corejs": "3",
+        "modules": "auto",
+        "loose": true,
+        "useBuiltIns": "usage"
+      }
+    ],
+    "@babel/preset-typescript",
+    [
+      "@babel/preset-react",
+      {
+        "importSource": "theme-ui",
+        "runtime": "automatic",
+        "throwIfNamespace": false
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@emotion",
+      {
+        "autoLabel": "dev-only",
+        "cssPropOptimization": true,
+        "labelFormat": "[filename]--[local]"
+      }
+    ]
+  ]
+}

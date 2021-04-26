@@ -33,9 +33,8 @@ https://theme-ui.com/components/forms#theming
           name="textarea.default"
           placeholder="tape something in..."
           aria-label="just an example"
-        >
-          {text('Content', '')}
-        </Textarea>
+          defaultValue={text('Content', '')}
+        />
       );
     }}
   </Story>
@@ -56,9 +55,8 @@ Accessible form textareas always have a label (either an actual HTML `label` ele
             onChange={action('Textarea.accessible.onChange')}
             name="textarea.accessible"
             placeholder="tape something in..."
-          >
-            {text('Content', '')}
-          </Textarea>
+            defaultValue={text('Content', '')}
+          />
         </React.Fragment>
       );
     }}
@@ -89,9 +87,8 @@ Textareas are controllable: state can be managed outside using for instance hook
             type="text"
             placeholder="tape something in..."
             aria-label="just an example"
-          >
-            {formData.example}
-          </Textarea>
+            value={formData.example}
+          />
           <Divider />
           <Styled.pre>{JSON.stringify(formData, null, 2)}</Styled.pre>
         </React.Fragment>

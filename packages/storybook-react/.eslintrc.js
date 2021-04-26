@@ -6,6 +6,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
   ],
+  ignorePatterns: ['dist/**/*', 'node_modules/**/*'],
   plugins: ['jsx-a11y', 'react', 'react-hooks'],
   // rules: {
   //   'jsx-a11y/anchor-is-valid': 0,
