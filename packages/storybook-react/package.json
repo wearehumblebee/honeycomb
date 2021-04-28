@@ -45,7 +45,7 @@
     "@storybook/addons": "^6.1.0",
     "@storybook/preset-typescript": "^3.0.0",
     "@storybook/react": "^6.1.0",
-    "@theme-ui/presets": "^0.4.0-rc.13",
+    "@theme-ui/presets": "^0.6.2",
     "react": ">=16.8.0 <16.14",
     "react-dom": ">=16.8.0 <16.14",
     "react-is": ">=16.8.0 <16.14",
