@@ -1,4 +1,4 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { number, text } from '@storybook/addon-knobs';
 import { Box, Embed } from 'theme-ui';
 
@@ -14,7 +14,7 @@ NOTE: to optimise media performances, implement a lazyloading strategy:
 
 https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video
 
-<Preview>
+<Canvas>
   <Story name="Default">
     <Box sx={{ width: number('Width', 720), maxWidth: '100%' }}>
       <Embed
@@ -25,4 +25,4 @@ https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance
       />
     </Box>
   </Story>
-</Preview>
+</Canvas>

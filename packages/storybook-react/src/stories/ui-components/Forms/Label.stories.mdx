@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { select, text } from '@storybook/addon-knobs';
 import { Label, useThemeUI } from 'theme-ui';
 
@@ -10,11 +10,11 @@ https://theme-ui.com/components/label
 
 <Meta title="UI Components / Forms / Label" component={Label} parameters={{ layout: 'centered' }} />
 
-<Props of={Label} />
+<ArgsTable of={Label} />
 
 You can define variants in your theme under `theme.forms`, default variant is `label`
 
-<Preview>
+<Canvas>
   <Story name="Default">
     {() => {
       const { theme } = useThemeUI();
@@ -25,4 +25,4 @@ You can define variants in your theme under `theme.forms`, default variant is `l
       );
     }}
   </Story>
-</Preview>
+</Canvas>

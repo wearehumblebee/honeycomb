@@ -1,12 +1,13 @@
 import { create } from '@storybook/theming';
-
-import { name, version } from '@humblebee/ui-react/package.json';
+import packageInformations from '@humblebee/ui-react/package.json';
 
 // https://storybook.js.org/docs/configurations/theming/
 export const theme = create({
   base: 'light', // 'dark' | 'light'
   // Brand
-  brandTitle: `${name}<br />${`<span style="font-size: 10px;font-weight: normal">v${version}</span>`}`,
+  brandTitle: `${
+    packageInformations.name
+  }<br />${`<span style="font-size: 10px;font-weight: normal">v${packageInformations.version}</span>`}`,
   brandUrl: './',
   brandImage: undefined,
   // Colors

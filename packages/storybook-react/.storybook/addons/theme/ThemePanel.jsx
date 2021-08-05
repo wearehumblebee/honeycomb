@@ -1,9 +1,18 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useGlobals, useAddonState } from '@storybook/api';
-import { AddonPanel, DocumentWrapper, Placeholder, Separator, Source, Spaced, Title } from '@storybook/components';
-import { ColorPalette, ColorItem, Description, Typeset } from '@storybook/addon-docs/blocks';
-import { useThemeUI } from 'theme-ui';
+import { useGlobals } from '@storybook/api';
+// import { useGlobals, useAddonState } from '@storybook/api';
+import {
+  AddonPanel,
+  DocumentWrapper,
+  Placeholder,
+  Separator,
+  Source,
+  Spaced,
+  Title,
+} from '@storybook/components';
+import { ColorPalette, ColorItem, Description, Typeset } from '@storybook/addon-docs';
+// import { useThemeUI } from 'theme-ui';
 
 import { getThemeByName } from '../../../src/helpers/theme';
 import { STORAGE_KEY } from './constants';
@@ -12,9 +21,9 @@ const PanelWrapper = styled(DocumentWrapper)`
   padding: 1em;
 `;
 
-const TabWrapper = styled.div`
-  padding: 1em;
-`;
+// const TabWrapper = styled.div`
+//   padding: 1em;
+// `;
 
 const ThemePanel = (props) => {
   // TODO: how to work with globals initial value?
@@ -58,7 +67,13 @@ const ThemePanel = (props) => {
             <Separator />
             <h2>Source</h2>
             <Description markdown="The full theme object" />
-            <Source code={JSON.stringify(theme.theme, null, 2)} language="js" copyable padded showLineNumbers />
+            <Source
+              code={JSON.stringify(theme.theme, null, 2)}
+              language="js"
+              copyable
+              padded
+              showLineNumbers
+            />
           </Spaced>
         ) : (
           <Placeholder>No theme selected</Placeholder>

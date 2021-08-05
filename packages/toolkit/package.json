@@ -45,9 +45,9 @@
     "test": "jest --coverage"
   },
   "dependencies": {
-    "yargs": "^16.2.0"
+    "yargs": "^17.1.0"
   },
   "devDependencies": {
-    "@types/yargs": "^16.0.0"
+    "@types/yargs": "^17.0.2"
   }
 }

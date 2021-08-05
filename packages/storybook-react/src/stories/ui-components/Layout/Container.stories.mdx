@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { Box, Container, useThemeUI } from 'theme-ui';
 
 # Container
@@ -13,13 +13,13 @@ https://theme-ui.com/components/container
   parameters={{ layout: 'centered' }}
 />
 
-<Props of={Container} />
+<ArgsTable of={Container} />
 
 You can define variants in your theme under `theme.layout`, default variant is `container`
 
 You can define also define a max-width under `theme.sizes.container`
 
-<Preview>
+<Canvas>
   <Story name="Default">
     {() => {
       const { theme } = useThemeUI();
@@ -36,4 +36,4 @@ You can define also define a max-width under `theme.sizes.container`
       );
     }}
   </Story>
-</Preview>
+</Canvas>

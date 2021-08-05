@@ -1,4 +1,4 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { number, select, text } from '@storybook/addon-knobs';
 import { Image, useThemeUI } from 'theme-ui';
 
@@ -16,7 +16,7 @@ NOTE: to optimise media performances, implement a lazyloading strategy:
 
 https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video
 
-<Preview>
+<Canvas>
   <Story name="Default">
     {() => {
       const { theme } = useThemeUI();
@@ -36,11 +36,11 @@ https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance
       );
     }}
   </Story>
-</Preview>
+</Canvas>
 
 You can also add metadata using an HTML figure element
 
-<Preview>
+<Canvas>
   <Story name="Metadata">
     {() => {
       const { theme } = useThemeUI();
@@ -59,7 +59,7 @@ You can also add metadata using an HTML figure element
       );
     }}
   </Story>
-</Preview>
+</Canvas>
 
 If you have a backend supporting different media formats such as [imgix](https://www.imgix.com/), you can combine it with an HTML picture to serve the most optimised format to your customers
 
@@ -67,7 +67,7 @@ If you have a backend supporting different media formats such as [imgix](https:/
 
 https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
 
-<Preview>
+<Canvas>
   <Story name="Responsive images">
     {() => {
       const { theme } = useThemeUI();
@@ -93,4 +93,4 @@ https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Res
       );
     }}
   </Story>
-</Preview>
+</Canvas>

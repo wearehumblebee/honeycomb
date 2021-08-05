@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { text } from '@storybook/addon-knobs';
 import { Progress } from 'theme-ui';
 
@@ -14,11 +14,11 @@ https://theme-ui.com/components/progress
   parameters={{ layout: 'centered' }}
 />
 
-<Props of={Progress} />
+<ArgsTable of={Progress} />
 
 You can define variants anywhere in your theme, default style is `theme.styles.progress`
 
-<Preview>
+<Canvas>
   <Story name="Default">
     {() => {
       const progress = text('Progress', 50);
@@ -29,4 +29,4 @@ You can define variants anywhere in your theme, default style is `theme.styles.p
       );
     }}
   </Story>
-</Preview>
+</Canvas>

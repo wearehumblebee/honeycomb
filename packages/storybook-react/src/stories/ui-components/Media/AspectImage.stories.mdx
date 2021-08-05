@@ -1,4 +1,4 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { number, select, text } from '@storybook/addon-knobs';
 import { AspectImage, Box } from 'theme-ui';
 
@@ -18,7 +18,7 @@ You can play with the [css object-fit property](https://developer.mozilla.org/do
 
 Also, if your image backend supports focal-point cropping, you can go crazy with that.
 
-<Preview>
+<Canvas>
   <Story name="Default">
     {() => {
       const ratio = text('Ratio', (16 / 9).toFixed(3));
@@ -46,4 +46,4 @@ Also, if your image backend supports focal-point cropping, you can go crazy with
       );
     }}
   </Story>
-</Preview>
+</Canvas>

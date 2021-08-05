@@ -1,4 +1,4 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { number, text } from '@storybook/addon-knobs';
 import { Spinner } from 'theme-ui';
 
@@ -12,7 +12,7 @@ https://theme-ui.com/components/spinner
 
 You can define variants anywhere in your theme, default style is `theme.styles.spinner`
 
-<Preview>
+<Canvas>
   <Story name="Default">
     <Spinner
       title={text('title', 'loading...')}
@@ -20,4 +20,4 @@ You can define variants anywhere in your theme, default style is `theme.styles.s
       strokeWidth={number('strokeWidth', 4)}
     />
   </Story>
-</Preview>
+</Canvas>

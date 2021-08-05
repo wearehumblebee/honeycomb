@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { Divider, Label, Radio, Styled, useThemeUI } from 'theme-ui';
@@ -16,7 +16,7 @@ You can define variants in your theme under `theme.forms`, default variant is `r
 
 https://theme-ui.com/components/forms#theming
 
-<Preview>
+<Canvas>
   <Story name="Default">
     {() => {
       const { theme } = useThemeUI();
@@ -33,11 +33,11 @@ https://theme-ui.com/components/forms#theming
       );
     }}
   </Story>
-</Preview>
+</Canvas>
 
 Radios are controllable: state can be managed outside using for instance hooks
 
-<Preview>
+<Canvas>
   <Story name="State">
     {() => {
       const { theme } = useThemeUI();
@@ -89,4 +89,4 @@ Radios are controllable: state can be managed outside using for instance hooks
       );
     }}
   </Story>
-</Preview>
+</Canvas>

@@ -1,4 +1,4 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { number, select, text } from '@storybook/addon-knobs';
 import { Avatar, useThemeUI } from 'theme-ui';
 
@@ -12,7 +12,7 @@ https://theme-ui.com/components/avatar
 
 You can define variants in your theme under `theme.images`, default variant is `avatar`
 
-<Preview>
+<Canvas>
   <Story name="Default">
     {() => {
       const { theme } = useThemeUI();
@@ -26,4 +26,4 @@ You can define variants in your theme under `theme.images`, default variant is `
       );
     }}
   </Story>
-</Preview>
+</Canvas>

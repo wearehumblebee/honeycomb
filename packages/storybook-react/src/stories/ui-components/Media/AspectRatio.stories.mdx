@@ -1,4 +1,4 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { number, select, text } from '@storybook/addon-knobs';
 import { AspectRatio, Box, Heading, Image } from 'theme-ui';
 
@@ -16,7 +16,7 @@ https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance
 
 It can render any child: text elements, media etc.
 
-<Preview>
+<Canvas>
   <Story name="Default">
     {() => {
       const ratio = text('Ratio', (16 / 9).toFixed(3));
@@ -45,11 +45,11 @@ It can render any child: text elements, media etc.
       );
     }}
   </Story>
-</Preview>
+</Canvas>
 
 You can render any media under AspectRatio, even though for images you even have the `AspectImage` component that does that for you.
 
-<Preview>
+<Canvas>
   <Story name="Image">
     {() => {
       const ratio = text('Ratio', (16 / 9).toFixed(3));
@@ -85,4 +85,4 @@ You can render any media under AspectRatio, even though for images you even have
       );
     }}
   </Story>
-</Preview>
+</Canvas>
