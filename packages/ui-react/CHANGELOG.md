@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/wearehumblebee/honeycomb/compare/@humblebee/ui-react@0.1.3...@humblebee/ui-react@0.2.0) (2021-08-06)
+
+### Features
+
+- **theme-ui:** bump 0.6.0 with automatic jsx pragma ([ac03ba3](https://github.com/wearehumblebee/honeycomb/commit/ac03ba375cc9ee37114e84ba0a4a701294f4e17b))
+
+### BREAKING CHANGES
+
+- **theme-ui:** ui-react now requires react >=16.14 and theme-ui >=0.6
+
 ## [0.1.3](https://github.com/wearehumblebee/honeycomb/compare/@humblebee/ui-react@0.1.2...@humblebee/ui-react@0.1.3) (2021-03-16)
 
 **Note:** Version bump only for package @humblebee/ui-react

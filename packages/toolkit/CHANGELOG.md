@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/wearehumblebee/honeycomb/compare/@humblebee/toolkit@0.2.2...@humblebee/toolkit@0.3.0) (2021-08-06)
+
+### Features
+
+- **theme-ui:** bump 0.6.0 with automatic jsx pragma ([ac03ba3](https://github.com/wearehumblebee/honeycomb/commit/ac03ba375cc9ee37114e84ba0a4a701294f4e17b))
+
+### BREAKING CHANGES
+
+- **theme-ui:** ui-react now requires react >=16.14 and theme-ui >=0.6
+
 ## [0.2.2](https://github.com/wearehumblebee/honeycomb/compare/@humblebee/toolkit@0.2.1...@humblebee/toolkit@0.2.2) (2021-04-06)
 
 **Note:** Version bump only for package @humblebee/toolkit
