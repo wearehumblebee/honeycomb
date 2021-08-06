@@ -72,6 +72,7 @@ jobs:
       # Install dependencies
       - name: Install
         run: yarn install --frozen-lockfile
+        working-directory: packages/storybook-react
       # Chromatic deployment
       - uses: chromaui/action@v1
         with:
