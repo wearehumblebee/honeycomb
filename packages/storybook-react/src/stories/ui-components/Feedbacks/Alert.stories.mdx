@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { action } from '@storybook/addon-actions';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { Alert, Close, useThemeUI } from 'theme-ui';
@@ -15,11 +15,11 @@ https://theme-ui.com/components/alert
   parameters={{ layout: 'centered' }}
 />
 
-<Props of={Alert} />
+<ArgsTable of={Alert} />
 
 You can define variants in your theme under `theme.alerts`, default variant is `primary`
 
-<Preview>
+<Canvas>
   <Story name="Default">
     {() => {
       const { theme } = useThemeUI();
@@ -33,9 +33,9 @@ You can define variants in your theme under `theme.alerts`, default variant is `
       );
     }}
   </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
   <Story name="Theme variants">
     {() => {
       const { theme } = useThemeUI();
@@ -55,4 +55,4 @@ You can define variants in your theme under `theme.alerts`, default variant is `
       );
     }}
   </Story>
-</Preview>
+</Canvas>

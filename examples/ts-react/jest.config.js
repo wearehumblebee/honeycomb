@@ -18,6 +18,7 @@ module.exports = {
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/' }),
   rootDir: './',
   setupFilesAfterEnv: ['<rootDir>/tests/setup.ts'],
+  testEnvironment: 'jsdom',
   testMatch: ['<rootDir>/tests/**/*.test.(js|jsx|ts|tsx)'],
   transform: {
     '^.+\\.jsx?$': 'babel-jest',

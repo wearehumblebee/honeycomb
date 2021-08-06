@@ -1,14 +1,15 @@
 import React from 'react';
 import { Text, TextProps } from 'theme-ui';
 
-import { Assign, ForwardRef } from '../../types';
+export type ParagraphProps = TextProps;
 
-export type ParagraphProps = Assign<React.ComponentPropsWithRef<'p'>, TextProps>;
-
-const Paragraph: ForwardRef<
-  HTMLParagraphElement,
-  ParagraphProps
-> = React.forwardRef((props, ref) => <Text as="p" {...props} ref={ref} />);
+/**
+ * This component was created before being added to theme-ui
+ * @deprecated import Paragraph instead from theme-ui instead
+ */
+const Paragraph = React.forwardRef<HTMLParagraphElement, ParagraphProps>((props, ref) => (
+  <Text as="p" {...props} ref={ref} />
+));
 
 Paragraph.displayName = 'Paragraph';
 

@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs';
 
 <Meta title="Documentation / 3 - Global Style" />
 
@@ -48,8 +48,7 @@ NOTE: you need to install `@emotion/core` if you did have not already done that.
 
 ```jsx
 // [path-to-your-components]/GlobalStyle.jsx
-/** @jsx jsx */
-import { jsx } from 'theme-ui';
+/** @jsxImportSource theme-ui */
 import { Global } from '@emotion/core';
 
 const GlobalStyle = (props) => (

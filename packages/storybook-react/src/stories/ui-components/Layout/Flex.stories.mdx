@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { text } from '@storybook/addon-knobs';
 import { Box, Flex } from 'theme-ui';
 
@@ -10,9 +10,9 @@ https://theme-ui.com/components/flex
 
 <Meta title="UI Components / Layout / Flex" component={Flex} parameters={{ layout: 'centered' }} />
 
-<Props of={Flex} />
+<ArgsTable of={Flex} />
 
-<Preview>
+<Canvas>
   <Story name="Default">
     {() => {
       const flex = text('First child flex', '1 1 auto');
@@ -36,7 +36,7 @@ https://theme-ui.com/components/flex
       );
     }}
   </Story>
-</Preview>
+</Canvas>
 
 You can use arrays of values to change those between the different breakpoints of your theme, defined under `theme.breakpoints`
 
@@ -44,7 +44,7 @@ The first value will be for mobile
 
 https://theme-ui.com/getting-started/#responsive-styles
 
-<Preview>
+<Canvas>
   <Story name="Responsive Flows">
     {() => {
       const mobileFlow = text('flex-flow on mobile', 'column wrap');
@@ -70,4 +70,4 @@ https://theme-ui.com/getting-started/#responsive-styles
       );
     }}
   </Story>
-</Preview>
+</Canvas>

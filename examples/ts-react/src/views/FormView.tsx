@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import {
   Alert,
   Box,
@@ -10,14 +9,14 @@ import {
   Heading,
   Input,
   Label,
+  Paragraph,
   Radio,
   Select,
   Slider,
-  Styled,
   Text,
-  jsx,
+  Themed,
 } from 'theme-ui';
-import { Paragraph } from '@humblebee/ui-react';
+// import { Paragraph } from '@humblebee/ui-react';
 import { FormEvent, FunctionComponent, useState } from 'react';
 
 interface ApplicationFormState {
@@ -196,9 +195,9 @@ const FormView: FunctionComponent = () => {
           </Paragraph>
         </Alert>
       )}
-      <Styled.pre color={isFormSubmitted ? 'primary' : 'inherit'}>
+      <Themed.pre color={isFormSubmitted ? 'primary' : 'inherit'}>
         {JSON.stringify(formData, null, 2)}
-      </Styled.pre>
+      </Themed.pre>
     </Container>
   );
 };

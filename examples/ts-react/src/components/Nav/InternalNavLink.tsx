@@ -1,13 +1,11 @@
-/** @jsx jsx */
-import { NavLink, NavLinkProps, jsx } from 'theme-ui';
-import { FunctionComponent } from 'react';
+import { NavLink, NavLinkProps } from 'theme-ui';
 import { Link } from 'react-router-dom';
 
 interface InternalNavLinkProps extends NavLinkProps {
   to: string;
 }
 
-const InternalNavLink: FunctionComponent<InternalNavLinkProps> = ({
+const InternalNavLink: React.FC<InternalNavLinkProps> = ({
   to,
   ...props
 }: InternalNavLinkProps) => (

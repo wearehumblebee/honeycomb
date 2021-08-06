@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
 import { action } from '@storybook/addon-actions';
 import {
   Button,
@@ -51,7 +51,7 @@ You should prefer doing:
 </form>
 ```
 
-<Preview>
+<Canvas>
   <Story name="Combination">
     {() => {
       const [isFormSubmitted, setIsFormSubmitted] = useState(false);
@@ -208,4 +208,4 @@ You should prefer doing:
       );
     }}
   </Story>
-</Preview>
+</Canvas>

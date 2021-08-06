@@ -1,4 +1,4 @@
-import { Meta, Preview, Props, Story } from '@storybook/addon-docs/blocks';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
 import { select, text } from '@storybook/addon-knobs';
 import { Text, useThemeUI } from 'theme-ui';
 import { Paragraph } from '@humblebee/ui-react';
@@ -15,11 +15,11 @@ https://theme-ui.com/components/text
   parameters={{ layout: 'centered' }}
 />
 
-<Props of={Text} />
+<ArgsTable of={Text} />
 
 It default to an html `<span />` element but you can customise that using the `as` prop from emotion
 
-<Preview>
+<Canvas>
   <Story name="Default">
     {() => {
       const { theme } = useThemeUI();
@@ -33,13 +33,13 @@ It default to an html `<span />` element but you can customise that using the `a
       );
     }}
   </Story>
-</Preview>
+</Canvas>
 
 Or use Humblebee's Paragraph component which is basically a Text defaulting to an HTML paragraph element
 
-<Props of={Paragraph} />
+<ArgsTable of={Paragraph} />
 
-<Preview>
+<Canvas>
   <Story name="Paragraph">
     {() => {
       const { theme } = useThemeUI();
@@ -50,4 +50,4 @@ Or use Humblebee's Paragraph component which is basically a Text defaulting to a
       );
     }}
   </Story>
-</Preview>
+</Canvas>

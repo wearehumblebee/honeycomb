@@ -17,6 +17,7 @@ module.exports = {
   },
   rootDir: './',
   setupFilesAfterEnv: ['<rootDir>/tests/setup.ts'],
+  testEnvironment: 'jsdom',
   testMatch: ['<rootDir>/tests/**/*.test.(js|jsx|ts|tsx)'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',

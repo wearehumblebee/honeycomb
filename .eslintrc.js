@@ -13,11 +13,12 @@ module.exports = {
     // 'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'prettier',
     // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors.
     // Make sure this is always the last configuration in the extends array.
     'plugin:prettier/recommended',
+    'prettier',
   ],
+  ignorePatterns: ['node_modules/**/*'],
   parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 2018,
@@ -27,7 +28,7 @@ module.exports = {
     requireConfigFile: false,
     sourceType: 'module',
   },
-  plugins: ['prettier', '@typescript-eslint'],
+  plugins: ['@emotion', '@typescript-eslint', 'prettier'],
   settings: {
     // 'import/extensions': ['.ts', '.tsx', '.d.s', '.js', '.jsx', '.json'],
     // 'import/parsers': {
@@ -47,13 +48,16 @@ module.exports = {
     // }
   },
   rules: {
+    '@emotion/jsx-import': 'error',
+    '@emotion/pkg-renaming': 'error',
+    // disable the rule for all files by default
+    // @see https://github.com/typescript-eslint/typescript-eslint/issues/964
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    // Generic rules
     'func-names': ['error', 'never'],
     // cannot make it work with subfolders tsconfig path mapping at the moment
     // 'import/no-unresolved': [2, { caseSensitive: true, commonjs: true }],
     'prefer-destructuring': 0,
-    // disable the rule for all files by default
-    // @see https://github.com/typescript-eslint/typescript-eslint/issues/964
-    '@typescript-eslint/explicit-function-return-type': 'off',
   },
   overrides: [
     {

@@ -9,6 +9,9 @@ addons.setConfig({
   theme: storybookTheme,
   isFullscreen: false,
   showPanel: true,
+  sidebar: {
+    showRoots: true,
+  },
   storySort: {
     method: 'alphabetical',
   },
