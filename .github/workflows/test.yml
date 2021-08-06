@@ -78,9 +78,9 @@ jobs:
       # Chromatic deployment
       - uses: chromaui/action@v1
         with:
-          storybookBuildDir: dist
           exitZeroOnChanges: true # from PRs: ensure snapshot differences do not fail the workflow
           # ignoreLastBuildOnBranch: true
-          token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          storybookBuildDir: dist
+          token: ${{ secrets.GITHUB_TOKEN }}
           workingDir: packages/storybook-react

@@ -76,3 +76,38 @@ jobs:
         run: yarn lerna publish --no-private --no-verify-access --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  # Deploy Chromatic
+  chromatic:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout git branch
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Required (Chromatic needs the entire git history)
+      # Install node.js environment
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      # Cache node_modules (busting only when yarn.lock change)
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+      # Install dependencies
+      - name: Install
+        run: yarn install --frozen-lockfile
+      # Build Storybook (chromaui action uses npm and cannot use hoisted dependencies from yarn workspaces)
+      - name: Build Storybook
+        run: yarn run build:storybook
+      # Chromatic deployment
+      - uses: chromaui/action@v1
+        with:
+          autoAcceptChanges: true # from the main branch: accept changes automatically
+          exitOnceUploaded: true # from the main branch: do not fail the action once uploaded
+          # ignoreLastBuildOnBranch: true
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          storybookBuildDir: dist
+          token: ${{ secrets.GITHUB_TOKEN }}
+          workingDir: packages/storybook-react
