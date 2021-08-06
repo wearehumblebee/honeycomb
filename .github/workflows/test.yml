@@ -55,6 +55,9 @@ jobs:
   chromatic:
     needs: test
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/storybook-react
     steps:
       # Checkout git branch
       - uses: actions/checkout@v2
