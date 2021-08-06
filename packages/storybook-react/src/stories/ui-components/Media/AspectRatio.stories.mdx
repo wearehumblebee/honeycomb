@@ -70,7 +70,10 @@ You can render any media under AspectRatio, even though for images you even have
             }}
           >
             <Image
-              src={text('Src', `https://picsum.photos/${1080 * parseInt(ratio) - 360}/1080`)}
+              src={text(
+                'Src',
+                `https://picsum.photos/id/1036/${1080 * parseInt(ratio) - 360}/1080`,
+              )}
               alt={text('Alt', 'Placeholder')}
               sx={{
                 objectFit: select(
