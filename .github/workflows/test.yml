@@ -50,3 +50,33 @@ jobs:
       # Run all tests
       - name: Test
         run: yarn run test
+
+  # Deploy Chromatic
+  chromatic:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout git branch
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Required (Chromatic needs the entire git history)
+      # Install node.js environment
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      # Cache node_modules (busting only when yarn.lock change)
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+      # Install dependencies
+      - name: Install
+        run: yarn install --frozen-lockfile
+      # Chromatic deployment
+      - uses: chromaui/action@v1
+        with:
+          buildScriptName: build
+          exitZeroOnChanges: true # from PRs: ensure snapshot differences do not fail the workflow
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: packages/storybook-react
