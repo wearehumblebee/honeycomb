@@ -29,7 +29,7 @@
     "prebuild": "rimraf ./dist/*"
   },
   "dependencies": {
-    "@humblebee/ui-react": "^0.1.0",
+    "@humblebee/ui-react": "^0.2.0",
     "@storybook/addon-a11y": "^6.3.0",
     "@storybook/addon-actions": "^6.3.0",
     "@storybook/addon-docs": "^6.3.0",
