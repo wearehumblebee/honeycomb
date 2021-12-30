@@ -7,6 +7,15 @@ export interface CreateDotenvArguments {
   targetFilePath: string;
 }
 
+interface ErrorWithCode extends Error {
+  code?: string;
+}
+
+// typeguard
+function hasCode(error: unknown): error is ErrorWithCode {
+  return typeof error === 'object' && 'code' in (error || {});
+}
+
 const createDotenvFile = ({
   directory,
   exampleFilePath,
@@ -23,7 +32,7 @@ const createDotenvFile = ({
   } catch (error) {
     // The purpose of this function is to create a file if the target does not exist.
     // If the target file already exists, we just ignore this function and resolve silently.
-    if (error.code !== 'EEXIST') {
+    if (hasCode(error) && error.code !== 'EEXIST') {
       console.warn(
         `⚠️ [WARN] Unable to create local file "${targetFilePath}" based on example "${exampleFilePath}".`,
       );

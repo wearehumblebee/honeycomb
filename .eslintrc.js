@@ -7,8 +7,6 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
     // cannot make it work with subfolders tsconfig path mapping at the moment
     // 'plugin:import/errors',
     'plugin:import/warnings',
@@ -28,7 +26,7 @@ module.exports = {
     requireConfigFile: false,
     sourceType: 'module',
   },
-  plugins: ['@emotion', '@typescript-eslint', 'prettier'],
+  plugins: ['@emotion', 'prettier'],
   settings: {
     // 'import/extensions': ['.ts', '.tsx', '.d.s', '.js', '.jsx', '.json'],
     // 'import/parsers': {
@@ -61,13 +59,23 @@ module.exports = {
   },
   overrides: [
     {
-      // enable the rule specifically for TypeScript files
-      // @see https://github.com/typescript-eslint/typescript-eslint/issues/964
+      // config specific to TypeScript files
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
+      plugins: ['@typescript-eslint'],
+      extends: [
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
+      ],
       rules: {
+        // @see https://github.com/typescript-eslint/typescript-eslint/issues/964
         '@typescript-eslint/explicit-function-return-type': ['error'],
       },
+    },
+    {
+      // config specific to MDX files
+      files: ['*.mdx'],
+      extends: ['plugin:mdx/recommended'],
     },
   ],
 };
