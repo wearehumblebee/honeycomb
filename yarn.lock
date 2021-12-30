@@ -1548,6 +1548,11 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.0.tgz#87de7af9c231826fdd68ac7258f77c429e0e5fcf"
   integrity sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==
 
+"@humblebee/ui-react@^0.1.0":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@humblebee/ui-react/-/ui-react-0.1.3.tgz#fe92789a3f5ff8866009a93e4651fa2e174833dd"
+  integrity sha512-rm9UadF5KgDDMgwgG/G5QbU0/j6qeXuG1klvjHDtB2MgN/N5tbcN8Tu0hzBUz011/2ZANdT8t003H7sV/sk66w==
+
 "@hutson/parse-repository-url@^3.0.0":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@hutson/parse-repository-url/-/parse-repository-url-3.0.2.tgz#98c23c950a3d9b6c8f0daed06da6c3af06981340"
