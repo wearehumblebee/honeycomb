@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/wearehumblebee/honeycomb/compare/@humblebee/config-babel7@0.1.2...@humblebee/config-babel7@0.2.0) (2022-01-04)
+
+### Features
+
+- **dependencies:** upgrade minor and patch versions ([f7f61d9](https://github.com/wearehumblebee/honeycomb/commit/f7f61d97fa0bcaf85083b9194d1b19f8776e202f))
+
 ## [0.1.2](https://github.com/wearehumblebee/honeycomb/compare/@humblebee/config-babel7@0.1.1...@humblebee/config-babel7@0.1.2) (2021-08-06)
 
 **Note:** Version bump only for package @humblebee/config-babel7

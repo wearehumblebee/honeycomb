@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/wearehumblebee/honeycomb/compare/@humblebee/toolkit@0.3.0...@humblebee/toolkit@0.4.0) (2022-01-04)
+
+### Features
+
+- **dependencies:** upgrade minor and patch versions ([f7f61d9](https://github.com/wearehumblebee/honeycomb/commit/f7f61d97fa0bcaf85083b9194d1b19f8776e202f))
+
 # [0.3.0](https://github.com/wearehumblebee/honeycomb/compare/@humblebee/toolkit@0.2.2...@humblebee/toolkit@0.3.0) (2021-08-06)
 
 ### Features

@@ -1,7 +1,7 @@
 {
   "name": "@humblebee/toolkit",
   "description": "Tooling set for humblebee applications",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
