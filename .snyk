@@ -1,0 +1,113 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.22.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-ANSIHTML-1296849:
+    - '@humblebee/storybook-react > @storybook/react > @pmmmwh/react-refresh-webpack-plugin > ansi-html':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+  SNYK-JS-ANSIREGEX-1583908:
+    - prettier-eslint > pretty-format > ansi-regex:
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - commitizen > inquirer > string-width > strip-ansi > ansi-regex:
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - cz-conventional-changelog > commitizen > inquirer > string-width > strip-ansi > ansi-regex:
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - commitizen > inquirer > strip-ansi > ansi-regex:
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - cz-conventional-changelog > commitizen > inquirer > strip-ansi > ansi-regex:
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+  SNYK-JS-BROWSERSLIST-1090194:
+    - '@storybook/builder-webpack5 > react-dev-utils > browserslist':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - '@humblebee/storybook-react > @storybook/addon-docs > @storybook/builder-webpack4 > react-dev-utils > browserslist':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+  SNYK-JS-GLOBPARENT-1016905:
+    - '@storybook/builder-webpack5 > @storybook/core-common > glob-base > glob-parent':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - '@storybook/manager-webpack5 > @storybook/core-common > glob-base > glob-parent':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - '@humblebee/storybook-react > @storybook/addon-docs > @storybook/builder-webpack4 > @storybook/core-common > glob-base > glob-parent':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - watchpack > watchpack-chokidar2 > chokidar > glob-parent:
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - webpack > watchpack > watchpack-chokidar2 > chokidar > glob-parent:
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - '@storybook/builder-webpack5 > @storybook/core-common > webpack > watchpack > watchpack-chokidar2 > chokidar > glob-parent':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - '@storybook/manager-webpack5 > @storybook/core-common > webpack > watchpack > watchpack-chokidar2 > chokidar > glob-parent':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - '@humblebee/storybook-react > @storybook/addon-docs > @storybook/core > @storybook/core-server > cpy > globby > fast-glob > glob-parent':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - '@humblebee/storybook-react > @storybook/addon-docs > @storybook/builder-webpack4 > @storybook/core-common > webpack > watchpack > watchpack-chokidar2 > chokidar > glob-parent':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+  SNYK-JS-IMMER-1540542:
+    - '@storybook/builder-webpack5 > react-dev-utils > immer':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - '@humblebee/storybook-react > @storybook/addon-docs > @storybook/builder-webpack4 > react-dev-utils > immer':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+  SNYK-JS-LODASHTEMPLATE-1088054:
+    - lerna > @lerna/publish > @lerna/version > @lerna/conventional-commits > lodash.template:
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+  SNYK-JS-PROMPTS-1729737:
+    - '@storybook/builder-webpack5 > react-dev-utils > prompts':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - '@humblebee/storybook-react > @storybook/addon-docs > @storybook/builder-webpack4 > react-dev-utils > prompts':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+  SNYK-JS-RAMDA-1582370:
+    - '@storybook/builder-webpack5 > @storybook/core-common > file-system-cache > ramda':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - '@storybook/manager-webpack5 > @storybook/core-common > file-system-cache > ramda':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - '@humblebee/storybook-react > @storybook/addon-docs > @storybook/builder-webpack4 > @storybook/core-common > file-system-cache > ramda':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+  SNYK-JS-SHELLQUOTE-1766506:
+    - '@storybook/builder-webpack5 > react-dev-utils > shell-quote':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - '@humblebee/storybook-react > @storybook/addon-docs > @storybook/builder-webpack4 > react-dev-utils > shell-quote':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+  SNYK-JS-TRIM-1017038:
+    - eslint-plugin-mdx > eslint-mdx > remark-mdx > remark-parse > trim:
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - '@humblebee/storybook-react > @storybook/addon-docs > @mdx-js/loader > @mdx-js/mdx > remark-mdx > remark-parse > trim':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+  'snyk:lic:npm:axe-core:MPL-2.0':
+    - eslint-plugin-jsx-a11y > axe-core:
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+    - '@humblebee/storybook-react > @storybook/addon-a11y > axe-core':
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+  'snyk:lic:npm:npm-lifecycle:Artistic-2.0':
+    - lerna > @lerna/add > @lerna/bootstrap > @lerna/run-lifecycle > npm-lifecycle:
+        reason: no patch available
+        expires: '2022-06-30T22:00:00.000Z'
+patch: {}
