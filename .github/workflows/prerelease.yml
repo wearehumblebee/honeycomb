@@ -29,11 +29,14 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16.x
-      # Cache node_modules (busting only when yarn.lock change)
+      # Cache node_modules - lerna recipe (busting only when yarn.lock change)
+      # https://github.com/actions/cache/blob/main/examples.md#node---lerna
       - uses: actions/cache@v2
         with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/yarn.lock') }}
       # Install dependencies
       - name: Install
         run: yarn install --frozen-lockfile
@@ -56,11 +59,14 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16.x
-      # Cache node_modules (busting only when yarn.lock change)
+      # Cache node_modules - lerna recipe (busting only when yarn.lock change)
+      # https://github.com/actions/cache/blob/main/examples.md#node---lerna
       - uses: actions/cache@v2
         with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/yarn.lock') }}
       # Configure git with the built-in token
       # (to push back the release updates: package.json's version, CHANGELOG etc.)
       - name: Configure Git
