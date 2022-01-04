@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'theme-ui';
 
-import App from './App';
+import AppRouter from './router';
 import DefaultTheme from './themes';
 
 ReactDOM.render(
-  <Router>
-    <ThemeProvider theme={DefaultTheme}>
-      <App />
-    </ThemeProvider>
-  </Router>,
+  <React.StrictMode>
+    <BrowserRouter>
+      <ThemeProvider theme={DefaultTheme}>
+        <AppRouter />
+      </ThemeProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
   document.querySelector('#root'),
 );

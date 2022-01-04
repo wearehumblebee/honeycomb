@@ -1,4 +1,4 @@
-# Polestar Component Warehouse
+# Honeycomb
 
 ## Contributions
 

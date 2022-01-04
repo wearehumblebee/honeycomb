@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { fireEvent, render } from 'tests/utils';
-import App from 'src/App';
+import AppRouter from 'src/router';
 
 describe('App', () => {
   const spies: jest.SpyInstance[] = [];
@@ -15,16 +15,17 @@ describe('App', () => {
   });
 
   it('renders the HomeView by default', () => {
-    const { getByText } = render(<App />);
+    const { getByText } = render(<AppRouter />);
 
     expect(getByText('Hello World', { exact: false })).toBeVisible();
   });
 
   it('renders the FormView when location matches', () => {
-    const { getByLabelText, getByText } = render(<App />, {
+    const { getByLabelText, getByText } = render(<AppRouter />, {
       route: '/',
     });
 
+    // Navigate to FormView
     fireEvent.click(getByText('form', { exact: false }));
 
     expect(getByLabelText(/name\?/i)).toBeVisible();
@@ -33,7 +34,7 @@ describe('App', () => {
   });
 
   it('renders the NotFoundView when location does not match a route', () => {
-    const { getByText } = render(<App />, {
+    const { getByText } = render(<AppRouter />, {
       route: '/some-page-that-does-not-exists',
     });
 

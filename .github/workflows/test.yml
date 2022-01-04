@@ -11,12 +11,15 @@ jobs:
       # Install node.js environment
       - uses: actions/setup-node@v2
         with:
-          node-version: 14.x
-      # Cache node_modules (busting only when yarn.lock change)
+          node-version: 16.x
+      # Cache node_modules - lerna recipe (busting only when yarn.lock change)
+      # https://github.com/actions/cache/blob/main/examples.md#node---lerna
       - uses: actions/cache@v2
         with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/yarn.lock') }}
       # Install dependencies
       - name: Install
         run: yarn install --frozen-lockfile
@@ -30,7 +33,7 @@ jobs:
       matrix:
         os: ['ubuntu-latest', 'windows-latest']
         node-version: [
-            14.x, # current LTS
+            16.x, # current LTS
           ]
     steps:
       # Checkout git branch
@@ -39,11 +42,14 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
-      # Cache node_modules (busting only when yarn.lock change)
+      # Cache node_modules - lerna recipe (busting only when yarn.lock change)
+      # https://github.com/actions/cache/blob/main/examples.md#node---lerna
       - uses: actions/cache@v2
         with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/yarn.lock') }}
       # Install dependencies
       - name: Install
         run: yarn install --frozen-lockfile
@@ -63,12 +69,15 @@ jobs:
       # Install node.js environment
       - uses: actions/setup-node@v2
         with:
-          node-version: 14.x
-      # Cache node_modules (busting only when yarn.lock change)
+          node-version: 16.x
+      # Cache node_modules - lerna recipe (busting only when yarn.lock change)
+      # https://github.com/actions/cache/blob/main/examples.md#node---lerna
       - uses: actions/cache@v2
         with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/yarn.lock') }}
       # Install dependencies
       - name: Install
         run: yarn install --frozen-lockfile
