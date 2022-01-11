@@ -33,7 +33,7 @@
     "@storybook/addon-a11y": "~6.3",
     "@storybook/addon-actions": "~6.3",
     "@storybook/addon-docs": "~6.3",
-    "@storybook/addon-essentials": "~6.3",
+    "@storybook/addon-essentials": "~6.4.9",
     "@storybook/addon-knobs": "~6.3",
     "@storybook/addon-links": "~6.3",
     "@storybook/addon-toolbars": "~6.3",
