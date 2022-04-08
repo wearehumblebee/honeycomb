@@ -1,12 +1,18 @@
 const path = require('path');
 
-// const STORYBOOK_SRC_PATH = path.resolve(__dirname, '../src');
-
 module.exports = {
   framework: '@storybook/react',
   core: {
     // https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#webpack-5
     builder: 'webpack5',
+  },
+  features: {
+    // https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#babel-mode-v7
+    babelModeV7: true,
+    // https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#emotion11-quasi-compatibility
+    emotionAlias: false,
+    // https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#using-the-v7-store
+    storyStoreV7: false,
   },
   addons: [
     // Note: addons-actions & addons-knobs will most likely be deprecated in the near future in favour of Storybook Args (WIP)
@@ -32,27 +38,4 @@ module.exports = {
     require.resolve(path.resolve(__dirname, 'addons/theme/register.js')),
   ],
   stories: ['../src/stories/**/*.stories.mdx', '../src/stories/**/*.stories.@(js|jsx|ts|tsx)'],
-  /**
-   * At the moment Storybook uses Emotion v10.
-   * The following webpack config forces to use Emotion v11 (which theme-ui >= v0.6 is using)
-   *
-   * @see https://github.com/storybookjs/storybook/issues/13145#issuecomment-833906899
-   */
-  webpackFinal: (config) => {
-    const emotionReactEleven = path.dirname(require.resolve('@emotion/react/package.json'));
-    const emotionStyledEleven = path.dirname(require.resolve('@emotion/styled/package.json'));
-
-    return {
-      ...config,
-      resolve: {
-        ...config.resolve,
-        alias: {
-          ...config.resolve.alias,
-          '@emotion/core': emotionReactEleven,
-          '@emotion/styled': emotionStyledEleven,
-          'emotion-theming': emotionReactEleven,
-        },
-      },
-    };
-  },
 };

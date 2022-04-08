@@ -4,6 +4,20 @@ import { StoryId, StoryIdentifier } from '@storybook/addons';
 import withThemeProvider from './decorators/withThemeProvider';
 import { theme as storybookTheme } from './theme';
 
+interface StoryIndexEntry {
+  id: string;
+  title: string;
+  name: string;
+  importPath: string;
+}
+
+export const globalTypes = {
+  theme: {
+    type: 'string',
+    description: 'Current (theme-ui) theme used to wrap stories with'
+  }
+};
+
 export const parameters = {
   actions: {
     argTypesRegex: "^on[A-Z].*"

@@ -1,4 +1,3 @@
-import React from 'react';
 import { addons, types } from '@storybook/addons';
 
 import { ADDON_ID, PANEL_ID, PARAM_KEY, TOOL_ID } from './constants';
@@ -15,13 +14,12 @@ addons.register(ADDON_ID, () => {
   addons.add(TOOL_ID, {
     type: types.TOOL,
     title: 'Theme',
-    match: ({ viewMode }) => ['story', 'docs'].includes(viewMode),
-    paramKey: PARAM_KEY,
+    match: ({ viewMode }) => !!(viewMode && viewMode.match(/^(story|docs)$/)),
     render: ThemeSelectorTool,
   });
   addons.add(PANEL_ID, {
     type: types.PANEL,
-    title: 'Theme',
+    title: 'Current Theme',
     paramKey: PARAM_KEY,
     render: ThemePanel,
   });

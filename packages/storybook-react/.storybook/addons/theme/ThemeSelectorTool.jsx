@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import { useGlobals, useStorybookApi } from '@storybook/api';
+import { useAddonState, useGlobals, useStorybookApi } from '@storybook/api';
 import { TabButton, TooltipLinkList, WithTooltip } from '@storybook/components';
 import { styled } from '@storybook/theming';
 
 import { themes } from '../../../src/themes';
 import { getThemeByName } from '../../../src/helpers/theme';
-import { EVENTS, STORAGE_KEY } from './constants';
+import { ADDON_ID, EVENTS, STORAGE_KEY } from './constants';
 
 export const ColorIcon = styled.span`
   margin: 0 10px 0 1px;
@@ -18,23 +18,32 @@ export const ColorIcon = styled.span`
 `;
 
 const ThemeSelectorTool = () => {
+  const [themeName, setThemeName] = useAddonState(
+    ADDON_ID,
+    localStorage.getItem(STORAGE_KEY) || 'Base',
+  );
   const api = useStorybookApi();
+  // We will use globals to forward the current theme to storybook context (needed in "withThemeProvider" decorator)
   const [globals, updateGlobals] = useGlobals();
-  const themeName = globals.theme || localStorage.getItem(STORAGE_KEY);
   // getThemeByName fallback to the default theme if none matches the provided name (or if the name is undefined)
   const theme = getThemeByName(themeName, true);
 
   const updateTheme = (theme) => {
+    // Save the addon state (used by ThemeSelectorTool and ThemePanel)
+    setThemeName(theme.name);
+    // Save it as a global (for "withThemeProvider" decorator)
     updateGlobals({
       theme: theme.name,
     });
+    // Persist to localStorage for next time
     localStorage.setItem(STORAGE_KEY, theme.name);
-    api.emit(EVENTS.UPDATE, theme);
+    // Not sure if that one is really needed
+    // api.emit(EVENTS.UPDATE, theme);
   };
 
   // Unclear how to set a default value for globals at the moment
   useEffect(() => {
-    if (!globals.theme) {
+    if (!globals?.theme) {
       updateTheme(theme);
     }
   }, [globals.theme, theme.name]);
